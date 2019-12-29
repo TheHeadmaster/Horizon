@@ -13,6 +13,7 @@
     <Feature Id="Complete" Title="Horizon" Display="expand" Level="1" ConfigurableDirectory="INSTALLFOLDER">
       <Feature Id="ProductFeature" Title="Horizon" Level="1">
         <ComponentGroupRef Id="ProductComponents" />
+        <ComponentGroupRef Id="LocalizationComponents" />
       </Feature>
     </Feature>
   </Product>
@@ -20,22 +21,113 @@
   <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLFOLDER" Name="Horizon" />
+        <Directory Id="INSTALLFOLDER" Name="Horizon">
+          <Directory Id="XLDEFolder" Name="de" />
+          <Directory Id="XLESFolder" Name="es" />
+          <Directory Id="XLFRFolder" Name="fr" />
+          <Directory Id="XLHUFolder" Name="hu" />
+          <Directory Id="XLITFolder" Name="it" />
+          <Directory Id="XLPTBRFolder" Name="pt-BR" />
+          <Directory Id="XLROFolder" Name="ro" />
+          <Directory Id="XLRUFolder" Name="ru" />
+          <Directory Id="XLSVFolder" Name="sv" />
+          <Directory Id="XLZHHANSFolder" Name="zh-HANS" />
+        </Directory>
       </Directory>
     </Directory>
   </Fragment>
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <Component Id="MainExecutable">
-        <File Id="HorizonExe" Name="Horizon.exe" Source="Source\Horizon.exe" KeyPath="yes" />
-        <File Id="HorizonExeConfig" Name="Horizon.exe.config" Source="Source\Horizon.exe.config" KeyPath="yes" />
-        <File Id="HorizonExePdb" Name="Horizon.pdb" Source="Source\Horizon.pdb" KeyPath="yes" />
+      <Component Id="HorizonExe">
+        <File Id="HorizonExeFile" Name="Horizon.exe" Source="Source\Horizon.exe" KeyPath="yes" />
+        <RemoveFile Id="INSTALLFOLDER" Name="*.*" On="uninstall" />
       </Component>
-      <Component Id="Libraries">
-        <File Id="FluentValidation" Name="FluentValidation.dll" Source="Source\FluentValidation.dll" KeyPath="yes" />
-        <File Id="FluentValidationXml" Name="FluentValidation.xml" Source="Source\FluentValidation.xml" KeyPath="yes" />
-        <File Id="AvalonEdit" Name="ICSharpCode.AvalonEdit.dll" Source="Source\ICSharpCode.AvalonEdit.dll" KeyPath="yes" />
+      <Component Id="HorizonExeConfig">
+        <File Id="HorizonExeConfigFile" Name="Horizon.exe.config" Source="Source\Horizon.exe.config" KeyPath="yes" />
+      </Component>
+      <Component Id="HorizonExePdb">
+        <File Id="HorizonExePdbFile" Name="Horizon.pdb" Source="Source\Horizon.pdb" KeyPath="yes" />
+      </Component>
+      <Component Id="FluentValidationDll">
+        <File Id="FluentValidationDllFile" Name="FluentValidation.dll" Source="Source\FluentValidation.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="FluentValidationXml">
+        <File Id="FluentValidationXmlFile" Name="FluentValidation.xml" Source="Source\FluentValidation.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonEditDll">
+        <File Id="AvalonEditDllFile" Name="ICSharpCode.AvalonEdit.dll" Source="Source\ICSharpCode.AvalonEdit.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonEditXml">
+        <File Id="AvalonEditXmlFile" Name="ICSharpCode.AvalonEdit.xml" Source="Source\ICSharpCode.AvalonEdit.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="WindowsAPICodePackDll">
+        <File Id="WindowsAPICodePackDllFile" Name="Microsoft.WindowsAPICodePack.dll" Source="Source\Microsoft.WindowsAPICodePack.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="WindowsAPICodePackXml">
+        <File Id="WindowsAPICodePackXmlFile" Name="Microsoft.WindowsAPICodePack.xml" Source="Source\Microsoft.WindowsAPICodePack.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="WindowsAPICodePackShellDll">
+        <File Id="WindowsAPICodePackShellDllFile" Name="Microsoft.WindowsAPICodePack.Shell.dll" Source="Source\Microsoft.WindowsAPICodePack.Shell.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="WindowsAPICodePackShellXml">
+        <File Id="WindowsAPICodePackShellXmlFile" Name="Microsoft.WindowsAPICodePack.Shell.xml" Source="Source\Microsoft.WindowsAPICodePack.Shell.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="NewtonsoftJsonDll">
+        <File Id="NewtonsoftJsonDllFile" Name="Newtonsoft.Json.dll" Source="Source\Newtonsoft.Json.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="NewtonsoftJsonXml">
+        <File Id="NewtonsoftJsonXmlFile" Name="Newtonsoft.Json.xml" Source="Source\Newtonsoft.Json.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemComponentModelAnnotationsDll">
+        <File Id="SystemComponentModelAnnotationsDllFile" Name="System.ComponentModel.Annotations.dll" Source="Source\System.ComponentModel.Annotations.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonDockDll">
+        <File Id="AvalonDockDllFile" Name="Xceed.Wpf.AvalonDock.dll" Source="Source\Xceed.Wpf.AvalonDock.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonDockThemesAeroDll">
+        <File Id="AvalonDockThemesAeroDllFile" Name="Xceed.Wpf.AvalonDock.Themes.Aero.dll" Source="Source\Xceed.Wpf.AvalonDock.Themes.Aero.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonDockThemesMetroDll">
+        <File Id="AvalonDockThemesMetroDllFile" Name="Xceed.Wpf.AvalonDock.Themes.Metro.dll" Source="Source\Xceed.Wpf.AvalonDock.Themes.Metro.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="AvalonDockThemesVS2010Dll">
+        <File Id="AvalonDockThemesVS2010DllFile" Name="Xceed.Wpf.AvalonDock.Themes.VS2010.dll" Source="Source\Xceed.Wpf.AvalonDock.Themes.VS2010.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedWpfToolkitDll">
+        <File Id="XceedWpfToolkitDllFile" Name="Xceed.Wpf.Toolkit.dll" Source="Source\Xceed.Wpf.Toolkit.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+    <ComponentGroup Id="LocalizationComponents">
+      <Component Id="XceedResourcesLocalizationDe" Directory="XLDEFolder">
+        <File Id="XceedResourcesLocalizationDeFile" Source="Source\de\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationEs" Directory="XLESFolder">
+        <File Id="XceedResourcesLocalizationEsFile" Source="Source\es\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationFr" Directory="XLFRFolder">
+        <File Id="XceedResourcesLocalizationFrFile" Source="Source\fr\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationHu" Directory="XLHUFolder">
+        <File Id="XceedResourcesLocalizationHuFile" Source="Source\hu\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationIt" Directory="XLITFolder">
+        <File Id="XceedResourcesLocalizationItFile" Source="Source\it\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationPt_BR" Directory="XLPTBRFolder">
+        <File Id="XceedResourcesLocalizationPt_BRFile" Source="Source\pt-BR\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationRo" Directory="XLROFolder">
+        <File Id="XceedResourcesLocalizationRoFile" Source="Source\ro\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationRu" Directory="XLRUFolder">
+        <File Id="XceedResourcesLocalizationRuFile" Source="Source\ru\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationSv" Directory="XLSVFolder">
+        <File Id="XceedResourcesLocalizationSvFile" Source="Source\sv\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="XceedResourcesLocalizationZh_Hans" Directory="XLZHHANSFolder">
+        <File Id="XceedResourcesLocalizationZh_HansFile" Source="Source\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
   </Fragment>
