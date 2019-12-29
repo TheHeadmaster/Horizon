@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horizon.Windows;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Horizon
     public partial class App : Application
     {
         /// <summary>
+        /// Gets the Instance of the App.
+        /// </summary>
+        public static App Instance { get; private set; }
+
+        /// <summary>
         /// Gets Horizon's current version.
         /// </summary>
         public Version CurrentVersion => Assembly.GetExecutingAssembly().GetName().Version;
@@ -30,6 +36,9 @@ namespace Horizon
         /// </param>
         private void AppStartup(object sender, StartupEventArgs args)
         {
+            Instance = this;
+
+            bool? _ = new Splash().ShowDialog();
         }
     }
 }
