@@ -28,7 +28,14 @@
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
       <Component Id="MainExecutable">
-        <File Id="HorizonExe" Name="Horizon.exe" Source="Source\Horizon.Exe" KeyPath="yes" />
+        <File Id="HorizonExe" Name="Horizon.exe" Source="Source\Horizon.exe" KeyPath="yes" />
+        <File Id="HorizonExeConfig" Name="Horizon.exe.config" Source="Source\Horizon.exe.config" KeyPath="yes" />
+        <File Id="HorizonExePdb" Name="Horizon.pdb" Source="Source\Horizon.pdb" KeyPath="yes" />
+      </Component>
+      <Component Id="Libraries">
+        <File Id="FluentValidation" Name="FluentValidation.dll" Source="Source\FluentValidation.dll" KeyPath="yes" />
+        <File Id="FluentValidationXml" Name="FluentValidation.xml" Source="Source\FluentValidation.xml" KeyPath="yes" />
+        <File Id="AvalonEdit" Name="ICSharpCode.AvalonEdit.dll" Source="Source\ICSharpCode.AvalonEdit.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
   </Fragment>
