@@ -31,9 +31,8 @@
                         <Polygon x:Name="BottomRightPoly" Grid.Column="2" Grid.Row="2" Points="0,0 0,1 1,1, 1,0" Fill="{TemplateBinding Background}" Stretch="Fill" />
                         <Polyline x:Name="BottomRightBorder" Grid.Column="2" Grid.Row="2" Points="0,1 1,1 1,0" Stroke="{TemplateBinding BorderBrush}" Stretch="Fill" StrokeThickness="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}" StrokeEndLineCap="Square" StrokeStartLineCap="Square" />
 
-                        <Border Grid.Column="1" Grid.Row="1" Background="{TemplateBinding Background}">
-                            <ContentPresenter />
-                        </Border>
+                        <Rectangle Grid.Column="1" Grid.Row="1" Fill="{TemplateBinding Background}" Stretch="Fill" />
+
                         <Rectangle Grid.Column="1" Grid.Row="0" Fill="{TemplateBinding Background}" Stretch="Fill" />
                         <Rectangle Grid.Column="1" Grid.Row="0" Fill="{TemplateBinding BorderBrush}" Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
 
@@ -45,6 +44,8 @@
 
                         <Rectangle Grid.Column="1" Grid.Row="2" Fill="{TemplateBinding Background}" Stretch="Fill" />
                         <Rectangle Grid.Column="1" Grid.Row="2" Fill="{TemplateBinding BorderBrush}" Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=BorderThickness.Left}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" />
+
+                        <ContentPresenter Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="3" Margin="16,16,16,16" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
