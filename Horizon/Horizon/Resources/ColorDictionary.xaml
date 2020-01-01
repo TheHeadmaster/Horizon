@@ -1,11 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Color x:Key="Shark">#FF2A2A2D</Color>
-    <Color x:Key="Black">#FF000000</Color>
+    <Color x:Key="Shark">#2A2A2D</Color>
+    <Color x:Key="Black">#000000</Color>
     <Color x:Key="White">#FFFFFF</Color>
     <Color x:Key="Bright Red">#AA0000</Color>
-    <DynamicResource x:Key="BaseBackgroundColor" ResourceKey="Shark" />
-    <DynamicResource x:Key="AccentBackgroundColor" ResourceKey="Bright Red" />
-    <DynamicResource x:Key="BaseBorderColor" ResourceKey="Black" />
-    <DynamicResource x:Key="BaseFontColor" ResourceKey="White" />
+    <SolidColorBrush x:Key="BaseBackgroundColor" Color="{StaticResource Shark}" />
+    <SolidColorBrush x:Key="AccentBackgroundColor" Color="{StaticResource Bright Red}" />
+    <SolidColorBrush x:Key="BaseBorderColor" Color="{StaticResource Black}" />
+    <SolidColorBrush x:Key="BaseFontColor" Color="{StaticResource White}" />
 </ResourceDictionary>

@@ -7,43 +7,17 @@
         xmlns:controls="clr-namespace:Horizon.Controls"
         mc:Ignorable="d"
         Title="Horizon" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" BorderThickness="3" WindowStartupLocation="CenterScreen" Icon="/Horizon;component/Resources/Penguin.ico">
-    <controls:SlantedBorder BorderThickness="2" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted">
-        <controls:SlantedBorder.Background>
-            <SolidColorBrush Color="{DynamicResource AccentBackgroundColor}" />
-        </controls:SlantedBorder.Background>
-        <controls:SlantedBorder.BorderBrush>
-            <SolidColorBrush Color="{DynamicResource BaseBorderColor}" />
-        </controls:SlantedBorder.BorderBrush>
+    <controls:SlantedBorder BorderThickness="2" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource AccentBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" BorderThickness="1">
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="{DynamicResource BaseBorderColor}" />
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="{DynamicResource BaseBackgroundColor}" />
-                </Button.Background>
-                <TextBlock Text="Launcher" FontSize="54" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource BaseFontColor}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+            <Button Grid.Column="0" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource BaseBackgroundColor}">
+                <TextBlock Text="Launcher" FontSize="54" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="{StaticResource BaseFontColor}" />
             </Button>
-            <Button Grid.Column="1" BorderThickness="1">
-                <Button.BorderBrush>
-                    <SolidColorBrush Color="{DynamicResource BaseBorderColor}" />
-                </Button.BorderBrush>
-                <Button.Background>
-                    <SolidColorBrush Color="{DynamicResource BaseBackgroundColor}" />
-                </Button.Background>
-                <TextBlock Text="IDE" FontSize="54" HorizontalAlignment="Center">
-                    <TextBlock.Foreground>
-                        <SolidColorBrush Color="{DynamicResource BaseFontColor}" />
-                    </TextBlock.Foreground>
-                </TextBlock>
+            <Button Grid.Column="1" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource BaseBackgroundColor}">
+                <TextBlock Text="IDE" FontSize="54" HorizontalAlignment="Center" Foreground="{StaticResource BaseFontColor}" />
             </Button>
         </Grid>
     </controls:SlantedBorder>
