@@ -4,9 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Horizon.Windows"
+        xmlns:controls="clr-namespace:Horizon.Controls"
         mc:Ignorable="d"
-        Title="ProgramSelectionWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Horizon" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" BorderThickness="3" WindowStartupLocation="CenterScreen" Icon="/Horizon;component/Resources/Penguin.ico">
+    <controls:SlantedBorder Background="#AA0000" BorderBrush="White" BorderThickness="2" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" BorderThickness="4" BorderBrush="Black">
+                <TextBlock Text="Launcher" FontSize="54" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <TextBlock.Background>
+                        <SolidColorBrush Opacity="0.75" Color="White" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button>
+            <Button Grid.Column="1" BorderThickness="4" BorderBrush="Black">
+                <TextBlock Text="IDE" FontSize="54" HorizontalAlignment="Center">
+                    <TextBlock.Background>
+                        <SolidColorBrush Opacity="0.75" Color="White" />
+                    </TextBlock.Background>
+                </TextBlock>
+            </Button>
+        </Grid>
+    </controls:SlantedBorder>
 </Window>

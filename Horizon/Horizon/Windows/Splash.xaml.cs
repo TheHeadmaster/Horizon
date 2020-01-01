@@ -21,8 +21,8 @@ namespace Horizon.Windows
             Thread.Sleep(5000);
             this.Dispatcher.Invoke(() =>
             {
-                bool? _ = new ProgramSelectionWindow().ShowDialog();
                 this.Close();
+                bool? _ = new ProgramSelectionWindow().ShowDialog();
             });
         }
 
