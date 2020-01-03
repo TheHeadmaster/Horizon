@@ -38,13 +38,13 @@ namespace Horizon.ViewModels
         {
             foreach (string path in Directory.GetFiles(Path.Combine(this.LauncherPath, "mods"), "*.pak", SearchOption.TopDirectoryOnly))
             {
-                this.Mods.Add(new ModPresentation { Enabled = true, Name = Path.GetFileNameWithoutExtension(path) });
+                this.Mods.Add(new ModPresentation { Enabled = true, Name = Path.GetFileNameWithoutExtension(path), FilePath = Path.GetDirectoryName(path), FileName = Path.GetFileName(path) });
             }
             foreach (string path in Directory.GetDirectories(Path.Combine(this.LauncherPath, "mods")))
             {
                 if (File.Exists(Path.Combine(path, ".metadata")))
                 {
-                    this.Mods.Add(new ModPresentation { Enabled = true, Name = Path.GetFileNameWithoutExtension(path) });
+                    this.Mods.Add(new ModPresentation { Enabled = true, Name = Path.GetFileNameWithoutExtension(path), FilePath = Path.GetDirectoryName(path), FileName = new DirectoryInfo(path).Name });
                 }
             }
 
@@ -55,13 +55,13 @@ namespace Horizon.ViewModels
 
             foreach (string path in Directory.GetFiles(Path.Combine(this.LauncherPath, "unloaded"), "*.pak", SearchOption.TopDirectoryOnly))
             {
-                this.Mods.Add(new ModPresentation { Enabled = false, Name = Path.GetFileNameWithoutExtension(path) });
+                this.Mods.Add(new ModPresentation { Enabled = false, Name = Path.GetFileNameWithoutExtension(path), FilePath = Path.GetDirectoryName(path), FileName = Path.GetFileName(path) });
             }
             foreach (string path in Directory.GetDirectories(Path.Combine(this.LauncherPath, "unloaded")))
             {
                 if (File.Exists(Path.Combine(path, ".metadata")))
                 {
-                    this.Mods.Add(new ModPresentation { Enabled = false, Name = Path.GetFileNameWithoutExtension(path) });
+                    this.Mods.Add(new ModPresentation { Enabled = false, Name = Path.GetFileNameWithoutExtension(path), FilePath = Path.GetDirectoryName(path), FileName = new DirectoryInfo(path).Name });
                 }
             }
         }

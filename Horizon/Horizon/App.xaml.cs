@@ -1,4 +1,5 @@
-﻿using Horizon.Windows;
+﻿using Horizon.UI;
+using Horizon.Windows;
 using System;
 using System.Reflection;
 using System.Windows;
@@ -32,6 +33,7 @@ namespace Horizon
         private void AppStartup(object sender, StartupEventArgs args)
         {
             Instance = this;
+            LauncherMeta.Initialize();
 
             bool? _ = new Splash().ShowDialog();
         }

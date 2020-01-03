@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Controls\SlantedBorder.cs" />
     <Compile Include="UI\Architecture\CornerType.cs" />
+    <Compile Include="UI\LauncherMeta.cs" />
     <Compile Include="UI\Presentation\ModPresentation.cs" />
     <Compile Include="ViewModels\LauncherViewModel.cs" />
     <Compile Include="Windows\Launcher.xaml.cs">
