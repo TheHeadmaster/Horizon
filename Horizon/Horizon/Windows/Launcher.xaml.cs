@@ -42,7 +42,7 @@ namespace Horizon.Windows
             this.ViewModel = new LauncherViewModel();
             this.DataContext = this.ViewModel;
 
-            // this.ModsListBox.ItemsSource = this.ViewModel.Mods;
+            this.ModsListBox.ItemsSource = this.ViewModel.Mods;
         }
     }
 }
