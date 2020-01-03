@@ -13,10 +13,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource BaseBackgroundColor}">
+            <Button Grid.Column="0" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource BaseBackgroundColor}" Click="LauncherButtonClick">
                 <TextBlock Text="Launcher" FontSize="54" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="{StaticResource BaseFontColor}" />
             </Button>
-            <Button Grid.Column="1" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource BaseBackgroundColor}">
+            <Button IsEnabled="False" Grid.Column="1" BorderThickness="1" Style="{DynamicResource HoverButton}" BorderBrush="{StaticResource BaseBorderColor}" Background="LightGray">
                 <TextBlock Text="IDE" FontSize="54" HorizontalAlignment="Center" Foreground="{StaticResource BaseFontColor}" />
             </Button>
         </Grid>

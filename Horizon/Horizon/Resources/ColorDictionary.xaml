@@ -8,4 +8,5 @@
     <SolidColorBrush x:Key="AccentBackgroundColor" Color="{StaticResource Bright Red}" />
     <SolidColorBrush x:Key="BaseBorderColor" Color="{StaticResource Black}" />
     <SolidColorBrush x:Key="BaseFontColor" Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="ScrollBarGlyphColor" Color="{StaticResource Black}" />
 </ResourceDictionary>
