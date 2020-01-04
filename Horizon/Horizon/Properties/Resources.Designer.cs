@@ -61,12 +61,89 @@ namespace Horizon.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Lua {
+            get {
+                object obj = ResourceManager.GetObject("Lua", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;xsd:schema version=&quot;2&quot; elementFormDefault=&quot;qualified&quot; targetNamespace=&quot;http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008&quot; xmlns=&quot;http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot;&gt;
+        ///  &lt;!-- Font Weight --&gt;
+        ///  &lt;xsd:simpleType name=&quot;FontWeight&quot;&gt;
+        ///    &lt;xsd:union&gt;
+        ///      &lt;xsd:simpleType&gt;
+        ///        &lt;xsd:restriction base=&quot;xsd:integer&quot;&gt;
+        ///          &lt;xsd:minInclusive value=&quot;1&quot; /&gt;
+        ///          &lt;xsd:maxInclusive value=&quot;99 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ModeV2 {
+            get {
+                return ResourceManager.GetString("ModeV2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Options {
+            get {
+                object obj = ResourceManager.GetObject("Options", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon Penguin {
             get {
                 object obj = ResourceManager.GetObject("Penguin", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Penguin1 {
+            get {
+                object obj = ResourceManager.GetObject("Penguin1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PenguinMod {
+            get {
+                object obj = ResourceManager.GetObject("PenguinMod", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PenguinPlus {
+            get {
+                object obj = ResourceManager.GetObject("PenguinPlus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Render {
+            get {
+                object obj = ResourceManager.GetObject("Render", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

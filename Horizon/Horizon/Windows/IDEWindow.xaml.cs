@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
-using Forms = System.Windows.Forms;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Drawing;
 using Microsoft.Win32;
 using Horizon.Controls;
+using Horizon.ViewModels;
 
 namespace Horizon.Windows
 {
@@ -24,9 +25,17 @@ namespace Horizon.Windows
     /// </summary>
     public partial class IDEWindow : BorderlessWindow
     {
+        public static IDEWindow Instance { get; private set; }
+
+        public IDEWindowViewModel ViewModel { get; set; }
+
         public IDEWindow()
         {
             this.InitializeComponent();
+            Instance = this;
+
+            this.ViewModel = new IDEWindowViewModel();
+            this.DataContext = this.ViewModel;
         }
     }
 }

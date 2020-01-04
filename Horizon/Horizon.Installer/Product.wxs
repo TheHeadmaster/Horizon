@@ -53,6 +53,18 @@
       <Component Id="HorizonExePdb">
         <File Id="HorizonExePdbFile" Name="Horizon.pdb" Source="Source\Horizon.pdb" KeyPath="yes" />
       </Component>
+      <Component Id="Log4NetConfig">
+        <File Id="Log4NetConfigFile" Name="log4net.config" Source="Source\log4net.config" KeyPath="yes" />
+      </Component>
+      <Component Id="MethodBoundaryAspectDll">
+        <File Id="MethodBoundaryAspectDllFile" Name="MethodBoundaryAspect.dll" Source="Source\MethodBoundaryAspect.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="WithDll">
+        <File Id="WithDllFile" Name="With.dll" Source="Source\With.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="WithXml">
+        <File Id="WithXmlFile" Name="With.xml" Source="Source\With.xml" KeyPath="yes" />
+      </Component>
       <Component Id="FluentValidationDll">
         <File Id="FluentValidationDllFile" Name="FluentValidation.dll" Source="Source\FluentValidation.dll" KeyPath="yes" />
       </Component>

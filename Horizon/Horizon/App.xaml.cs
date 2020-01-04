@@ -1,7 +1,9 @@
 ﻿using Horizon.Diagnostics;
+using Horizon.ObjectModel;
 using Horizon.UI;
 using Horizon.Windows;
 using System;
+using System.IO;
 using System.Reflection;
 using System.Windows;
 
@@ -12,6 +14,20 @@ namespace Horizon
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Gets the directory of the executing assembly.
+        /// </summary>
+        public static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
+        }
+
         /// <summary>
         /// Gets Horizon's current version.
         /// </summary>
@@ -25,6 +41,8 @@ namespace Horizon
         public static InterfaceMeta InterfaceMeta { get; } = new InterfaceMeta();
 
         public static LauncherMeta LauncherMeta { get; } = new LauncherMeta();
+
+        public static UserMeta Metadata { get; set; }
 
         /// <summary>
         /// Serves as the application entry point.

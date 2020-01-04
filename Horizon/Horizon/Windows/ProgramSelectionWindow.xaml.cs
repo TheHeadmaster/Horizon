@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using Horizon.Diagnostics;
+using System.Windows;
 
 namespace Horizon.Windows
 {
@@ -12,12 +13,14 @@ namespace Horizon.Windows
             this.InitializeComponent();
         }
 
+        [Log("Selected IDE. Opening IDE Window.")]
         private void IDEButtonClick(object sender, RoutedEventArgs args)
         {
             this.Close();
             new IDEWindow().Show();
         }
 
+        [Log("Selected Launcher. Opening Launcher Window.")]
         private void LauncherButtonClick(object sender, RoutedEventArgs args)
         {
             this.Dispatcher.Invoke(() =>

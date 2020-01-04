@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using Horizon.Diagnostics;
+using System.Threading;
 using System.Windows;
 
 namespace Horizon.Windows
@@ -16,6 +17,7 @@ namespace Horizon.Windows
         /// <summary>
         /// Waits for 5 seconds, then closes the window and opens program selection on the UI thread.
         /// </summary>
+        [Log("Waiting for splash.")]
         private void DelayThread()
         {
             Thread.Sleep(5000);
