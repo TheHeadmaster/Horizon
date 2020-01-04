@@ -663,11 +663,11 @@
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontFamily" Value="Webdings" />
         <Setter Property="FontSize" Value="13.333" />
-        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Foreground" Value="{StaticResource BaseFontColor}" />
         <Setter Property="Margin" Value="0,2,3,0" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="Gray" />
+                <Setter Property="Foreground" Value="{StaticResource BaseHighlightColor}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -721,7 +721,7 @@
                                            Panel.ZIndex="0"
                                            IsEnabled="{TemplateBinding IsActive}" />
 
-                                <Grid x:Name="WindowControlsGrid" Grid.Column="2" Background="White">
+                                <Grid x:Name="WindowControlsGrid" Grid.Column="2" Background="{TemplateBinding Background}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="36" />
                                         <ColumnDefinition Width="36" />
