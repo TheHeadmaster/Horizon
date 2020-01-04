@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Horizon.Controls.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Horizon.Controls"
+             mc:Ignorable="d"
+             d:DesignWidth="800">
+    <Menu Height="30" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" FontSize="16">
+        <MenuItem Header="File">
+            <MenuItem Header="New" />
+            <Separator />
+            <MenuItem Header="Old" />
+        </MenuItem>
+        <!--
+        <MenuItem Header="File" IsEnabled="{Binding IsFileButtonEnabled}">
+            <MenuItem Header="New">
+                <MenuItem Header="Project..." Command="commands:NewProjectCommand.Instance" />
+            </MenuItem>
+            <MenuItem Header="Open...">
+                <MenuItem Header="Project..." Command="commands:OpenProjectCommand.Instance" />
+            </MenuItem>
+            <MenuItem Header="Recent Projects..." ItemsSource="{Binding RecentlyOpenedProjects}">
+                <MenuItem.ItemTemplate>
+                    <DataTemplate>
+                        <MenuItem Command="commands:OpenProjectCommand.Instance" CommandParameter="{Binding Path}">
+                            <MenuItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text='"' />
+                                    <TextBlock Text="{Binding Name}" />
+                                    <TextBlock Text='" ' />
+                                    <TextBlock Text="{Binding Path}" />
+                                </StackPanel>
+                            </MenuItem.Header>
+                        </MenuItem>
+                    </DataTemplate>
+                </MenuItem.ItemTemplate>
+            </MenuItem>
+            <MenuItem Header="Close Project" Command="commands:CloseProjectCommand.Instance" />
+            <Separator />
+            <MenuItem Header="Save" Command="commands:SaveCommand.Instance" InputGestureText="Ctrl+S" />
+            <MenuItem Header="Save All" Command="commands:SaveAllCommand.Instance" />
+            <Separator />
+            <MenuItem Header="Exit" Command="commands:CloseCommand.Instance" InputGestureText="Alt+F4">
+            </MenuItem>
+        </MenuItem>
+        <MenuItem Header="Edit">
+            <MenuItem Header="Preferences..." Command="commands:OpenPreferencesCommand.Instance" InputGestureText="Alt+P" />
+        </MenuItem>
+        <MenuItem Header="Test" IsEnabled="{Binding IsTestButtonEnabled}">
+
+            <MenuItem Header="Play..." Command="commands:PlayCommand.Instance" InputGestureText="F5" />
+            <MenuItem Header="Stop..." Command="commands:StopCommand.Instance" InputGestureText="Shift+F5" />
+        </MenuItem>
+        -->
+    </Menu>
+</UserControl>

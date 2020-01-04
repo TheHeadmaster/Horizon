@@ -1,14 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "f4fb3ef17ed8dce38466162c40b361fed5f77cd6"
+    "signature": "0d8982503194a395bcf6d0d61559b2d918a292f5"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "Horizon.Testing/1.0.0": {
         "dependencies": {
-          "FluentAssertions": "5.9.0",
+          "FluentAssertions": "5.10.0",
           "Horizon": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.4.0",
           "Newtonsoft.Json": "12.0.3",
@@ -20,14 +20,14 @@
           "Horizon.Testing.dll": {}
         }
       },
-      "FluentAssertions/5.9.0": {
+      "FluentAssertions/5.10.0": {
         "dependencies": {
           "System.Configuration.ConfigurationManager": "4.4.0"
         },
         "runtime": {
-          "lib/netcoreapp2.0/FluentAssertions.dll": {
-            "assemblyVersion": "5.9.0.0",
-            "fileVersion": "5.9.0.0"
+          "lib/netcoreapp2.1/FluentAssertions.dll": {
+            "assemblyVersion": "5.10.0.0",
+            "fileVersion": "5.10.0.0"
           }
         }
       },
@@ -446,12 +446,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FluentAssertions/5.9.0": {
+    "FluentAssertions/5.10.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JZxb5DuspmuH4A5p9bfj060evQnwIUkxxfFMG9F/pa7gl1Ry2r2nuQbu5G4UWGQQTtpTxPpVowqNDdBkA0G2Mw==",
-      "path": "fluentassertions/5.9.0",
-      "hashPath": "fluentassertions.5.9.0.nupkg.sha512"
+      "sha512": "sha512-SdLCaJmnJhqaPcggMIfV33q8uOIcYjDKozkBM6kyAe9LF1Usa4c3IO/vkBsm0VjizO4+62ccFIJYK2nktBcMCQ==",
+      "path": "fluentassertions/5.10.0",
+      "hashPath": "fluentassertions.5.10.0.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/16.4.0": {
       "type": "package",

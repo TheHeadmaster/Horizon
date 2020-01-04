@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon", "Horizon\Horizon.csproj", "{63071BA5-5626-4CC9-9A97-F5CBC5464E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Testing", "..\Horizon\Horizon.Testing\Horizon.Testing.csproj", "{495C31FD-A163-45DD-BD0B-0582DB3C4D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Horizon.Testing", "Horizon.Testing\Horizon.Testing.csproj", "{495C31FD-A163-45DD-BD0B-0582DB3C4D83}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Horizon.Installer", "..\Horizon\Horizon.Installer\Horizon.Installer.wixproj", "{E86ECD12-268B-46F4-B3A9-C526611F516C}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Horizon.Installer", "Horizon.Installer\Horizon.Installer.wixproj", "{E86ECD12-268B-46F4-B3A9-C526611F516C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
