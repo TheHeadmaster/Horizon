@@ -18,13 +18,11 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border x:Name="WindowBorder" Background="{StaticResource AccentBackgroundColor}" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="2">
-        <Grid>
+        <Grid Margin="0,-30,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="24" />
             </Grid.RowDefinitions>
-            <controls:MainMenu Grid.Row="0" />
             <!--
         <controls:Workspace Grid.Row="1" />
         <controls:Status Grid.Row="2" />

@@ -703,13 +703,18 @@
                             <Grid x:Name="PART_HeaderBar">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
+                                <Image Source="Penguin.ico" Grid.Column="0" />
+
+                                <controls:MainMenu Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Left" />
+
                                 <TextBlock Text="{TemplateBinding Title}"
-                                           Grid.Column="0"
-                                           Grid.ColumnSpan="3"
+                                           Grid.Column="2"
+                                           Grid.ColumnSpan="2"
                                            TextTrimming="CharacterEllipsis"
                                            HorizontalAlignment="Stretch"
                                            FontSize="13"
@@ -721,7 +726,7 @@
                                            Panel.ZIndex="0"
                                            IsEnabled="{TemplateBinding IsActive}" />
 
-                                <Grid x:Name="WindowControlsGrid" Grid.Column="2" Background="{TemplateBinding Background}">
+                                <Grid x:Name="WindowControlsGrid" Grid.Column="3" Background="{TemplateBinding Background}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="36" />
                                         <ColumnDefinition Width="36" />
@@ -729,24 +734,26 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Button x:Name="MinimizeButton" Style="{StaticResource WindowButtonStyle}"
-                                            fa:Awesome.Content="WindowMinimize"
-                                            TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"
+                                            Content="l"
+                                            FontFamily="Wingdings 3"
+                                            TextElement.FontSize="20"
+                                            Margin="0,6,0,0"
+                                            VerticalAlignment="Center"
                                             Grid.Column="0" />
                                     <Button x:Name="MaximizeButton" Style="{StaticResource WindowButtonStyle}"
-                                            fa:Awesome.Content="WindowMaximize"
-                                            TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"
+                                            Content="1"
+                                            TextElement.FontSize="18"
                                             Grid.Column="1" />
 
                                     <Button x:Name="RestoreButton" Style="{StaticResource WindowButtonStyle}"
-                                            fa:Awesome.Content="WindowRestore"
+                                            Content="2"
                                             Visibility="Collapsed"
-                                            TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"
+                                            TextElement.FontSize="18"
                                             Grid.Column="1" />
 
                                     <Button x:Name="CloseButton" Style="{StaticResource WindowButtonStyle}"
-                                            fa:Awesome.Content="Times"
-                                            TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"
-                                            TextElement.FontSize="24"
+                                            Content="r"
+                                            TextElement.FontSize="18"
                                             Grid.Column="2" />
                                 </Grid>
                             </Grid>

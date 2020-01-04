@@ -23,25 +23,14 @@ namespace Horizon.Windows
     /// </summary>
     public partial class Launcher : Window
     {
-        private static Launcher instance;
-
-        public static Launcher Instance
-        {
-            get
-            {
-                if (instance is null)
-                {
-                    instance = new Launcher();
-                }
-                return instance;
-            }
-        }
+        public static Launcher Instance { get; private set; }
 
         public LauncherViewModel ViewModel { get; set; }
 
         public Launcher()
         {
             this.InitializeComponent();
+            Instance = this;
             this.ViewModel = new LauncherViewModel();
             this.DataContext = this.ViewModel;
 

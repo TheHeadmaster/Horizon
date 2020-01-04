@@ -33,17 +33,6 @@ namespace Horizon.Utilities
         internal static extern int TrackPopupMenuEx(IntPtr hmenu, uint fuFlags, int x, int y, IntPtr hwnd, IntPtr lptpm);
     }
 
-    internal struct NCCALCSIZE_PARAMS
-    {
-        internal IntPtr lppos;
-
-        internal RECT rect0;
-
-        internal RECT rect1;
-
-        internal RECT rect2;
-    }
-
     [Serializable]
     internal struct RECT
     {

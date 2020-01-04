@@ -20,9 +20,28 @@ namespace Horizon.Controls
     /// </summary>
     public partial class MainMenu : UserControl
     {
+        private static MainMenu instance;
+
+        public static MainMenu Instance
+        {
+            get
+            {
+                if (instance is null)
+                {
+                    instance = new MainMenu();
+                }
+                return instance;
+            }
+        }
+
+        //public MainMenuViewModel ViewModel { get; set; }
+
         public MainMenu()
         {
             this.InitializeComponent();
+
+            //this.ViewModel = new MainMenuViewModel();
+            //this.DataContext = this.ViewModel;
         }
     }
 }

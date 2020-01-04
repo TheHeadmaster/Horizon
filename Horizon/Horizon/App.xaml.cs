@@ -1,4 +1,5 @@
-﻿using Horizon.UI;
+﻿using Horizon.Diagnostics;
+using Horizon.UI;
 using Horizon.Windows;
 using System;
 using System.Reflection;
@@ -21,6 +22,8 @@ namespace Horizon
         /// </summary>
         public static App Instance { get; private set; }
 
+        public static InterfaceMeta InterfaceMeta { get; } = new InterfaceMeta();
+
         public static LauncherMeta LauncherMeta { get; } = new LauncherMeta();
 
         /// <summary>
@@ -32,6 +35,7 @@ namespace Horizon
         /// <param name="args">
         /// Contains the arguments pertaining to the application startup event.
         /// </param>
+        [WelcomeLog]
         private void AppStartup(object sender, StartupEventArgs args)
         {
             Instance = this;
