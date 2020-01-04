@@ -12,6 +12,12 @@ namespace Horizon.Windows
             this.InitializeComponent();
         }
 
+        private void IDEButtonClick(object sender, RoutedEventArgs args)
+        {
+            this.Close();
+            new IDEWindow().Show();
+        }
+
         private void LauncherButtonClick(object sender, RoutedEventArgs args)
         {
             this.Dispatcher.Invoke(() =>

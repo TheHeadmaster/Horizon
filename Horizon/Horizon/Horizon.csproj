@@ -107,6 +107,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\CloseCommand.cs" />
+    <Compile Include="Commands\EventArgs.cs" />
+    <Compile Include="Commands\EventRaiser.cs" />
+    <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Controls\ModListBox.xaml.cs">
       <DependentUpon>ModListBox.xaml</DependentUpon>
     </Compile>
@@ -115,6 +119,9 @@
     <Compile Include="UI\LauncherMeta.cs" />
     <Compile Include="UI\Presentation\ModPresentation.cs" />
     <Compile Include="ViewModels\LauncherViewModel.cs" />
+    <Compile Include="Windows\IDEWindow.xaml.cs">
+      <DependentUpon>IDEWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\Launcher.xaml.cs">
       <DependentUpon>Launcher.xaml</DependentUpon>
     </Compile>
@@ -179,6 +186,10 @@
     <Page Include="Themes\Generic.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Windows\IDEWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\Launcher.xaml">
       <SubType>Designer</SubType>

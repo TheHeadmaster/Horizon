@@ -1,0 +1,25 @@
+﻿<Window x:Class="Horizon.Windows.IDEWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Horizon.Windows"
+        xmlns:commands="clr-namespace:Horizon.Commands"
+        mc:Ignorable="d"
+        Title="{Binding Title}" Height="768" Width="1366" Icon="/Horizon;component/Resources/Penguin.ico" WindowStartupLocation="CenterScreen">
+    <Window.InputBindings>
+        <KeyBinding Key="F4" Modifiers="Alt" Command="commands:CloseCommand.Instance" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+        <!--
+        <controls:MainMenu Grid.Row="0" />
+        <controls:Workspace Grid.Row="1" />
+        <controls:Status Grid.Row="2" />
+        -->
+    </Grid>
+</Window>
