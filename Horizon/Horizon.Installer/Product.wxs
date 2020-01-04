@@ -23,15 +23,19 @@
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Horizon">
           <Directory Id="XLDEFolder" Name="de" />
+          <Directory Id="XLENFolder" Name="en" />
           <Directory Id="XLESFolder" Name="es" />
           <Directory Id="XLFRFolder" Name="fr" />
           <Directory Id="XLHUFolder" Name="hu" />
           <Directory Id="XLITFolder" Name="it" />
+          <Directory Id="XLJAFolder" Name="ja" />
+          <Directory Id="XLKOFolder" Name="ko" />
           <Directory Id="XLPTBRFolder" Name="pt-BR" />
           <Directory Id="XLROFolder" Name="ro" />
           <Directory Id="XLRUFolder" Name="ru" />
           <Directory Id="XLSVFolder" Name="sv" />
           <Directory Id="XLZHHANSFolder" Name="zh-HANS" />
+          <Directory Id="XLZHHANTFolder" Name="zh-HANT" />
         </Directory>
       </Directory>
     </Directory>
@@ -54,6 +58,12 @@
       </Component>
       <Component Id="FluentValidationXml">
         <File Id="FluentValidationXmlFile" Name="FluentValidation.xml" Source="Source\FluentValidation.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesomeDll">
+        <File Id="FontAwesomeDllFile" Name="FontAwesome.WPF.dll" Source="Source\FontAwesome.WPF.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesomeXml">
+        <File Id="FontAwesomeXmlFile" Name="FontAwesome.WPF.xml" Source="Source\FontAwesome.WPF.xml" KeyPath="yes" />
       </Component>
       <Component Id="AvalonEditDll">
         <File Id="AvalonEditDllFile" Name="ICSharpCode.AvalonEdit.dll" Source="Source\ICSharpCode.AvalonEdit.dll" KeyPath="yes" />
@@ -97,6 +107,9 @@
       <Component Id="XceedWpfToolkitDll">
         <File Id="XceedWpfToolkitDllFile" Name="Xceed.Wpf.Toolkit.dll" Source="Source\Xceed.Wpf.Toolkit.dll" KeyPath="yes" />
       </Component>
+      <Component Id="SystemWindowsInteractivityDll">
+        <File Id="SystemWindowsInteractivityDllFile" Name="System.Windows.Interactivity.dll" Source="Source\System.Windows.Interactivity.dll" KeyPath="yes" />
+      </Component>
     </ComponentGroup>
     <ComponentGroup Id="LocalizationComponents">
       <Component Id="XceedResourcesLocalizationDe" Directory="XLDEFolder">
@@ -128,6 +141,37 @@
       </Component>
       <Component Id="XceedResourcesLocalizationZh_Hans" Directory="XLZHHANSFolder">
         <File Id="XceedResourcesLocalizationZh_HansFile" Source="Source\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll" KeyPath="yes" />
+      </Component>
+
+      <Component Id="InteractivityResourcesLocalizationDe" Directory="XLDEFolder">
+        <File Id="InteractivityResourcesLocalizationDeFile" Source="Source\de\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationEn" Directory="XLENFolder">
+        <File Id="InteractivityResourcesLocalizationEnFile" Source="Source\en\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationEs" Directory="XLESFolder">
+        <File Id="InteractivityResourcesLocalizationEsFile" Source="Source\es\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationFr" Directory="XLFRFolder">
+        <File Id="InteractivityResourcesLocalizationFrFile" Source="Source\fr\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationIt" Directory="XLITFolder">
+        <File Id="InteractivityResourcesLocalizationItFile" Source="Source\it\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationJa" Directory="XLJAFolder">
+        <File Id="InteractivityResourcesLocalizationJaFile" Source="Source\ja\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationKo" Directory="XLKOFolder">
+        <File Id="InteractivityResourcesLocalizationKoFile" Source="Source\ko\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationRu" Directory="XLRUFolder">
+        <File Id="InteractivityResourcesLocalizationRuFile" Source="Source\ru\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationZh_Hans" Directory="XLZHHANSFolder">
+        <File Id="InteractivityResourcesLocalizationZh_HansFile" Source="Source\zh-Hans\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="InteractivityResourcesLocalizationZh_Hant" Directory="XLZHHANTFolder">
+        <File Id="InteractivityResourcesLocalizationZh_HantFile" Source="Source\zh-Hant\System.Windows.Interactivity.resources.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
   </Fragment>
