@@ -1,4 +1,5 @@
-﻿using Horizon.UI.Presentation;
+﻿using Horizon.UI;
+using Horizon.UI.Presentation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,7 +19,7 @@ namespace Horizon.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string LauncherPath { get; set; } = @"C:\Archives\Development\Erisa's Starbound";
+        public string LauncherPath => App.LauncherMeta.LauncherPath;
 
         public ObservableCollection<ModPresentation> Mods { get; set; } = new ObservableCollection<ModPresentation>();
 
@@ -32,7 +33,11 @@ namespace Horizon.ViewModels
 
             this.Version = m.Groups[1].Value;
             this.LoadMods();
+            App.LauncherMeta.PropertyChanged += this.LauncherMeta_PropertyChanged;
         }
+
+        private void LauncherMeta_PropertyChanged(object sender, PropertyChangedEventArgs e)
+            => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LauncherPath"));
 
         private void LoadMods()
         {

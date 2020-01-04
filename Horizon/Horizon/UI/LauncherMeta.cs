@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Horizon.UI
 {
-    public static class LauncherMeta
+    public class LauncherMeta : INotifyPropertyChanged
     {
-        public static string LauncherPath { get; set; } = @"C:\Archives\Development\Erisa's Starbound";
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public static void Initialize()
-        {
-        }
+        public string LauncherPath { get; set; } = @"C:\Archives\Development\Erisa's Starbound";
     }
 }

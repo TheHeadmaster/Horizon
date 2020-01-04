@@ -27,13 +27,13 @@ namespace Horizon.UI.Presentation
                 if (this.FullPath is null) { return; }
                 if (this.enabled)
                 {
-                    Directory.Move(this.FullPath, Path.Combine(LauncherMeta.LauncherPath, "mods", this.FileName));
-                    this.FilePath = Path.Combine(LauncherMeta.LauncherPath, "mods");
+                    Directory.Move(this.FullPath, Path.Combine(App.LauncherMeta.LauncherPath, "mods", this.FileName));
+                    this.FilePath = Path.Combine(App.LauncherMeta.LauncherPath, "mods");
                 }
                 else
                 {
-                    Directory.Move(this.FullPath, Path.Combine(LauncherMeta.LauncherPath, "unloaded", this.FileName));
-                    this.FilePath = Path.Combine(LauncherMeta.LauncherPath, "unloaded");
+                    Directory.Move(this.FullPath, Path.Combine(App.LauncherMeta.LauncherPath, "unloaded", this.FileName));
+                    this.FilePath = Path.Combine(App.LauncherMeta.LauncherPath, "unloaded");
                 }
             }
         }

@@ -14,12 +14,25 @@
             <ColumnDefinition Width="300" />
         </Grid.ColumnDefinitions>
         <controls:SlantedBorder Grid.Column="0" BorderThickness="2" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource AccentBackgroundColor}">
-            <Border Background="{StaticResource BaseBackgroundColor}" BorderThickness="1" BorderBrush="{StaticResource BaseBorderColor}">
-                <StackPanel Orientation="Horizontal" Height="48" VerticalAlignment="Top">
-                    <TextBlock Grid.Column="0" Text="Starbound v. " FontSize="32" Foreground="{StaticResource BaseFontColor}" />
-                    <TextBlock Grid.Column="0" Text="{Binding Version, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" FontSize="32" Foreground="{StaticResource BaseFontColor}" />
-                </StackPanel>
-            </Border>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200" />
+                    <RowDefinition Height="56" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource BaseBackgroundColor}" BorderThickness="1" BorderBrush="{StaticResource BaseBorderColor}">
+                    <StackPanel Orientation="Horizontal" Height="48" VerticalAlignment="Top">
+                        <TextBlock Grid.Column="0" Text="Starbound v. " FontSize="32" Foreground="{StaticResource BaseFontColor}" />
+                        <TextBlock Grid.Column="0" Text="{Binding Version, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" FontSize="32" Foreground="{StaticResource BaseFontColor}" />
+                    </StackPanel>
+                </Border>
+                <TextBlock Grid.Row="1" Text="{Binding LauncherPath, UpdateSourceTrigger=PropertyChanged}" FontSize="14" Foreground="{StaticResource BaseFontColor}" VerticalAlignment="Center" />
+                <Button Grid.Row="1" HorizontalAlignment="Right" Content="Browse..." Width="82" Height="32" FontSize="14" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" Click="Button_Click_2" />
+                <DockPanel Height="48" Grid.Row="2">
+                    <Button Margin="48,0,0,0" Content="Launch Starbound" Width="158" Height="48" FontSize="18" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" Click="Button_Click" />
+                    <Button Margin="48,0,0,0" Content="Exit" Width="56" Height="48" FontSize="18" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" Click="Button_Click_1" />
+                </DockPanel>
+            </Grid>
         </controls:SlantedBorder>
         <controls:SlantedBorder Grid.Column="2" BorderThickness="2" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource AccentBackgroundColor}" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted">
 

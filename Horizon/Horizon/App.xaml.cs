@@ -12,14 +12,16 @@ namespace Horizon
     public partial class App : Application
     {
         /// <summary>
+        /// Gets Horizon's current version.
+        /// </summary>
+        public static Version CurrentVersion => Assembly.GetExecutingAssembly().GetName().Version;
+
+        /// <summary>
         /// Gets the Instance of the App.
         /// </summary>
         public static App Instance { get; private set; }
 
-        /// <summary>
-        /// Gets Horizon's current version.
-        /// </summary>
-        public Version CurrentVersion => Assembly.GetExecutingAssembly().GetName().Version;
+        public static LauncherMeta LauncherMeta { get; } = new LauncherMeta();
 
         /// <summary>
         /// Serves as the application entry point.
@@ -33,7 +35,6 @@ namespace Horizon
         private void AppStartup(object sender, StartupEventArgs args)
         {
             Instance = this;
-            LauncherMeta.Initialize();
 
             bool? _ = new Splash().ShowDialog();
         }
