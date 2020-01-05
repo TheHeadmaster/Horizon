@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Horizon.Commands
 {
+    /// <summary>
+    /// Extension methods for raising events.
+    /// </summary>
     public static class EventRaiser
     {
         public static void Raise(this EventHandler handler, object sender) => handler?.Invoke(sender, EventArgs.Empty);

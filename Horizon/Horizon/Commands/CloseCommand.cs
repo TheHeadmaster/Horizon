@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horizon.Diagnostics;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Horizon.Commands
 
         public override bool CanExecute(object parameter) => true;
 
+        [Log("Executing Shutdown.")]
         public override void Execute(object parameter) => Application.Current.Shutdown();
     }
 }

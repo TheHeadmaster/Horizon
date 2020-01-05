@@ -9,9 +9,15 @@ using System.Timers;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Horizon.Controls;
+using Horizon.Windows;
+using Horizon.Diagnostics;
 
 namespace Horizon.Commands
 {
+    /// <summary>
+    /// Starts an instance of Starbound.
+    /// </summary>
     public class PlayCommand : RelayCommand
     {
         private static Timer timer;
@@ -26,18 +32,18 @@ namespace Horizon.Commands
         {
             Application.Current.Dispatcher.Invoke(() =>
                 {
-                    App.InterfaceData.IsRunningStarbound = false;
+                    Status.Instance.ViewModel.IsRunningStarbound = false;
                     CommandManager.InvalidateRequerySuggested();
                 });
             timer.Stop();
             timer.Dispose();
             this.FileLastPosition = 0;
-            App.InterfaceData.StatusState = "Ready";
+            Status.Instance.ViewModel.StatusState = "Ready";
         }
 
-        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        private void Timer_Elapsed(object sender, ElapsedEventArgs args)
         {
-            using (FileStream fs = File.Open(Path.Combine(App.CurrentProject.FilePath, "storage", "starbound.log"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (FileStream fs = File.Open(Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "storage", "starbound.log"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
             {
                 fs.Seek(this.FileLastPosition, SeekOrigin.Begin);
 
@@ -47,7 +53,7 @@ namespace Horizon.Commands
 
                 string s = Encoding.Default.GetString(bytes);
 
-                App.InterfaceData.OutputText += s;
+                Output.Instance.ViewModel.OutputText += s;
                 this.FileLastPosition += bytes.Length;
             }
         }
@@ -60,22 +66,23 @@ namespace Horizon.Commands
             timer.Enabled = true;
         }
 
-        public override bool CanExecute(object parameter) => App.InterfaceData.IsRunningStarbound == false;
+        public override bool CanExecute(object parameter) => Status.Instance.ViewModel.IsRunningStarbound == false;
 
+        [Log("Starting an instance of Starbound...", ExitMessage = "Instance started.")]
         public override void Execute(object parameter)
         {
-            App.InterfaceData.StatusState = "Starting Starbound...";
-            App.InterfaceData.OutputText = "";
+            Status.Instance.ViewModel.StatusState = "Starting Starbound...";
+            Output.Instance.ViewModel.OutputText = "";
             Process proc = new Process();
-            proc.StartInfo.FileName = Path.Combine(App.CurrentProject.FilePath, "win64", "starbound.exe");
+            proc.StartInfo.FileName = Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "win64", "starbound.exe");
             proc.StartInfo.UseShellExecute = true;
             proc.StartInfo.Verb = "runas";
             proc.Start();
             proc.EnableRaisingEvents = true;
             StarboundRunning = proc;
-            App.InterfaceData.IsRunningStarbound = true;
+            Status.Instance.ViewModel.IsRunningStarbound = true;
             proc.Exited += this.Proc_Exited;
-            App.InterfaceData.StatusState = "Starbound Running";
+            Status.Instance.ViewModel.StatusState = "Starbound Running";
             this.Watch();
         }
     }

@@ -17,15 +17,19 @@ using System.Windows.Shapes;
 namespace Horizon.Controls
 {
     /// <summary>
-    /// Interaction logic for Status.xaml
+    /// Shows the status of current operations and other at-a-glance data.
     /// </summary>
     public partial class Status : UserControl
     {
+        public static Status Instance { get; private set; }
+
         public StatusViewModel ViewModel { get; set; }
 
         public Status()
         {
             this.InitializeComponent();
+            Instance = this;
+
             this.ViewModel = new StatusViewModel();
             this.DataContext = this.ViewModel;
         }

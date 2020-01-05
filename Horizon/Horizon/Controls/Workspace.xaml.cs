@@ -17,15 +17,18 @@ using System.Windows.Shapes;
 namespace Horizon.Controls
 {
     /// <summary>
-    /// Interaction logic for Workspace.xaml
+    /// Handles the controls and AvalonDock for the IDE window.
     /// </summary>
     public partial class Workspace : UserControl
     {
+        public static Workspace Instance { get; private set; }
+
         public WorkspaceViewModel ViewModel { get; set; }
 
         public Workspace()
         {
             this.InitializeComponent();
+            Instance = this;
             this.ViewModel = new WorkspaceViewModel();
             this.DataContext = this.ViewModel;
         }

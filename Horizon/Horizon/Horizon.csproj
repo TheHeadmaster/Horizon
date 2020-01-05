@@ -146,14 +146,24 @@
     <Compile Include="Controls\ModListBox.xaml.cs">
       <DependentUpon>ModListBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Output.xaml.cs" />
+    <Compile Include="Controls\Output.xaml.cs">
+      <DependentUpon>Output.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\OverridableTextBox.xaml.cs" />
     <Compile Include="Controls\ProjectExplorer.xaml.cs" />
-    <Compile Include="Controls\PropertiesView.xaml.cs" />
+    <Compile Include="Controls\PropertiesView.xaml.cs">
+      <DependentUpon>PropertiesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SlantedBorder.cs" />
-    <Compile Include="Controls\Status.xaml.cs" />
-    <Compile Include="Controls\ToggleSlider.xaml.cs" />
-    <Compile Include="Controls\Workspace.xaml.cs" />
+    <Compile Include="Controls\Status.xaml.cs">
+      <DependentUpon>Status.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToggleSlider.xaml.cs">
+      <DependentUpon>ToggleSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Workspace.xaml.cs">
+      <DependentUpon>Workspace.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Diagnostics\DiagManager.cs" />
     <Compile Include="Diagnostics\JFileLoadLogAttribute.cs" />
     <Compile Include="Diagnostics\LogAttribute.cs" />
@@ -188,8 +198,6 @@
     <Compile Include="UI\Error.cs" />
     <Compile Include="UI\ErrorListener.cs" />
     <Compile Include="UI\ErrorType.cs" />
-    <Compile Include="UI\InterfaceData.cs" />
-    <Compile Include="UI\InterfaceMeta.cs" />
     <Compile Include="UI\LauncherMeta.cs" />
     <Compile Include="UI\ListenerUpdateEventArgs.cs" />
     <Compile Include="UI\LuaFoldingStrategy.cs" />

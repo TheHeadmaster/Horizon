@@ -12,11 +12,13 @@ namespace Horizon.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public bool IsRunningStarbound { get; set; } = false;
+
         public Color StatusBarColor
         {
             get
             {
-                if (App.InterfaceData.IsRunningStarbound)
+                if (this.IsRunningStarbound)
                 {
                     return Color.FromRgb(202, 81, 0);
                 }
@@ -27,23 +29,6 @@ namespace Horizon.ViewModels
             }
         }
 
-        public string StatusBarStateText => App.InterfaceData.StatusState;
-
-        public StatusViewModel()
-        {
-            App.InterfaceData.PropertyChanged += this.UIData_PropertyChanged;
-        }
-
-        private void UIData_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        {
-            if (args.PropertyName == nameof(App.InterfaceData.IsRunningStarbound))
-            {
-                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.StatusBarColor)));
-            }
-            else if (args.PropertyName == nameof(App.InterfaceData.StatusState))
-            {
-                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.StatusBarStateText)));
-            }
-        }
+        public string StatusState { get; set; } = "Ready";
     }
 }

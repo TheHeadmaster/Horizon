@@ -1,7 +1,9 @@
 ﻿using Horizon.Core.Data.Json;
+using Horizon.Diagnostics;
 using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.UI;
+using Horizon.Windows;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,9 @@ using System.Windows.Input;
 
 namespace Horizon.Commands
 {
+    /// <summary>
+    /// Opens a project.
+    /// </summary>
     public class OpenProjectCommand : RelayCommand
     {
         public static ICommand Instance { get; } = new OpenProjectCommand();
@@ -48,29 +53,29 @@ namespace Horizon.Commands
 
         private void OpenFromDialog()
         {
-            if (App.CurrentProject is null)
+            if (IDEWindow.Instance.ViewModel.CurrentProject is null)
             {
                 string path = this.CommonFileDialog();
                 if (path is null) { return; }
                 ProjectFile file = JFile.Load<ProjectFile>(Path.GetDirectoryName(path), "project.json");
-                App.CurrentProject = file.CreateModel();
-                App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                App.CurrentProject.LoadMods();
+                IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                 App.Metadata.Save();
             }
             else
             {
-                MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show($"Changes have been made to {App.CurrentProject.Name}. Would you like to save these changes before closing the project?", "Save Changes?", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+                MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show($"Changes have been made to {IDEWindow.Instance.ViewModel.CurrentProject.Name}. Would you like to save these changes before closing the project?", "Save Changes?", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
                     string path = this.CommonFileDialog();
                     if (path is null) { return; }
 
-                    App.CurrentProject.Close(true);
+                    IDEWindow.Instance.ViewModel.CurrentProject.Close(true);
                     ProjectFile file = JFile.Load<ProjectFile>(Path.GetDirectoryName(path), "project.json");
-                    App.CurrentProject = file.CreateModel();
-                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                    App.CurrentProject.LoadMods();
+                    IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                    IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                     App.Metadata.Save();
                 }
                 else if (result == MessageBoxResult.No)
@@ -78,11 +83,11 @@ namespace Horizon.Commands
                     string path = this.CommonFileDialog();
                     if (path is null) { return; }
 
-                    App.CurrentProject.Close(false);
+                    IDEWindow.Instance.ViewModel.CurrentProject.Close(false);
                     ProjectFile file = JFile.Load<ProjectFile>(Path.GetDirectoryName(path), "project.json");
-                    App.CurrentProject = file.CreateModel();
-                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                    App.CurrentProject.LoadMods();
+                    IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                    IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                     App.Metadata.Save();
                 }
                 else
@@ -94,33 +99,33 @@ namespace Horizon.Commands
 
         private void OpenFromPath(string path)
         {
-            if (App.CurrentProject is null)
+            if (IDEWindow.Instance.ViewModel.CurrentProject is null)
             {
                 ProjectFile file = JFile.Load<ProjectFile>(path, "project.json");
-                App.CurrentProject = file.CreateModel();
-                App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                App.CurrentProject.LoadMods();
+                IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                 App.Metadata.Save();
             }
             else
             {
-                MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show($"Changes have been made to {App.CurrentProject.Name}. Would you like to save these changes before closing the project?", "Save Changes?", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+                MessageBoxResult result = Xceed.Wpf.Toolkit.MessageBox.Show($"Changes have been made to {IDEWindow.Instance.ViewModel.CurrentProject.Name}. Would you like to save these changes before closing the project?", "Save Changes?", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
                 if (result == MessageBoxResult.Yes)
                 {
-                    App.CurrentProject.Close(true);
+                    IDEWindow.Instance.ViewModel.CurrentProject.Close(true);
                     ProjectFile file = JFile.Load<ProjectFile>(path, "project.json");
-                    App.CurrentProject = file.CreateModel();
-                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                    App.CurrentProject.LoadMods();
+                    IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                    IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                     App.Metadata.Save();
                 }
                 else if (result == MessageBoxResult.No)
                 {
-                    App.CurrentProject.Close(false);
+                    IDEWindow.Instance.ViewModel.CurrentProject.Close(false);
                     ProjectFile file = JFile.Load<ProjectFile>(path, "project.json");
-                    App.CurrentProject = file.CreateModel();
-                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = App.CurrentProject.Name, Path = App.CurrentProject.FilePath });
-                    App.CurrentProject.LoadMods();
+                    IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
+                    App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
+                    IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                     App.Metadata.Save();
                 }
                 else
@@ -132,6 +137,7 @@ namespace Horizon.Commands
 
         public override bool CanExecute(object parameter) => true;
 
+        [Log("Opening a project...", ExitMessage = "Project opened.")]
         public override void Execute(object parameter)
         {
             if (parameter is string path)

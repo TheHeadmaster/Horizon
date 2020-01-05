@@ -7,6 +7,11 @@ using System.Windows.Input;
 
 namespace Horizon.Commands
 {
+    /// <summary>
+    /// Handles the RelayCommand design pattern.
+    /// </summary>
+    /// <typeparam name="T">
+    /// </typeparam>
     public class RelayCommand<T> : ICommand
     {
         public event EventHandler CanExecuteChanged
@@ -36,6 +41,9 @@ namespace Horizon.Commands
         public void Execute(object parameter) => this.execute((T)parameter);
     }
 
+    /// <summary>
+    /// Handles the RelayCommand design pattern.
+    /// </summary>
     public abstract class RelayCommand : ICommand
     {
         private event EventHandler CanExecuteChangedInternal;

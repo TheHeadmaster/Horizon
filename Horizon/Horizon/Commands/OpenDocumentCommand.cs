@@ -12,27 +12,34 @@ using System.Windows.Input;
 using Horizon.ViewModels;
 using System.Windows.Documents;
 using Horizon.Windows;
+using Horizon.Diagnostics;
+using Horizon.Controls;
 
 namespace Horizon.Commands
 {
+    /// <summary>
+    /// Opens a document.
+    /// </summary>
     public class OpenDocumentCommand : RelayCommand
     {
         public static ICommand Instance { get; } = new OpenDocumentCommand();
 
         public override bool CanExecute(object parameter) => true;
 
+        [Log("Opening document...", ExitMessage = "Document opened.")]
         public override void Execute(object parameter)
         {
             DocumentControl document = (DocumentControl)parameter;
-            if (App.InterfaceData.Documents.Any(x => x.GetModel() == document))
+            if (Workspace.Instance.ViewModel.Documents.Any(x => x.GetModel() == document))
             {
-                DocumentControl model = App.InterfaceData.Documents.FirstOrDefault(x => x.GetModel() == document).GetModel();
+                DocumentControl model = Workspace.Instance.ViewModel.Documents.FirstOrDefault(x => x.GetModel() == document).GetModel();
 
-                //MainWindow.Instance.FocusDocument(model);
+                //TODO: Fix functionality for focusing document
+                //IDEWindow.Instance.ViewModel.FocusDocument(model);
                 return;
             }
             DocumentControlViewModel newViewModel = document.CreateViewModel();
-            App.InterfaceData.Documents.Add(newViewModel);
+            Workspace.Instance.ViewModel.Documents.Add(newViewModel);
 
             //MainWindow.FocusDocument(newViewModel.GetModel());
         }

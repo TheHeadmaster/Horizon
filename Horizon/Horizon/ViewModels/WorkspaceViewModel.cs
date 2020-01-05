@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Horizon.ViewModels
 {
+    /// <summary>
+    /// The ViewModel for the workspace control.
+    /// </summary>
     public class WorkspaceViewModel
     {
-        public ObservableCollection<DocumentControlViewModel> Documents => App.InterfaceData.Documents;
+        public ObservableCollection<DocumentControlViewModel> Documents { get; set; } = new ObservableCollection<DocumentControlViewModel>();
     }
 }

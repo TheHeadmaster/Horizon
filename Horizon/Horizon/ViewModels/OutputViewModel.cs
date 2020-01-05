@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horizon.Windows;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -7,23 +8,13 @@ using System.Threading.Tasks;
 
 namespace Horizon.ViewModels
 {
+    /// <summary>
+    /// The ViewModel for the Output control.
+    /// </summary>
     public class OutputViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string OutputText => App.InterfaceData.OutputText;
-
-        public OutputViewModel()
-        {
-            App.InterfaceData.PropertyChanged += this.UIData_PropertyChanged;
-        }
-
-        private void UIData_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        {
-            if (args.PropertyName == nameof(App.InterfaceData.OutputText))
-            {
-                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.OutputText)));
-            }
-        }
+        public string OutputText { get; set; }
     }
 }
