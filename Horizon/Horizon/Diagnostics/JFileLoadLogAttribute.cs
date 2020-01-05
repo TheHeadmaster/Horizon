@@ -9,6 +9,9 @@ using MethodBoundaryAspect.Fody.Attributes;
 
 namespace Horizon.Diagnostics
 {
+    /// <summary>
+    /// Handles logging for the JFile.Load method.
+    /// </summary>
     public class JFileLoadLogAttribute : LogAttribute
     {
         public JFileLoadLogAttribute()

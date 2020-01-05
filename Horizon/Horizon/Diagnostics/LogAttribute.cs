@@ -7,6 +7,9 @@ using MethodBoundaryAspect.Fody.Attributes;
 
 namespace Horizon.Diagnostics
 {
+    /// <summary>
+    /// Handles general logging for methods.
+    /// </summary>
     public class LogAttribute : OnMethodBoundaryAspect
     {
         public string EntryMessage { get; set; }

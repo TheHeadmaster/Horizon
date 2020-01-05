@@ -38,8 +38,6 @@ namespace Horizon
         /// </summary>
         public static App Instance { get; private set; }
 
-        public static InterfaceMeta InterfaceMeta { get; } = new InterfaceMeta();
-
         public static LauncherMeta LauncherMeta { get; } = new LauncherMeta();
 
         public static UserMeta Metadata { get; set; }

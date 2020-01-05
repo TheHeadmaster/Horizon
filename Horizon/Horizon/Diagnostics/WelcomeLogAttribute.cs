@@ -7,6 +7,9 @@ using MethodBoundaryAspect.Fody.Attributes;
 
 namespace Horizon.Diagnostics
 {
+    /// <summary>
+    /// Handles the logging for the application entry point.
+    /// </summary>
     public class WelcomeLogAttribute : LogAttribute
     {
         public override void OnEntry(MethodExecutionArgs args)
