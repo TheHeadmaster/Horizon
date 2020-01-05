@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Input;
 using Horizon.Windows;
 using Horizon.Diagnostics;
+using Horizon.Controls;
 
 namespace Horizon.Commands
 {
@@ -21,7 +22,7 @@ namespace Horizon.Commands
     {
         public static ICommand Instance { get; } = new StopCommand();
 
-        public override bool CanExecute(object parameter) => App.InterfaceMeta.IsRunningStarbound == true;
+        public override bool CanExecute(object parameter) => Status.Instance.ViewModel.IsRunningStarbound == true;
 
         [Log("Stopping Starbound instance...", ExitMessage = "Starbound instance stopped.")]
         public override void Execute(object parameter) => PlayCommand.StarboundRunning.Kill();

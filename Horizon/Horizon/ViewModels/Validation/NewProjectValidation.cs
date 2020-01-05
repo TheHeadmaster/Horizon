@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Horizon.Core;
+using Horizon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;

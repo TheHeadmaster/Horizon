@@ -1,5 +1,4 @@
-﻿using Horizon.Core.Data.Json;
-using Horizon.Json;
+﻿using Horizon.Json;
 using Horizon.UI;
 using Horizon.ViewModels;
 using System;

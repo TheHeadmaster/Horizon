@@ -1,4 +1,5 @@
-﻿using Horizon.Diagnostics;
+﻿using Horizon.Controls;
+using Horizon.Diagnostics;
 using Horizon.Windows;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace Horizon.Commands
     {
         public static ICommand Instance { get; } = new SaveCommand();
 
-        public override bool CanExecute(object parameter) => !(IDEWindow.Instance.ViewModel.CurrentProject is null) && !App.InterfaceMeta.IsRunningStarbound;
+        public override bool CanExecute(object parameter) => !(IDEWindow.Instance.ViewModel.CurrentProject is null) && !Status.Instance.ViewModel.IsRunningStarbound;
 
         [Log("Saving document...", ExitMessage = "Document saved.")]
         public override void Execute(object parameter)

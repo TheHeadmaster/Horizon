@@ -1,6 +1,11 @@
 ﻿using Horizon.Json;
+using Horizon.UI;
+using Horizon.ViewModels;
+using Horizon.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +35,7 @@ namespace Horizon.ObjectModel
                 file.PopulateFile(this);
                 file.Save();
             }
-            App.CurrentProject = null;
+            IDEWindow.Instance.ViewModel.CurrentProject = null;
         }
 
         public override DocumentControlViewModel CreateViewModel() => new ProjectViewModel { Model = this };

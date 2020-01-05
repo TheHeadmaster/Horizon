@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Horizon.Core
+namespace Horizon.Utilities
 {
     public static class NullHelper
     {

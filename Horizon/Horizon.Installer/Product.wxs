@@ -59,12 +59,6 @@
       <Component Id="MethodBoundaryAspectDll">
         <File Id="MethodBoundaryAspectDllFile" Name="MethodBoundaryAspect.dll" Source="Source\MethodBoundaryAspect.dll" KeyPath="yes" />
       </Component>
-      <Component Id="WithDll">
-        <File Id="WithDllFile" Name="With.dll" Source="Source\With.dll" KeyPath="yes" />
-      </Component>
-      <Component Id="WithXml">
-        <File Id="WithXmlFile" Name="With.xml" Source="Source\With.xml" KeyPath="yes" />
-      </Component>
       <Component Id="FluentValidationDll">
         <File Id="FluentValidationDllFile" Name="FluentValidation.dll" Source="Source\FluentValidation.dll" KeyPath="yes" />
       </Component>

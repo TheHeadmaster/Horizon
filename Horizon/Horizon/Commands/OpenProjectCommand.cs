@@ -1,5 +1,4 @@
-﻿using Horizon.Core.Data.Json;
-using Horizon.Diagnostics;
+﻿using Horizon.Diagnostics;
 using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.UI;

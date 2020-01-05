@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\With.Fody.0.9.0\build\With.Fody.props" Condition="Exists('..\packages\With.Fody.0.9.0\build\With.Fody.props')" />
   <Import Project="..\packages\MethodBoundaryAspect.Fody.2.0.118\build\MethodBoundaryAspect.Fody.props" Condition="Exists('..\packages\MethodBoundaryAspect.Fody.2.0.118\build\MethodBoundaryAspect.Fody.props')" />
   <Import Project="..\packages\PropertyChanged.Fody.3.2.1\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.3.2.1\build\PropertyChanged.Fody.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -29,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Horizon.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Horizon.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Penguin.ico</ApplicationIcon>
@@ -94,9 +95,6 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="With, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\With.Fody.0.9.0\lib\netstandard2.0\With.dll</HintPath>
-    </Reference>
     <Reference Include="Xceed.Wpf.AvalonDock, Version=3.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
       <HintPath>..\packages\Extended.Wpf.Toolkit.3.7.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
     </Reference>
@@ -220,7 +218,6 @@
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\LauncherViewModel.cs" />
     <Compile Include="ViewModels\MainMenuViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ModViewModel.cs" />
     <Compile Include="ViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\OutputViewModel.cs" />
@@ -270,6 +267,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.manifest" />
+    <None Include="Horizon.ruleset" />
     <None Include="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -400,7 +398,6 @@
     <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.2.1\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.2.1\build\PropertyChanged.Fody.props'))" />
     <Error Condition="!Exists('..\packages\Fody.6.0.6\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.0.6\build\Fody.targets'))" />
     <Error Condition="!Exists('..\packages\MethodBoundaryAspect.Fody.2.0.118\build\MethodBoundaryAspect.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MethodBoundaryAspect.Fody.2.0.118\build\MethodBoundaryAspect.Fody.props'))" />
-    <Error Condition="!Exists('..\packages\With.Fody.0.9.0\build\With.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\With.Fody.0.9.0\build\With.Fody.props'))" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(SolutionDir)Horizon\bin\Debug" "$(SolutionDir)Horizon.Installer\Source\" /e /i /y</PostBuildEvent>

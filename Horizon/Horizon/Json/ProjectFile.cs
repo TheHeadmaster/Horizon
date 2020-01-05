@@ -1,5 +1,4 @@
-﻿using Horizon.Core.Data.Json;
-using Horizon.ObjectModel;
+﻿using Horizon.ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;

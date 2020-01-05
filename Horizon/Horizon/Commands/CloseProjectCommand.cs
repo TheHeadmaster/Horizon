@@ -1,6 +1,6 @@
 ﻿using Horizon;
-using Horizon.Core;
 using Horizon.Diagnostics;
+using Horizon.Utilities;
 using Horizon.Windows;
 using System;
 using System.Collections.Generic;
