@@ -10,24 +10,6 @@
     <UIRef Id="WixUI_InstallDir" />
     <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
 
-    <Feature Id="Complete" Title="Horizon" Display="expand" Level="1" ConfigurableDirectory="INSTALLFOLDER">
-      <Feature Id="ProductFeature" Title="Horizon" Level="1">
-        <ComponentGroupRef Id="ProductComponents" />
-        <ComponentGroupRef Id="LocalizationComponents" />
-        <ComponentRef Id="ApplicationShortcut" />
-      </Feature>
-    </Feature>
-    <DirectoryRef Id="ApplicationShortcut">
-      <Component Id="ApplicationShortcut">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="Horizon" Description="Horizon IDE" Target="[#Horizon.exe]" WorkingDirectory="APPLICATIONROOTDIRECTORY" />
-
-        <RemoveFolder Id="CleanupShortcut" Directory="ApplicationProgramsFolder" On="uninstall" />
-        <RegistryValue Root="HKCU" Key="Software\TheParableGroup\Horizon" Name="installed" Type="integer" Value="1" KeyPath="yes" />
-      </Component>
-    </DirectoryRef>
-  </Product>
-
-  <Fragment>
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Horizon">
@@ -47,18 +29,39 @@
           <Directory Id="XLZHHANTFolder" Name="zh-HANT" />
         </Directory>
       </Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Horizon" />
+      </Directory>
     </Directory>
-    <Directory Id="ProgramMenuFolder">
-      <Directory Id="ApplicationProgramsFolder" Name="Horizon" />
-    </Directory>
-  </Fragment>
+
+    <DirectoryRef Id="INSTALLFOLDER">
+      <Component Id="Horizon.exe">
+        <File Id="Horizon.exe" Source="Source\Horizon.exe" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="Horizon" Description="Horizon IDE" Target="[#Horizon.exe]" WorkingDirectory="INSTALLFOLDER" />
+
+        <RemoveFolder Id="CleanupShortcut" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\TheParableGroup\Horizon" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="Complete" Title="Horizon" Display="expand" Level="1" ConfigurableDirectory="INSTALLFOLDER">
+      <Feature Id="ProductFeature" Title="Horizon" Level="1">
+        <ComponentGroupRef Id="ProductComponents" />
+        <ComponentGroupRef Id="LocalizationComponents" />
+        <ComponentRef Id="ApplicationShortcut" />
+        <ComponentRef Id="Horizon.exe" />
+      </Feature>
+    </Feature>
+  </Product>
 
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <Component Id="HorizonExe">
-        <File Id="HorizonExeFile" Name="Horizon.exe" Source="Source\Horizon.exe" KeyPath="yes" />
-        <RemoveFile Id="INSTALLFOLDER" Name="*.*" On="uninstall" />
-      </Component>
+
       <Component Id="HorizonExeConfig">
         <File Id="HorizonExeConfigFile" Name="Horizon.exe.config" Source="Source\Horizon.exe.config" KeyPath="yes" />
       </Component>
