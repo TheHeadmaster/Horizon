@@ -27,11 +27,19 @@ namespace Horizon.ViewModels
 
         public LauncherViewModel()
         {
-            string text = File.ReadAllText(Path.Combine(this.LauncherPath, "storage", "starbound.log"));
-            Regex reg = new Regex(@"Client Version ([0-9][\.][0-9][\.][0-9])", RegexOptions.IgnoreCase);
-            Match m = reg.Match(text);
+            try
+            {
+                string text = File.ReadAllText(Path.Combine(this.LauncherPath, "storage", "starbound.log"));
+                Regex reg = new Regex(@"Client Version ([0-9][\.][0-9][\.][0-9])", RegexOptions.IgnoreCase);
+                Match m = reg.Match(text);
 
-            this.Version = m.Groups[1].Value;
+                this.Version = m.Groups[1].Value;
+            }
+            catch (FileNotFoundException)
+            {
+                this.Version = "Unknown: Run starbound once";
+            }
+
             this.LoadMods();
             App.LauncherMeta.PropertyChanged += this.LauncherMeta_PropertyChanged;
         }
