@@ -14,8 +14,17 @@
       <Feature Id="ProductFeature" Title="Horizon" Level="1">
         <ComponentGroupRef Id="ProductComponents" />
         <ComponentGroupRef Id="LocalizationComponents" />
+        <ComponentRef Id="ApplicationShortcut" />
       </Feature>
     </Feature>
+    <DirectoryRef Id="ApplicationShortcut">
+      <Component Id="ApplicationShortcut">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="Horizon" Description="Horizon IDE" Target="[#Horizon.exe]" WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+
+        <RemoveFolder Id="CleanupShortcut" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\TheParableGroup\Horizon" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
   </Product>
 
   <Fragment>
@@ -38,6 +47,9 @@
           <Directory Id="XLZHHANTFolder" Name="zh-HANT" />
         </Directory>
       </Directory>
+    </Directory>
+    <Directory Id="ProgramMenuFolder">
+      <Directory Id="ApplicationProgramsFolder" Name="Horizon" />
     </Directory>
   </Fragment>
 
