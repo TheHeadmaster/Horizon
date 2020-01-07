@@ -11,6 +11,6 @@ namespace Horizon.UI
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string LauncherPath { get; set; } = @"C:\Archives\Development\Erisa's Starbound";
+        public string LauncherPath { get; set; } = @"C:\Starbound";
     }
 }

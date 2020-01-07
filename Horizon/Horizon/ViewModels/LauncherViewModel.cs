@@ -34,21 +34,26 @@ namespace Horizon.ViewModels
                 Match m = reg.Match(text);
 
                 this.Version = m.Groups[1].Value;
+
+                this.LoadMods();
             }
-            catch (FileNotFoundException)
+            catch (Exception ex) when (ex is FileNotFoundException || ex is DirectoryNotFoundException)
             {
                 this.Version = "Unknown: Run starbound once";
             }
 
-            this.LoadMods();
             App.LauncherMeta.PropertyChanged += this.LauncherMeta_PropertyChanged;
         }
 
         private void LauncherMeta_PropertyChanged(object sender, PropertyChangedEventArgs e)
-            => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LauncherPath"));
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("LauncherPath"));
+            this.LoadMods();
+        }
 
         private void LoadMods()
         {
+            this.Mods.Clear();
             foreach (string path in Directory.GetFiles(Path.Combine(this.LauncherPath, "mods"), "*.pak", SearchOption.TopDirectoryOnly))
             {
                 this.Mods.Add(new ModPresentation { Enabled = true, Name = Path.GetFileNameWithoutExtension(path), FilePath = Path.GetDirectoryName(path), FileName = Path.GetFileName(path) });
