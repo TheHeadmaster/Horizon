@@ -712,19 +712,16 @@
 
                                 <controls:MainMenu Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Left" />
 
-                                <TextBlock Text="{TemplateBinding Title}"
-                                           Grid.Column="2"
-                                           Grid.ColumnSpan="2"
+                                <Border Grid.Column="2" VerticalAlignment="Center" Background="{StaticResource AccentBackgroundColor}" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" HorizontalAlignment="Left" Height="34" Padding="6,0,6,0">
+                                    <TextBlock Text="{TemplateBinding Title}"
                                            TextTrimming="CharacterEllipsis"
-                                           HorizontalAlignment="Stretch"
-                                           FontSize="13"
+                                           FontSize="14"
                                            TextAlignment="Center"
+                                           HorizontalAlignment="Stretch"
                                            VerticalAlignment="Center"
-                                           Width="Auto"
-                                           Padding="200 0 200 0"
-                                           Foreground="Black"
-                                           Panel.ZIndex="0"
+                                           Foreground="{StaticResource BaseFontColor}"
                                            IsEnabled="{TemplateBinding IsActive}" />
+                                </Border>
 
                                 <Grid x:Name="WindowControlsGrid" Grid.Column="3" Background="{TemplateBinding Background}">
                                     <Grid.ColumnDefinitions>
