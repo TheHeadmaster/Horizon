@@ -12,10 +12,11 @@
             <MenuItem Header="New">
                 <MenuItem Header="Project..." InputGestureText="Ctrl+Shift+N" Command="commands:NewProjectCommand.Instance" />
             </MenuItem>
-            <Separator />
             <MenuItem Header="Open...">
                 <MenuItem Header="Project" InputGestureText="Ctrl+Shift+O" Command="commands:OpenProjectCommand.Instance" />
             </MenuItem>
+            <MenuItem Header="Close Project" Command="commands:CloseProjectCommand.Instance" />
+            <Separator />
             <MenuItem Header="Recent Projects..." ItemsSource="{Binding RecentlyOpenedProjects}">
                 <MenuItem.ItemTemplate>
                     <DataTemplate>
@@ -34,9 +35,6 @@
             </MenuItem>
         </MenuItem>
         <!--
-
-            <MenuItem Header="Close Project" Command="commands:CloseProjectCommand.Instance" />
-            <Separator />
             <MenuItem Header="Save" Command="commands:SaveCommand.Instance" InputGestureText="Ctrl+S" />
             <MenuItem Header="Save All" Command="commands:SaveAllCommand.Instance" />
             <Separator />
