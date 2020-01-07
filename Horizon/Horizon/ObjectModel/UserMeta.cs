@@ -1,5 +1,6 @@
 ﻿using Horizon.Json;
 using Horizon.UI;
+using Horizon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 
 namespace Horizon.ObjectModel
 {
@@ -57,6 +59,9 @@ namespace Horizon.ObjectModel
 
         private void RecentlyOpenedProjects_CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
+            this.RecentlyOpenedProjects.GroupBy(x => new { x.Name, x.Path });
+            List<RecentItem> uniques = this.RecentlyOpenedProjects.DistinctWhere(x => new { x.Name, x.Path }).ToList();
+            this.RecentlyOpenedProjects = new ObservableCollection<RecentItem>(uniques);
             if (this.RecentlyOpenedProjects.Count > 10)
             {
                 this.RecentlyOpenedProjects.Remove(this.RecentlyOpenedProjects.First());

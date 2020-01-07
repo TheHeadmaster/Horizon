@@ -1,4 +1,5 @@
 ﻿using Horizon.Diagnostics;
+using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.UI;
 using Horizon.Windows;
@@ -55,6 +56,8 @@ namespace Horizon
         private void AppStartup(object sender, StartupEventArgs args)
         {
             Instance = this;
+
+            Metadata = JFile.Load<UserMetaFile>(AssemblyDirectory, "metadata.json").CreateModel();
 
             bool? _ = new Splash().ShowDialog();
         }

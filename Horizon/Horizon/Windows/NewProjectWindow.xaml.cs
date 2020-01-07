@@ -1,9 +1,11 @@
-﻿using Horizon.ObjectModel;
+﻿using Horizon.Controls;
+using Horizon.ObjectModel;
 using Horizon.UI;
 using Horizon.ViewModels;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,20 +16,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Horizon.Windows
 {
     /// <summary>
     /// Interaction logic for NewProjectWindow.xaml
     /// </summary>
-    public partial class NewProjectWindow : Window
+    public partial class NewProjectWindow : BorderlessWindow
     {
+        public static NewProjectWindow Instance { get; private set; }
+
         public NewProjectViewModel ViewModel { get; set; }
 
         public NewProjectWindow()
         {
             this.InitializeComponent();
+            Instance = this;
             this.ViewModel = new NewProjectViewModel()
             {
                 ProjectName = "My Project",
@@ -61,8 +65,22 @@ namespace Horizon.Windows
             }
         }
 
+        private bool CheckForFiles(string path)
+        {
+            if (!File.Exists(Path.Combine(path, "win32", "starbound.exe")))
+            {
+                Xceed.Wpf.Toolkit.MessageBox.Show($"{path} is not a valid folder. No starbound.exe exists inside {Path.Combine(path, "win32", "starbound.exe")}. Please choose a valid Starbound folder.", "Invalid Starbound Folder", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         private void SaveButton_Click(object sender, RoutedEventArgs args)
         {
+            if (!this.CheckForFiles(this.ViewModel.ProjectPath)) { return; }
             Project project = new Project { Name = this.ViewModel.ProjectName };
             App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = this.ViewModel.ProjectName, Path = this.ViewModel.ProjectPath });
             project.FilePath = this.ViewModel.ProjectPath;

@@ -11,6 +11,7 @@
         Title="{Binding Title}" Height="768" Width="1366" Icon="/Horizon;component/Resources/Penguin.ico" Style="{StaticResource IDEWindowStyle}" WindowStartupLocation="CenterScreen" Background="{StaticResource BaseBackgroundColor}">
     <Window.InputBindings>
         <KeyBinding Key="F4" Modifiers="Alt" Command="commands:CloseCommand.Instance" />
+        <KeyBinding Key="N" Modifiers="Ctrl+Shift" Command="commands:NewProjectCommand.Instance" />
     </Window.InputBindings>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closed">
@@ -18,7 +19,7 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border x:Name="WindowBorder" Background="{StaticResource AccentBackgroundColor}" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="2">
-        <Grid Margin="0,-30,0,0">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="24" />

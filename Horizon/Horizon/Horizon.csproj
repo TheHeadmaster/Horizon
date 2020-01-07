@@ -207,6 +207,7 @@
     <Compile Include="UI\RecentItem.cs" />
     <Compile Include="UI\StringConstants.cs" />
     <Compile Include="UI\StyleManager.cs" />
+    <Compile Include="Utilities\LinqExtensions.cs" />
     <Compile Include="Utilities\NativeUtilities.cs" />
     <Compile Include="Utilities\NullHelper.cs" />
     <Compile Include="Utilities\StringHelper.cs" />

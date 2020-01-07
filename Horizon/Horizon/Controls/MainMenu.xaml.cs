@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Horizon.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,28 +21,17 @@ namespace Horizon.Controls
     /// </summary>
     public partial class MainMenu : UserControl
     {
-        private static MainMenu instance;
+        public static MainMenu Instance { get; private set; }
 
-        public static MainMenu Instance
-        {
-            get
-            {
-                if (instance is null)
-                {
-                    instance = new MainMenu();
-                }
-                return instance;
-            }
-        }
-
-        //public MainMenuViewModel ViewModel { get; set; }
+        public MainMenuViewModel ViewModel { get; set; }
 
         public MainMenu()
         {
             this.InitializeComponent();
+            Instance = this;
 
-            //this.ViewModel = new MainMenuViewModel();
-            //this.DataContext = this.ViewModel;
+            this.ViewModel = new MainMenuViewModel();
+            this.DataContext = this.ViewModel;
         }
     }
 }

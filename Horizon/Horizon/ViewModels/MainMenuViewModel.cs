@@ -18,11 +18,18 @@ namespace Horizon.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public bool IsFileButtonEnabled => !Status.Instance.ViewModel.IsRunningStarbound;
+        public bool IsFileButtonEnabled
+        {
+            get
+            {
+                if (Status.Instance is null) { return true; }
+                return !Status.Instance.ViewModel.IsRunningStarbound;
+            }
+        }
 
         public bool IsTestButtonEnabled => !(IDEWindow.Instance.ViewModel.CurrentProject is null);
 
-        public ObservableCollection<RecentItem> RecentlyOpenedProjects => new ObservableCollection<RecentItem>(App.Metadata.RecentlyOpenedProjects.Reverse());
+        public ObservableCollection<RecentItem> RecentlyOpenedProjects => new ObservableCollection<RecentItem>(App.Metadata?.RecentlyOpenedProjects?.Reverse());
 
         public string SaveText => "";// $"Save {App.MainWindow.ActivePage.GetModel().Header}..."; //TODO: Fix whatever this is
 

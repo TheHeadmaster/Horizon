@@ -328,3 +328,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Horizon/Horizon/bin/Debug/metadata.json
+/Horizon/Horizon.Installer/Source/metadata.json

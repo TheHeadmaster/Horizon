@@ -4,22 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Horizon.Controls"
+             xmlns:commands="clr-namespace:Horizon.Commands"
              mc:Ignorable="d"
              d:DesignWidth="800">
     <Menu Height="30" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" FontSize="16">
-        <MenuItem Header="File">
-            <MenuItem Header="New" />
+        <MenuItem Header="File" IsEnabled="{Binding IsFileButtonEnabled, UpdateSourceTrigger=PropertyChanged}">
+            <MenuItem Header="New">
+                <MenuItem Header="Project..." InputGestureText="Ctrl+Shift+N" Command="commands:NewProjectCommand.Instance" />
+            </MenuItem>
             <Separator />
-            <MenuItem Header="Old" />
+            <MenuItem Header="Open...">
+                <MenuItem Header="Project" InputGestureText="Ctrl+Shift+O" Command="commands:OpenProjectCommand.Instance" />
+            </MenuItem>
         </MenuItem>
         <!--
         <MenuItem Header="File" IsEnabled="{Binding IsFileButtonEnabled}">
-            <MenuItem Header="New">
-                <MenuItem Header="Project..." Command="commands:NewProjectCommand.Instance" />
-            </MenuItem>
-            <MenuItem Header="Open...">
-                <MenuItem Header="Project..." Command="commands:OpenProjectCommand.Instance" />
-            </MenuItem>
             <MenuItem Header="Recent Projects..." ItemsSource="{Binding RecentlyOpenedProjects}">
                 <MenuItem.ItemTemplate>
                     <DataTemplate>
