@@ -281,11 +281,11 @@
         <Setter Property="Height"
           Value="1" />
         <Setter Property="Margin"
-          Value="0,4,0,4" />
+          Value="12,4,12,4" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Separator}">
-                    <Border BorderThickness="1" BorderBrush="{StaticResource BaseBorderColor}" />
+                    <Border BorderThickness="1" BorderBrush="{StaticResource AccentBackgroundColor}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

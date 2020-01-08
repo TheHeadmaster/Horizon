@@ -12,23 +12,45 @@ namespace Horizon.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Gets or sets whether a Starbound test instance is running or not.
+        /// </summary>
         public bool IsRunningStarbound { get; set; } = false;
 
-        public Color StatusBarColor
+        /// <summary>
+        /// The color of the status bar.
+        /// </summary>
+        public SolidColorBrush StatusBarColor
         {
             get
             {
                 if (this.IsRunningStarbound)
                 {
-                    return Color.FromRgb(202, 81, 0);
+                    return App.StyleManager.StatusBarActiveColor;
                 }
                 else
                 {
-                    return Color.FromRgb(0, 122, 204);
+                    return App.StyleManager.BaseBackgroundColor;
                 }
             }
         }
 
-        public string StatusState { get; set; } = "Ready";
+        /// <summary>
+        /// The text that is displayed on the status bar.
+        /// </summary>
+        public string StatusState { get; private set; } = "Ready";
+
+        /// <summary>
+        /// Changes the status state text to the specified text string.
+        /// </summary>
+        /// <param name="text">
+        /// The text to display on the status bar.
+        /// </param>
+        public void ChangeStatus(string text) => this.StatusState = text;
+
+        /// <summary>
+        /// Clears the status state. Will read "Ready" when cleared.
+        /// </summary>
+        public void ClearStatus() => this.StatusState = "Ready";
     }
 }

@@ -38,7 +38,7 @@ namespace Horizon.Commands
             timer.Stop();
             timer.Dispose();
             this.FileLastPosition = 0;
-            Status.Instance.ViewModel.StatusState = "Ready";
+            Status.Instance.ViewModel.ClearStatus();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs args)
@@ -53,7 +53,7 @@ namespace Horizon.Commands
 
                 string s = Encoding.Default.GetString(bytes);
 
-                Output.Instance.ViewModel.OutputText += s;
+                // TODO: Reinstate Output.Instance.ViewModel.OutputText += s;
                 this.FileLastPosition += bytes.Length;
             }
         }
@@ -71,8 +71,9 @@ namespace Horizon.Commands
         [Log("Starting an instance of Starbound...", ExitMessage = "Instance started.")]
         public override void Execute(object parameter)
         {
-            Status.Instance.ViewModel.StatusState = "Starting Starbound...";
-            Output.Instance.ViewModel.OutputText = "";
+            Status.Instance.ViewModel.ChangeStatus("Starting Starbound...");
+
+            // TODO: Reinstate Output.Instance.ViewModel.OutputText = "";
             Process proc = new Process();
             proc.StartInfo.FileName = Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "win64", "starbound.exe");
             proc.StartInfo.UseShellExecute = true;
@@ -82,7 +83,7 @@ namespace Horizon.Commands
             StarboundRunning = proc;
             Status.Instance.ViewModel.IsRunningStarbound = true;
             proc.Exited += this.Proc_Exited;
-            Status.Instance.ViewModel.StatusState = "Starbound Running";
+            Status.Instance.ViewModel.ChangeStatus("Starbound Running");
             this.Watch();
         }
     }

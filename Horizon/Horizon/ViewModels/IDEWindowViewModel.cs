@@ -33,10 +33,6 @@ namespace Horizon.ViewModels
 
         public void LoadUserMeta()
         {
-            UserMetaFile metadataFile = JFile.Load<UserMetaFile>(App.AssemblyDirectory, "metadata.json");
-            App.Metadata = metadataFile.CreateModel();
-            App.Metadata.Save();
-
             if (App.Metadata.OpenLastProjectOnStartup && !(App.Metadata.LastOpenedProject is null))
             {
                 ProjectFile projectFile = JFile.Load<ProjectFile>(App.Metadata.LastOpenedProject.Path, "Project.json");

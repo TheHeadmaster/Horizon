@@ -22,9 +22,9 @@ namespace Horizon.Commands
         [Log("Saving project...", ExitMessage = "Project saved.")]
         public override void Execute(object parameter)
         {
-            Status.Instance.ViewModel.StatusState = $"Saving {IDEWindow.Instance.ViewModel.CurrentProject.Name}...";
+            Status.Instance.ViewModel.ChangeStatus($"Saving {IDEWindow.Instance.ViewModel.CurrentProject.Name}...");
             IDEWindow.Instance.ViewModel.CurrentProject.Save();
-            Status.Instance.ViewModel.StatusState = $"{IDEWindow.Instance.ViewModel.CurrentProject.Name} Saved";
+            Status.Instance.ViewModel.ChangeStatus($"{IDEWindow.Instance.ViewModel.CurrentProject.Name} Saved");
         }
     }
 }

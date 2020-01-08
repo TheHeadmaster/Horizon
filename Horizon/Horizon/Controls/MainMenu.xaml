@@ -17,6 +17,9 @@
             </MenuItem>
             <MenuItem Header="Close Project" Command="commands:CloseProjectCommand.Instance" />
             <Separator />
+            <MenuItem Header="Save" Command="commands:SaveCommand.Instance" InputGestureText="Ctrl+S" />
+            <MenuItem Header="Save All" Command="commands:SaveAllCommand.Instance" InputGestureText="Ctrl+Shift+S" />
+            <Separator />
             <MenuItem Header="Recent Projects..." ItemsSource="{Binding RecentlyOpenedProjects}">
                 <MenuItem.ItemTemplate>
                     <DataTemplate>
@@ -33,22 +36,16 @@
                     </DataTemplate>
                 </MenuItem.ItemTemplate>
             </MenuItem>
-        </MenuItem>
-        <!--
-            <MenuItem Header="Save" Command="commands:SaveCommand.Instance" InputGestureText="Ctrl+S" />
-            <MenuItem Header="Save All" Command="commands:SaveAllCommand.Instance" />
             <Separator />
-            <MenuItem Header="Exit" Command="commands:CloseCommand.Instance" InputGestureText="Alt+F4">
-            </MenuItem>
+            <MenuItem Header="Exit" Command="commands:CloseCommand.Instance" InputGestureText="Alt+F4" />
         </MenuItem>
         <MenuItem Header="Edit">
             <MenuItem Header="Preferences..." Command="commands:OpenPreferencesCommand.Instance" InputGestureText="Alt+P" />
         </MenuItem>
-        <MenuItem Header="Test" IsEnabled="{Binding IsTestButtonEnabled}">
+        <MenuItem Header="Test" IsEnabled="{Binding IsTestButtonEnabled, UpdateSourceTrigger=PropertyChanged}">
 
             <MenuItem Header="Play..." Command="commands:PlayCommand.Instance" InputGestureText="F5" />
             <MenuItem Header="Stop..." Command="commands:StopCommand.Instance" InputGestureText="Shift+F5" />
         </MenuItem>
-        -->
     </Menu>
 </UserControl>

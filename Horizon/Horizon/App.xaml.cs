@@ -41,7 +41,9 @@ namespace Horizon
 
         public static LauncherMeta LauncherMeta { get; } = new LauncherMeta();
 
-        public static UserMeta Metadata { get; set; }
+        public static UserMeta Metadata { get; private set; }
+
+        public static StyleManager StyleManager { get; private set; } = new StyleManager();
 
         /// <summary>
         /// Serves as the application entry point.

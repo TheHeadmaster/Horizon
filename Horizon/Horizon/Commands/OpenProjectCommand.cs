@@ -1,4 +1,5 @@
-﻿using Horizon.Diagnostics;
+﻿using Horizon.Controls;
+using Horizon.Diagnostics;
 using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.UI;
@@ -112,11 +113,13 @@ namespace Horizon.Commands
                 if (result == MessageBoxResult.Yes)
                 {
                     IDEWindow.Instance.ViewModel.CurrentProject.Close(true);
+                    Status.Instance.ViewModel.ChangeStatus($"Opening {Path.Combine(path, "project.json")}");
                     ProjectFile file = JFile.Load<ProjectFile>(path, "project.json");
                     IDEWindow.Instance.ViewModel.CurrentProject = file.CreateModel();
                     App.Metadata.RecentlyOpenedProjects.Add(new RecentItem { Name = IDEWindow.Instance.ViewModel.CurrentProject.Name, Path = IDEWindow.Instance.ViewModel.CurrentProject.FilePath });
                     IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
                     App.Metadata.Save();
+                    Status.Instance.ViewModel.ClearStatus();
                 }
                 else if (result == MessageBoxResult.No)
                 {

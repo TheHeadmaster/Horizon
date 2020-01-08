@@ -12,6 +12,12 @@
     <Window.InputBindings>
         <KeyBinding Key="F4" Modifiers="Alt" Command="commands:CloseCommand.Instance" />
         <KeyBinding Key="N" Modifiers="Ctrl+Shift" Command="commands:NewProjectCommand.Instance" />
+        <KeyBinding Key="O" Modifiers="Ctrl+Shift" Command="commands:OpenProjectCommand.Instance" />
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="commands:SaveCommand.Instance" />
+        <KeyBinding Key="S" Modifiers="Ctrl+Shift" Command="commands:SaveAllCommand.Instance" />
+        <KeyBinding Key="P" Modifiers="Alt" Command="commands:OpenPreferencesCommand.Instance" />
+        <KeyBinding Key="F5" Command="commands:PlayCommand.Instance" />
+        <KeyBinding Key="F5" Modifiers="Shift" Command="commands:StopCommand.Instance" />
     </Window.InputBindings>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Closed">
@@ -26,8 +32,8 @@
             </Grid.RowDefinitions>
             <!--
         <controls:Workspace Grid.Row="1" />
-        <controls:Status Grid.Row="2" />
-        -->
+            -->
+            <controls:Status Grid.Row="2" />
         </Grid>
     </Border>
 </controls:BorderlessWindow>

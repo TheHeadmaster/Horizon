@@ -25,6 +25,8 @@ namespace Horizon.ObjectModel
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private ObservableCollection<RecentItem> recentlyOpenedProjects = new ObservableCollection<RecentItem>();
+
         /// <summary>
         /// Gets or sets the name of the json file saved to disk.
         /// </summary>
@@ -50,7 +52,17 @@ namespace Horizon.ObjectModel
         /// Gets or sets the list of most recently opened projects. The program will keep a maximum
         /// of 10 of the most recent projects in memory, and remove older entries if it reaches this limit.
         /// </summary>
-        public ObservableCollection<RecentItem> RecentlyOpenedProjects { get; set; } = new ObservableCollection<RecentItem>();
+        public ObservableCollection<RecentItem> RecentlyOpenedProjects
+        {
+            get => this.recentlyOpenedProjects;
+
+            set
+            {
+                this.recentlyOpenedProjects.CollectionChanged -= this.RecentlyOpenedProjects_CollectionChanged;
+                this.recentlyOpenedProjects = value;
+                this.recentlyOpenedProjects.CollectionChanged += this.RecentlyOpenedProjects_CollectionChanged;
+            }
+        }
 
         public UserMeta()
         {

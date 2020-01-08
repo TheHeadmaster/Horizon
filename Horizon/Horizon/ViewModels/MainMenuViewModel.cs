@@ -29,41 +29,34 @@ namespace Horizon.ViewModels
 
         public bool IsTestButtonEnabled => !(IDEWindow.Instance.ViewModel.CurrentProject is null);
 
+        public RecentItem LastOpenedProject => App.Metadata.LastOpenedProject;
+
         public ObservableCollection<RecentItem> RecentlyOpenedProjects => new ObservableCollection<RecentItem>(App.Metadata?.RecentlyOpenedProjects?.Reverse());
 
         public string SaveText => "";// $"Save {App.MainWindow.ActivePage.GetModel().Header}..."; //TODO: Fix whatever this is
 
         public MainMenuViewModel()
         {
-            // TODO: Fix all this horseshit
-            //App.PropertyChanged += this.App_PropertyChanged;
-            //App.Metadata.PropertyChanged += this.Metadata_PropertyChanged;
-            //App.InterfaceData.PropertyChanged += this.UIData_PropertyChanged;
+            if (App.Metadata is null) { return; }
+            App.Metadata.PropertyChanged += this.Metadata_PropertyChanged;
+            IDEWindow.Instance.ViewModel.PropertyChanged += this.IDEWindowPropertyChanged;
         }
 
-        //private void App_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        //{
-        //    if (args.PropertyName == nameof(App.CurrentProject))
-        //    {
-        //        this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.IsTestButtonEnabled)));
-        //    }
-        //}
-        //
-        //private void Metadata_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        //{
-        //    if (args.PropertyName == nameof(App.Metadata.RecentlyOpenedProjects))
-        //    {
-        //        this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(App.Metadata.RecentlyOpenedProjects)));
-        //        this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(App.Metadata.LastOpenedProject)));
-        //    }
-        //}
-        //
-        //private void UIData_PropertyChanged(object sender, PropertyChangedEventArgs args)
-        //{
-        //    if (args.PropertyName == nameof(App.InterfaceData.IsRunningStarbound))
-        //    {
-        //        this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.IsFileButtonEnabled)));
-        //    }
-        //}
+        private void IDEWindowPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == nameof(IDEWindow.Instance.ViewModel.CurrentProject))
+            {
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.IsTestButtonEnabled)));
+            }
+        }
+
+        private void Metadata_PropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            if (args.PropertyName == nameof(App.Metadata.RecentlyOpenedProjects))
+            {
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.RecentlyOpenedProjects)));
+                this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.LastOpenedProject)));
+            }
+        }
     }
 }
