@@ -3,6 +3,8 @@ using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.UI;
 using Horizon.Windows;
+using ReactiveUI;
+using Splat;
 using System;
 using System.IO;
 using System.Reflection;
@@ -58,6 +60,8 @@ namespace Horizon
         private void AppStartup(object sender, StartupEventArgs args)
         {
             Instance = this;
+
+            Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
 
             Metadata = JFile.Load<UserMetaFile>(AssemblyDirectory, "metadata.json").CreateModel();
 

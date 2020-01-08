@@ -205,6 +205,7 @@
     <Compile Include="Controls\PropertiesView.xaml.cs">
       <DependentUpon>PropertiesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\BorderlessReactiveWindow.cs" />
     <Compile Include="Controls\SlantedBorder.cs" />
     <Compile Include="Controls\Status.xaml.cs">
       <DependentUpon>Status.xaml</DependentUpon>

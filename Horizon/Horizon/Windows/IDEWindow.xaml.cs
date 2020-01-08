@@ -17,25 +17,32 @@ using System.Drawing;
 using Microsoft.Win32;
 using Horizon.Controls;
 using Horizon.ViewModels;
+using ReactiveUI;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
 
 namespace Horizon.Windows
 {
     /// <summary>
     /// The main window for the IDE.
     /// </summary>
-    public partial class IDEWindow : BorderlessWindow
+    public partial class IDEWindow : BorderlessReactiveWindow<IDEWindowViewModel>
     {
         public static IDEWindow Instance { get; private set; }
-
-        public IDEWindowViewModel ViewModel { get; set; }
 
         public IDEWindow()
         {
             this.InitializeComponent();
             Instance = this;
-
             this.ViewModel = new IDEWindowViewModel();
-            this.DataContext = this.ViewModel;
+
+            this.WhenActivated(dispose =>
+            {
+                this.WhenAnyValue(x => x.ViewModel.CurrentProject)
+                    .Select(x => x is null ? "Horizon" : $"Horizon - {x.Name}")
+                    .BindTo(this, x => x.Title)
+                    .DisposeWith(dispose);
+            });
         }
     }
 }

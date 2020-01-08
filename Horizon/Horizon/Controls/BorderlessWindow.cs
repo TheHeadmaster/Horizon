@@ -1,5 +1,6 @@
 ﻿using Horizon.Utilities;
 using Microsoft.Win32;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

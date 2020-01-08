@@ -1,6 +1,8 @@
 ﻿using Horizon.Json;
 using Horizon.ObjectModel;
 using Horizon.Windows;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,26 +12,10 @@ using System.Threading.Tasks;
 
 namespace Horizon.ViewModels
 {
-    public class IDEWindowViewModel : INotifyPropertyChanged
+    public class IDEWindowViewModel : ReactiveObject
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        [Reactive]
         public Project CurrentProject { get; set; }
-
-        public string Title
-        {
-            get
-            {
-                if (this.CurrentProject is null)
-                {
-                    return "Horizon";
-                }
-                else
-                {
-                    return $"Horizon - {this.CurrentProject.Name}";
-                }
-            }
-        }
 
         public void LoadUserMeta()
         {
