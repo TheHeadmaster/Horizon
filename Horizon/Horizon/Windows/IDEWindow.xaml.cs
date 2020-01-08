@@ -20,6 +20,7 @@ using Horizon.ViewModels;
 using ReactiveUI;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using Horizon.ObjectModel;
 
 namespace Horizon.Windows
 {
@@ -35,6 +36,8 @@ namespace Horizon.Windows
             this.InitializeComponent();
             Instance = this;
             this.ViewModel = new IDEWindowViewModel();
+
+            UserMeta.Load();
 
             this.WhenActivated(dispose =>
             {

@@ -1,6 +1,8 @@
 ﻿using Horizon.Json;
 using Horizon.UI;
 using Horizon.Utilities;
+using Horizon.ViewModels;
+using Horizon.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -82,6 +84,16 @@ namespace Horizon.ObjectModel
         }
 
         protected void OnPropertyChanged(string propertyName) => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+        public static void Load()
+        {
+            if (App.Metadata.OpenLastProjectOnStartup && !(App.Metadata.LastOpenedProject is null))
+            {
+                ProjectFile projectFile = JFile.Load<ProjectFile>(App.Metadata.LastOpenedProject.Path, "Project.json");
+                IDEWindow.Instance.ViewModel.CurrentProject = projectFile.CreateModel();
+                IDEWindow.Instance.ViewModel.CurrentProject.LoadMods();
+            }
+        }
 
         /// <summary>
         /// Creates a new json data model, populates it with this UserMeta's data, and saves it to disk.

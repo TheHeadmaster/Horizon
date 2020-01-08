@@ -1,30 +1,18 @@
-﻿using Horizon.Json;
-using Horizon.ObjectModel;
-using Horizon.Windows;
+﻿using Horizon.ObjectModel;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Horizon.ViewModels
 {
+    /// <summary>
+    /// ViewModel for the IDE Window.
+    /// </summary>
     public class IDEWindowViewModel : ReactiveObject
     {
+        /// <summary>
+        /// Gets or sets the current project.
+        /// </summary>
         [Reactive]
         public Project CurrentProject { get; set; }
-
-        public void LoadUserMeta()
-        {
-            if (App.Metadata.OpenLastProjectOnStartup && !(App.Metadata.LastOpenedProject is null))
-            {
-                ProjectFile projectFile = JFile.Load<ProjectFile>(App.Metadata.LastOpenedProject.Path, "Project.json");
-                this.CurrentProject = projectFile.CreateModel();
-                this.CurrentProject.LoadMods();
-            }
-        }
     }
 }
