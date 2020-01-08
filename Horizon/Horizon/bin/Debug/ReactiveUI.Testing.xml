@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ReactiveUI.Testing</name>
+    </assembly>
+    <members>
+        <member name="T:ReactiveUI.Testing.IBuilder">
+            <summary>
+            An interface for building.
+            </summary>
+        </member>
+        <member name="T:ReactiveUI.Testing.IBuilderExtensions">
+            <summary>
+            Default methods for the <see cref="T:ReactiveUI.Testing.IBuilder"/> abstraction.
+            </summary>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``2(``0,``1@,``1)">
+            <summary>
+            Adds the specified field to the builder.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``2(``0,System.Collections.Generic.List{``1}@,System.Collections.Generic.IEnumerable{``1})">
+            <summary>
+            Adds the specified list of fields to the builder.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="field">The field.</param>
+            <param name="values">The values.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``2(``0,System.Collections.Generic.List{``1}@,``1)">
+            <summary>
+            Adds the specified field to the builder.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="field">The field.</param>
+            <param name="value">The value.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``3(``0,System.Collections.Generic.Dictionary{``1,``2}@,System.Collections.Generic.KeyValuePair{``1,``2})">
+            <summary>
+            Adds the specified key value pair to the provided dictionary.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="dictionary">The dictionary.</param>
+            <param name="keyValuePair">The key value pair.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``3(``0,System.Collections.Generic.Dictionary{``1,``2}@,``1,``2)">
+            <summary>
+            Adds the specified key and value to the provided dictionary.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+            <param name="value">The value.</param>
+            <returns>The builder.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.IBuilderExtensions.With``3(``0,System.Collections.Generic.Dictionary{``1,``2}@,System.Collections.Generic.IDictionary{``1,``2})">
+            <summary>
+            Adds the specified dictionary to the provided dictionary.
+            </summary>
+            <typeparam name="TBuilder">The type of the builder.</typeparam>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TField">The type of the field.</typeparam>
+            <param name="builder">This builder.</param>
+            <param name="dictionary">The dictionary.</param>
+            <param name="keyValuePair">The key value pair.</param>
+            <returns> The builder.</returns>
+        </member>
+        <member name="T:ReactiveUI.Testing.MessageBusExtensions">
+            <summary>
+            Message bus testing extensions.
+            </summary>
+        </member>
+        <member name="M:ReactiveUI.Testing.MessageBusExtensions.With``1(ReactiveUI.IMessageBus,System.Func{``0})">
+            <summary>
+            Override the default Message Bus during the specified block.
+            </summary>
+            <typeparam name="TRet">The return type.</typeparam>
+            <param name="messageBus">The message bus to use for the block.</param>
+            <param name="block">The function to execute.</param>
+            <returns>The return value of the function.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.MessageBusExtensions.WithMessageBus(ReactiveUI.IMessageBus)">
+            <summary>
+            WithMessageBus allows you to override the default Message Bus
+            implementation until the object returned is disposed. If a
+            message bus is not specified, a default empty one is created.
+            </summary>
+            <param name="messageBus">The message bus to use, or null to create
+            a new one using the default implementation.</param>
+            <returns>An object that when disposed, restores the original
+            message bus.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.MessageBusExtensions.With(ReactiveUI.IMessageBus,System.Action)">
+            <summary>
+            Override the default Message Bus during the specified block.
+            </summary>
+            <param name="messageBus">The message bus to use for the block.</param>
+            <param name="block">The action to execute.</param>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.WithScheduler(System.Reactive.Concurrency.IScheduler)">
+            <summary>
+            WithScheduler overrides the default Deferred and Taskpool schedulers
+            with the given scheduler until the return value is disposed. This
+            is useful in a unit test runner to force RxXaml objects to schedule
+            via a TestScheduler object.
+            </summary>
+            <param name="sched">The scheduler to use.</param>
+            <returns>An object that when disposed, restores the previous default
+            schedulers.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.With``2(``0,System.Func{``0,``1})">
+            <summary>
+            With is an extension method that uses the given scheduler as the
+            default Deferred and Taskpool schedulers for the given Func. Use
+            this to initialize objects that store the default scheduler (most
+            RxXaml objects).
+            </summary>
+            <typeparam name="T">The scheduler type.</typeparam>
+            <typeparam name="TRet">The return type.</typeparam>
+            <param name="sched">The scheduler to use.</param>
+            <param name="block">The function to execute.</param>
+            <returns>The return value of the function.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.WithAsync``2(``0,System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            With is an extension method that uses the given scheduler as the
+            default Deferred and Taskpool schedulers for the given Func. Use
+            this to initialize objects that store the default scheduler (most
+            RxXaml objects).
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <typeparam name="TRet">The return type.</typeparam>
+            <param name="sched">The scheduler to use.</param>
+            <param name="block">The function to execute.</param>
+            <returns>The return value of the function.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.With``1(``0,System.Action{``0})">
+            <summary>
+            With is an extension method that uses the given scheduler as the
+            default Deferred and Taskpool schedulers for the given Action.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="sched">The scheduler to use.</param>
+            <param name="block">The action to execute.</param>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.WithAsync``1(``0,System.Func{``0,System.Threading.Tasks.Task})">
+            <summary>
+            With is an extension method that uses the given scheduler as the
+            default Deferred and Taskpool schedulers for the given Action.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="sched">The scheduler to use.</param>
+            <param name="block">The action to execute.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.AdvanceToMs(Microsoft.Reactive.Testing.TestScheduler,System.Double)">
+            <summary>
+            AdvanceToMs moves the TestScheduler to the specified time in
+            milliseconds.
+            </summary>
+            <param name="sched">The scheduler to advance.</param>
+            <param name="milliseconds">The time offset to set the TestScheduler
+            to, in milliseconds. Note that this is *not* additive or
+            incremental, it sets the time.</param>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.AdvanceByMs(Microsoft.Reactive.Testing.TestScheduler,System.Double)">
+            <summary>
+            AdvanceByMs moves the TestScheduler along by the specified time in
+            milliseconds.
+            </summary>
+            <param name="sched">The scheduler to advance.</param>
+            <param name="milliseconds">The relative time to advance the TestScheduler
+            by, in milliseconds.</param>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.OnNextAt``1(Microsoft.Reactive.Testing.TestScheduler,System.Double,``0)">
+            <summary>
+            OnNextAt is a method to help create simulated input Observables in
+            conjunction with CreateHotObservable or CreateColdObservable.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="sched">The scheduler to fire from.</param>
+            <param name="milliseconds">The time offset to fire the notification
+            on the recorded notification.</param>
+            <param name="value">The value to produce.</param>
+            <returns>A recorded notification that can be provided to
+            TestScheduler.CreateHotObservable.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.OnErrorAt``1(Microsoft.Reactive.Testing.TestScheduler,System.Double,System.Exception)">
+            <summary>
+            OnErrorAt is a method to help create simulated input Observables in
+            conjunction with CreateHotObservable or CreateColdObservable.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="sched">The scheduler to fire from.</param>
+            <param name="milliseconds">The time offset to fire the notification
+            on the recorded notification.</param>
+            <param name="ex">The exception to terminate the Observable
+            with.</param>
+            <returns>A recorded notification that can be provided to
+            TestScheduler.CreateHotObservable.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.OnCompletedAt``1(Microsoft.Reactive.Testing.TestScheduler,System.Double)">
+            <summary>
+            OnCompletedAt is a method to help create simulated input Observables in
+            conjunction with CreateHotObservable or CreateColdObservable.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <param name="sched">The scheduler to fire from.</param>
+            <param name="milliseconds">The time offset to fire the notification
+            on the recorded notification.</param>
+            <returns>A recorded notification that can be provided to
+            TestScheduler.CreateHotObservable.</returns>
+        </member>
+        <member name="M:ReactiveUI.Testing.SchedulerExtensions.FromTimeSpan(Microsoft.Reactive.Testing.TestScheduler,System.TimeSpan)">
+            <summary>
+            Converts a timespan to a virtual time for testing.
+            </summary>
+            <param name="sched">The scheduler.</param>
+            <param name="span">Timespan to convert.</param>
+            <returns>Timespan for virtual scheduler to use.</returns>
+        </member>
+    </members>
+</doc>

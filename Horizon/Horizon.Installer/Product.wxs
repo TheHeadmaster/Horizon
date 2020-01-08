@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="Horizon" Language="1033" Version="0.1" Manufacturer="The Parable Group" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
+  <Product Id="*" Name="Horizon" Language="1033" Version="0.3.1" Manufacturer="The Parable Group" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
@@ -11,6 +11,23 @@
     <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
 
     <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="ApplicationShortcutDesktop">
+          <Shortcut Id="ApplicationDesktopShortcut"
+              Name="Horizon"
+              Description="Combination IDE and launcher suite."
+              Target="[INSTALLFOLDER]Horizon.exe"
+              WorkingDirectory="TARGETDIR" />
+          <RemoveFolder Id="DesktopFolder" On="uninstall" />
+          <RegistryValue
+              Root="HKCU"
+              Key="Software/MyAppName"
+              Name="installed"
+              Type="integer"
+              Value="1"
+              KeyPath="yes" />
+        </Component>
+      </Directory>
       <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="Horizon">
           <Directory Id="XLDEFolder" Name="de" />
@@ -43,7 +60,7 @@
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut">
         <Shortcut Id="ApplicationStartMenuShortcut" Name="Horizon" Description="Horizon IDE" Target="[#Horizon.exe]" WorkingDirectory="INSTALLFOLDER" />
-
+        <Shortcut Id="UninstallProduct" Name="Uninstall Horizon" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="Uninstalls Horizon IDE." />
         <RemoveFolder Id="CleanupShortcut" Directory="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\TheParableGroup\Horizon" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
@@ -54,12 +71,15 @@
         <ComponentGroupRef Id="ProductComponents" />
         <ComponentGroupRef Id="LocalizationComponents" />
         <ComponentRef Id="ApplicationShortcut" />
+        <ComponentRef Id="ApplicationShortcutDesktop" />
         <ComponentRef Id="Horizon.exe" />
       </Feature>
     </Feature>
   </Product>
 
   <Fragment>
+    <Icon Id="Penguin.ico" SourceFile="Penguin.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Penguin.ico" />
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
 
       <Component Id="HorizonExeConfig">
@@ -70,6 +90,12 @@
       </Component>
       <Component Id="Log4NetConfig">
         <File Id="Log4NetConfigFile" Name="log4net.config" Source="Source\log4net.config" KeyPath="yes" />
+      </Component>
+      <Component Id="Log4NetDll">
+        <File Id="Log4NetDllFile" Name="log4net.dll" Source="Source\log4net.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="Log4NetXml">
+        <File Id="Log4NetXmlFile" Name="log4net.xml" Source="Source\log4net.xml" KeyPath="yes" />
       </Component>
       <Component Id="MethodBoundaryAspectDll">
         <File Id="MethodBoundaryAspectDllFile" Name="MethodBoundaryAspect.dll" Source="Source\MethodBoundaryAspect.dll" KeyPath="yes" />
@@ -130,6 +156,96 @@
       </Component>
       <Component Id="SystemWindowsInteractivityDll">
         <File Id="SystemWindowsInteractivityDllFile" Name="System.Windows.Interactivity.dll" Source="Source\System.Windows.Interactivity.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="DynamicDataDll">
+        <File Id="DynamicDataDllFile" Name="DynamicData.dll" Source="Source\DynamicData.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="DynamicDataXml">
+        <File Id="DynamicDataXmlFile" Name="DynamicData.xml" Source="Source\DynamicData.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="MicrosoftReactiveTestingDll">
+        <File Id="MicrosoftReactiveTestingDllFile" Name="Microsoft.Reactive.Testing.dll" Source="Source\Microsoft.Reactive.Testing.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="MicrosoftReactiveTestingXml">
+        <File Id="MicrosoftReactiveTestingXmlFile" Name="Microsoft.Reactive.Testing.xml" Source="Source\Microsoft.Reactive.Testing.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="PharmacistCommonDll">
+        <File Id="PharmacistCommonDllFile" Name="Pharmacist.Common.dll" Source="Source\Pharmacist.Common.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="PharmacistCommonXml">
+        <File Id="PharmacistCommonXmlFile" Name="Pharmacist.Common.xml" Source="Source\Pharmacist.Common.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIDll">
+        <File Id="ReactiveUIDllFile" Name="ReactiveUI.dll" Source="Source\ReactiveUI.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIEventsDll">
+        <File Id="ReactiveUIEventsDllFile" Name="ReactiveUI.Events.dll" Source="Source\ReactiveUI.Events.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIEventsWPFDll">
+        <File Id="ReactiveUIEventsWPFDllFile" Name="ReactiveUI.Events.WPF.dll" Source="Source\ReactiveUI.Events.WPF.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIEventsWPFXml">
+        <File Id="ReactiveUIEventsWPFXmlFile" Name="ReactiveUI.Events.WPF.xml" Source="Source\ReactiveUI.Events.WPF.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIEventsXml">
+        <File Id="ReactiveUIEventsXmlFile" Name="ReactiveUI.Events.xml" Source="Source\ReactiveUI.Events.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIFodyHelpersDll">
+        <File Id="ReactiveUIFodyHelpersDllFile" Name="ReactiveUI.Fody.Helpers.dll" Source="Source\ReactiveUI.Fody.Helpers.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIFodyHelpersXml">
+        <File Id="ReactiveUIFodyHelpersXmlFile" Name="ReactiveUI.Fody.Helpers.xml" Source="Source\ReactiveUI.Fody.Helpers.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUITestingDll">
+        <File Id="ReactiveUITestingDllFile" Name="ReactiveUI.Testing.dll" Source="Source\ReactiveUI.Testing.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUITestingXml">
+        <File Id="ReactiveUITestingXmlFile" Name="ReactiveUI.Testing.xml" Source="Source\ReactiveUI.Testing.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIWPFDll">
+        <File Id="ReactiveUIWPFDllFile" Name="ReactiveUI.WPF.dll" Source="Source\ReactiveUI.WPF.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIWPFXml">
+        <File Id="ReactiveUIWPFXmlFile" Name="ReactiveUI.WPF.xml" Source="Source\ReactiveUI.WPF.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="ReactiveUIXml">
+        <File Id="ReactiveUIXmlFile" Name="ReactiveUI.xml" Source="Source\ReactiveUI.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SplatDll">
+        <File Id="SplatDllFile" Name="Splat.dll" Source="Source\Splat.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SplatXml">
+        <File Id="SplatXmlFile" Name="Splat.xml" Source="Source\Splat.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SplatDrawingDll">
+        <File Id="SplatDrawingDllFile" Name="Splat.Drawing.dll" Source="Source\Splat.Drawing.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SplatDrawingXml">
+        <File Id="SplatDrawingXmlFile" Name="Splat.Drawing.xml" Source="Source\Splat.Drawing.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemReactiveDll">
+        <File Id="SystemReactiveDllFile" Name="System.Reactive.dll" Source="Source\System.Reactive.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemReactiveXml">
+        <File Id="SystemReactiveXmlFile" Name="System.Reactive.xml" Source="Source\System.Reactive.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemRuntimeCompilerServicesUnsafeDll">
+        <File Id="SystemRuntimeCompilerServicesUnsafeDllFile" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="Source\System.Runtime.CompilerServices.Unsafe.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemRuntimeCompilerServicesUnsafeXml">
+        <File Id="SystemRuntimeCompilerServicesUnsafeXmlFile" Name="System.Runtime.CompilerServices.Unsafe.xml" Source="Source\System.Runtime.CompilerServices.Unsafe.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemThreadingTasksExtensionsDll">
+        <File Id="SystemThreadingTasksExtensionsDllFile" Name="System.Threading.Tasks.Extensions.dll" Source="Source\System.Threading.Tasks.Extensions.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemThreadingTasksExtensionsXml">
+        <File Id="SystemThreadingTasksExtensionsXmlFile" Name="System.Threading.Tasks.Extensions.xml" Source="Source\System.Threading.Tasks.Extensions.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemValueTupleDll">
+        <File Id="SystemValueTupleDllFile" Name="System.ValueTuple.dll" Source="Source\System.ValueTuple.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="SystemValueTupleXml">
+        <File Id="SystemValueTupleXmlFile" Name="System.ValueTuple.xml" Source="Source\System.ValueTuple.xml" KeyPath="yes" />
       </Component>
     </ComponentGroup>
     <ComponentGroup Id="LocalizationComponents">
