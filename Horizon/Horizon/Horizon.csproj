@@ -277,6 +277,7 @@
     <Compile Include="ViewModels\NewProjectViewModel.cs" />
     <Compile Include="ViewModels\OutputViewModel.cs" />
     <Compile Include="ViewModels\PreferencesViewModel.cs" />
+    <Compile Include="ViewModels\ProgramSelectionViewModel.cs" />
     <Compile Include="ViewModels\ProjectExplorerViewModel.cs" />
     <Compile Include="ViewModels\ProjectViewModel.cs" />
     <Compile Include="ViewModels\PropertiesViewModel.cs" />
@@ -299,6 +300,7 @@
     <Compile Include="Windows\ProgramSelectionWindow.xaml.cs">
       <DependentUpon>ProgramSelectionWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ReactiveWindowViewModel.cs" />
     <Compile Include="Windows\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>

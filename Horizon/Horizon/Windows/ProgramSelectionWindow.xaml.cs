@@ -1,4 +1,9 @@
 ﻿using Horizon.Diagnostics;
+using Horizon.ViewModels;
+using ReactiveUI;
+using Splat;
+using System.Reactive;
+using System.Reactive.Disposables;
 using System.Windows;
 
 namespace Horizon.Windows
@@ -6,27 +11,25 @@ namespace Horizon.Windows
     /// <summary>
     /// Displays a window that allows the user to choose between the launcher and the IDE.
     /// </summary>
-    public partial class ProgramSelectionWindow : Window
+    public partial class ProgramSelectionWindow : ReactiveWindow<ProgramSelectionViewModel>
     {
         public ProgramSelectionWindow()
         {
             this.InitializeComponent();
-        }
 
-        [Log("Selected IDE. Opening IDE Window.")]
-        private void IDEButtonClick(object sender, RoutedEventArgs args)
-        {
-            this.Close();
-            new IDEWindow().Show();
-        }
+            this.ViewModel = new ProgramSelectionViewModel(this);
 
-        [Log("Selected Launcher. Opening Launcher Window.")]
-        private void LauncherButtonClick(object sender, RoutedEventArgs args)
-        {
-            this.Dispatcher.Invoke(() =>
+            this.WhenActivated(dispose =>
             {
-                this.Close();
-                new Launcher().Show();
+                this.BindCommand(this.ViewModel,
+                viewModel => viewModel.SwitchToIDECommand,
+                view => view.IDEButton)
+                .DisposeWith(dispose);
+
+                this.BindCommand(this.ViewModel,
+                viewModel => viewModel.SwitchToLauncherCommand,
+                view => view.LauncherButton)
+                .DisposeWith(dispose);
             });
         }
     }
