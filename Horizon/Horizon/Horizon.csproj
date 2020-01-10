@@ -188,9 +188,16 @@
     <Compile Include="Commands\SelectObjectCommand.cs" />
     <Compile Include="Commands\StopCommand.cs" />
     <Compile Include="Controls\BorderlessWindow.cs" />
-    <Compile Include="Controls\CodePage.xaml.cs" />
-    <Compile Include="Controls\ErrorList.xaml.cs" />
-    <Compile Include="Controls\ItemPage.xaml.cs" />
+    <Compile Include="Controls\CodePage.xaml.cs">
+      <DependentUpon>CodePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ErrorList.xaml.cs">
+      <DependentUpon>ErrorList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ItemPage.xaml.cs">
+      <DependentUpon>ItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MagneticScrollViewer.cs" />
     <Compile Include="Controls\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
@@ -200,8 +207,12 @@
     <Compile Include="Controls\Output.xaml.cs">
       <DependentUpon>Output.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\OverridableTextBox.xaml.cs" />
-    <Compile Include="Controls\ProjectExplorer.xaml.cs" />
+    <Compile Include="Controls\OverridableTextBox.xaml.cs">
+      <DependentUpon>OverridableTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProjectExplorer.xaml.cs">
+      <DependentUpon>ProjectExplorer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PropertiesView.xaml.cs">
       <DependentUpon>PropertiesView.xaml</DependentUpon>
     </Compile>
@@ -300,7 +311,6 @@
     <Compile Include="Windows\ProgramSelectionWindow.xaml.cs">
       <DependentUpon>ProgramSelectionWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\ReactiveWindowViewModel.cs" />
     <Compile Include="Windows\Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>

@@ -30,10 +30,8 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="24" />
             </Grid.RowDefinitions>
-            <!--
-        <controls:Workspace Grid.Row="1" />
-            -->
-            <controls:Status Grid.Row="2" />
+            <controls:Workspace Grid.Row="0" />
+            <controls:Status Grid.Row="1" />
         </Grid>
     </Border>
 </controls:BorderlessReactiveWindow>

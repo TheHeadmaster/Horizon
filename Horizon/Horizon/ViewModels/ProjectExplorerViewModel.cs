@@ -33,7 +33,7 @@ namespace Horizon.ViewModels
 
         public ProjectExplorerViewModel()
         {
-            IDEWindow.Instance.ViewModel.PropertyChanged += this.App_PropertyChanged;
+            // IDEWindow.Instance.ViewModel.PropertyChanged += this.App_PropertyChanged;
         }
 
         private void App_PropertyChanged(object sender, PropertyChangedEventArgs args)

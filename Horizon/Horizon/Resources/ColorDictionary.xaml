@@ -11,6 +11,6 @@
     <SolidColorBrush x:Key="BaseBorderColor" Color="{StaticResource Black}" />
     <SolidColorBrush x:Key="BaseHighlightColor" Color="{StaticResource Abbey}" />
     <SolidColorBrush x:Key="BaseFontColor" Color="{StaticResource White}" />
-    <SolidColorBrush x:Key="ScrollBarGlyphColor" Color="{StaticResource Black}" />
+    <SolidColorBrush x:Key="ScrollBarGlyphColor" Color="{StaticResource Bright Red}" />
     <SolidColorBrush x:Key="StatusBarActiveColor" Color="{StaticResource Burnt Orange}" />
 </ResourceDictionary>

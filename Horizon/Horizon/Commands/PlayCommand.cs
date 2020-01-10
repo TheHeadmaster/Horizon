@@ -43,19 +43,22 @@ namespace Horizon.Commands
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs args)
         {
-            using (FileStream fs = File.Open(Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "storage", "starbound.log"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            IDEWindow.Instance.Dispatcher.Invoke(() =>
             {
-                fs.Seek(this.FileLastPosition, SeekOrigin.Begin);
+                using (FileStream fs = File.Open(Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "storage", "starbound.log"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                {
+                    fs.Seek(this.FileLastPosition, SeekOrigin.Begin);
 
-                if (fs.Length < this.FileLastPosition) { return; }
-                byte[] bytes = new byte[fs.Length - this.FileLastPosition];
-                fs.Read(bytes, 0, bytes.Length);
+                    if (fs.Length < this.FileLastPosition) { return; }
+                    byte[] bytes = new byte[fs.Length - this.FileLastPosition];
+                    fs.Read(bytes, 0, bytes.Length);
 
-                string s = Encoding.Default.GetString(bytes);
+                    string s = Encoding.Default.GetString(bytes);
 
-                // TODO: Reinstate Output.Instance.ViewModel.OutputText += s;
-                this.FileLastPosition += bytes.Length;
-            }
+                    Output.Instance.ViewModel.OutputText += s;
+                    this.FileLastPosition += bytes.Length;
+                }
+            });
         }
 
         private void Watch()
@@ -71,20 +74,23 @@ namespace Horizon.Commands
         [Log("Starting an instance of Starbound...", ExitMessage = "Instance started.")]
         public override void Execute(object parameter)
         {
-            Status.Instance.ViewModel.ChangeStatus("Starting Starbound...");
+            IDEWindow.Instance.Dispatcher.Invoke(() =>
+            {
+                Status.Instance.ViewModel.ChangeStatus("Starting Starbound...");
 
-            // TODO: Reinstate Output.Instance.ViewModel.OutputText = "";
-            Process proc = new Process();
-            proc.StartInfo.FileName = Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "win64", "starbound.exe");
-            proc.StartInfo.UseShellExecute = true;
-            proc.StartInfo.Verb = "runas";
-            proc.Start();
-            proc.EnableRaisingEvents = true;
-            StarboundRunning = proc;
-            Status.Instance.ViewModel.IsRunningStarbound = true;
-            proc.Exited += this.Proc_Exited;
-            Status.Instance.ViewModel.ChangeStatus("Starbound Running");
-            this.Watch();
+                Output.Instance.ViewModel.OutputText = "";
+                Process proc = new Process();
+                proc.StartInfo.FileName = Path.Combine(IDEWindow.Instance.ViewModel.CurrentProject.FilePath, "win64", "starbound.exe");
+                proc.StartInfo.UseShellExecute = true;
+                proc.StartInfo.Verb = "runas";
+                proc.Start();
+                proc.EnableRaisingEvents = true;
+                StarboundRunning = proc;
+                Status.Instance.ViewModel.IsRunningStarbound = true;
+                proc.Exited += this.Proc_Exited;
+                Status.Instance.ViewModel.ChangeStatus("Starbound Running");
+                this.Watch();
+            });
         }
     }
 }

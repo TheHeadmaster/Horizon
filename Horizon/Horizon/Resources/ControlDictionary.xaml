@@ -111,6 +111,45 @@
         </Grid>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="MagneticVerticalScrollBarTemplate"
+                 TargetType="{x:Type ScrollBar}">
+        <Grid HorizontalAlignment="Left" Margin="-1,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition MaxHeight="18" />
+                <RowDefinition Height="0.00001*" />
+                <RowDefinition MaxHeight="18" />
+            </Grid.RowDefinitions>
+            <RepeatButton Grid.Row="0"
+                  Style="{StaticResource ScrollBarLineButton}"
+                  Height="18"
+                  Command="ScrollBar.LineUpCommand"
+                  Content="M 0 4 L 8 4 L 4 0 Z" />
+            <Track x:Name="PART_Track"
+           Grid.Row="1"
+           IsDirectionReversed="true" Margin="0">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource ScrollBarPageButton}"
+                      Command="ScrollBar.PageUpCommand" Margin="0" />
+                </Track.DecreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Style="{StaticResource ScrollBarThumb}"
+               Margin="1,0,1,0" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource AccentBackgroundColor}">
+                    </Thumb>
+                </Track.Thumb>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Style="{StaticResource ScrollBarPageButton}"
+                      Command="ScrollBar.PageDownCommand" Margin="0" />
+                </Track.IncreaseRepeatButton>
+            </Track>
+            <Polygon x:Name="MagneticPoly" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Bottom" Points="3,-18 3,-13 9,-13 9,-18" Fill="{StaticResource AccentBackgroundColor}" StrokeThickness="1" Stroke="{StaticResource BaseBorderColor}" Opacity="0" />
+            <RepeatButton Grid.Row="2" Margin="0"
+                  Style="{StaticResource ScrollBarLineButton}"
+                  Height="18"
+                  Command="ScrollBar.LineDownCommand"
+                  Content="M 0 0 L 4 4 L 8 0 Z" />
+        </Grid>
+    </ControlTemplate>
+
     <ControlTemplate x:Key="HorizontalScrollBar"
                  TargetType="{x:Type ScrollBar}">
         <Grid>
@@ -199,6 +238,15 @@
         </Setter>
     </Style>
 
+    <Style x:Key="MagneticVerticalScrollBar" TargetType="{x:Type ScrollBar}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Width" Value="10" />
+        <Setter Property="Height" Value="Auto" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template" Value="{StaticResource MagneticVerticalScrollBarTemplate}" />
+    </Style>
+
     <!--ScrollViewer for a MenuItem-->
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
 
@@ -270,6 +318,44 @@
                             <Path Fill="{DynamicResource {x:Static SystemColors.MenuTextBrushKey}}"
                   Data="" />
                         </RepeatButton>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MagneticScrollViewer"
+       TargetType="{x:Type ScrollViewer}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Column="0"
+                  BorderThickness="1,1,1,1" BorderBrush="Black">
+                            <ScrollContentPresenter />
+                        </Border>
+                        <ScrollBar Grid.Row="0" Grid.Column="1" x:Name="PART_VerticalScrollBar"
+                     Style="{StaticResource MagneticVerticalScrollBar}"
+                     Value="{TemplateBinding VerticalOffset}"
+                     Maximum="{TemplateBinding ScrollableHeight}"
+                     ViewportSize="{TemplateBinding ViewportHeight}"
+                     Visibility="Visible" />
+                        <ScrollBar x:Name="PART_HorizontalScrollBar"
+                     Orientation="Horizontal"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     Value="{TemplateBinding HorizontalOffset}"
+                     Maximum="{TemplateBinding ScrollableWidth}"
+                     ViewportSize="{TemplateBinding ViewportWidth}"
+                     Visibility="Visible" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

@@ -1,7 +1,9 @@
 ﻿using Horizon.ViewModels;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,23 +21,24 @@ namespace Horizon.Controls
     /// <summary>
     /// Outputs information to a control in the IDE.
     /// </summary>
-    public partial class Output : UserControl
+    public partial class Output : ReactiveUserControl<OutputViewModel>
     {
         public static Output Instance { get; private set; }
-
-        public OutputViewModel ViewModel { get; set; }
 
         public Output()
         {
             this.InitializeComponent();
             Instance = this;
-            this.ViewModel = new OutputViewModel();
-            this.DataContext = this.ViewModel;
-        }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs args)
-        {
-            this.OutputTextBox.ScrollToEnd();
+            this.ViewModel = new OutputViewModel(this);
+
+            this.WhenActivated(dispose =>
+            {
+                this.OneWayBind(this.ViewModel,
+                    vm => vm.OutputText,
+                    view => view.OutputTextBox.Text)
+                .DisposeWith(dispose);
+            });
         }
     }
 }
