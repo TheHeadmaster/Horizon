@@ -1,2 +1,3 @@
 language: csharp
-solution: Horizon.sln
+solution: ./Horizon/Horizon.sln
+install: nuget restore ./Horizon/Horizon.sln
