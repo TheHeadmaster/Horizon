@@ -9,12 +9,12 @@
              mc:Ignorable="d"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <TreeView x:Name="projectExplorerTreeView" Padding="0,0,0,0">
+    <TreeView x:Name="projectExplorerTreeView" Padding="0,0,0,0" Background="{StaticResource BaseBackgroundColor}" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1">
         <TreeViewItem x:Name="ProjectNode" Visibility="{Binding RootNodeVisibility}" ItemsSource="{Binding CurrentProject.Mods}">
             <TreeViewItem.Header>
                 <StackPanel Orientation="Horizontal">
-                    <Image Source="/Horizon;component/UI/Images/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" />
-                    <Button Command="commands:SelectObjectCommand.Instance" Margin="0,-4,0,0" CommandParameter="{Binding CurrentProject}" BorderBrush="Transparent" BorderThickness="0" Background="Transparent">
+                    <Image Source="/Horizon;component/Resources/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" />
+                    <Button Command="commands:SelectObjectCommand.Instance" Margin="0,-4,0,0" CommandParameter="{Binding CurrentProject}" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Foreground="{StaticResource BaseFontColor}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Project '"  FontSize="14" VerticalAlignment="Center" />
                             <TextBlock Text="{Binding CurrentProject.Name, UpdateSourceTrigger=PropertyChanged}"  FontSize="14" VerticalAlignment="Center" />
@@ -28,15 +28,15 @@
                     <TreeViewItem>
                         <TreeViewItem.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Horizon;component/UI/Images/PenguinPlus.png" Margin="0,0,5,0" Width="24" Height="24" />
-                                <Button Content="{Binding Name}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" />
+                                <Image Source="/Horizon;component/Resources/PenguinPlus.png" Margin="0,0,5,0" Width="24" Height="24" />
+                                <Button Content="{Binding Name}" Foreground="{StaticResource BaseFontColor}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" />
                             </StackPanel>
                         </TreeViewItem.Header>
                         <TreeViewItem ItemsSource="{Binding Items}">
                             <TreeViewItem.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Horizon;component/UI/Images/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
-                                    <TextBlock Text="Items" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
+                                    <Image Source="/Horizon;component/Resources/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
+                                    <TextBlock Text="Items" Foreground="{StaticResource BaseFontColor}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
                                 </StackPanel>
                             </TreeViewItem.Header>
                             <TreeViewItem.ItemTemplate>
@@ -45,7 +45,7 @@
                                         <TreeViewItem.Header>
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Source="{Binding Image}" Margin="0,0,5,0" Width="24" Height="24" />
-                                                <Button Content="{Binding Name}" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" BorderBrush="Transparent" Background="Transparent">
+                                                <Button Foreground="{StaticResource BaseFontColor}" Content="{Binding Name}" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" BorderBrush="Transparent" Background="Transparent">
                                                     <Button.InputBindings>
                                                         <MouseBinding Gesture="LeftDoubleClick" Command="commands:OpenDocumentCommand.Instance" CommandParameter="{Binding}" />
                                                     </Button.InputBindings>
@@ -59,8 +59,8 @@
                         <TreeViewItem ItemsSource="{Binding CodeBank}">
                             <TreeViewItem.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Horizon;component/UI/Images/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
-                                    <TextBlock Text="Code" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
+                                    <Image Source="/Horizon;component/Resources/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
+                                    <TextBlock Foreground="{StaticResource BaseFontColor}" Text="Code" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
                                 </StackPanel>
                             </TreeViewItem.Header>
                             <TreeViewItem.ItemTemplate>
@@ -68,8 +68,8 @@
                                     <TreeViewItem>
                                         <TreeViewItem.Header>
                                             <StackPanel Orientation="Horizontal">
-                                                <Image Source="/Horizon;component/UI/Images/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" />
-                                                <Button Content="{Binding FileName}" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" BorderBrush="Transparent" Background="Transparent">
+                                                <Image Source="/Horizon;component/Resources/Penguin.png" Margin="0,0,5,0" Width="24" Height="24" />
+                                                <Button Foreground="{StaticResource BaseFontColor}" Content="{Binding FileName}" Command="commands:SelectObjectCommand.Instance" CommandParameter="{Binding}" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" BorderBrush="Transparent" Background="Transparent">
                                                     <Button.InputBindings>
                                                         <MouseBinding Gesture="LeftDoubleClick" Command="commands:OpenDocumentCommand.Instance" CommandParameter="{Binding}" />
                                                     </Button.InputBindings>
@@ -83,15 +83,15 @@
                         <TreeViewItem>
                             <TreeViewItem.Header>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Horizon;component/UI/Images/Options.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
-                                    <TextBlock Text="Options" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
+                                    <Image Source="/Horizon;component/Resources/Options.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased" />
+                                    <TextBlock Foreground="{StaticResource BaseFontColor}" Text="Options" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" />
                                 </StackPanel>
                             </TreeViewItem.Header>
                             <TreeViewItem>
                                 <TreeViewItem.Header>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Source="/Horizon;component/UI/Images/Render.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.EdgeMode="Aliased" RenderOptions.BitmapScalingMode="HighQuality" />
-                                        <TextBlock Text="Render Options" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" Opacity="{Binding RenderOptionsMissing}">
+                                        <Image Source="/Horizon;component/Resources/Render.png" Margin="0,0,5,0" Width="24" Height="24" RenderOptions.EdgeMode="Aliased" RenderOptions.BitmapScalingMode="HighQuality" />
+                                        <TextBlock Foreground="{StaticResource BaseFontColor}" Text="Render Options" Margin="0,-4,0,0" FontSize="14" VerticalAlignment="Center" Opacity="{Binding RenderOptionsMissing}">
                                             <TextBlock.TextDecorations>
                                                 <TextDecoration Location="Strikethrough">
                                                     <TextDecoration.Pen>

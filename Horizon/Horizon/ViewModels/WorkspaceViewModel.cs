@@ -1,4 +1,8 @@
-﻿using System;
+﻿using DynamicData;
+using DynamicData.Binding;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -10,8 +14,9 @@ namespace Horizon.ViewModels
     /// <summary>
     /// The ViewModel for the workspace control.
     /// </summary>
-    public class WorkspaceViewModel
+    public class WorkspaceViewModel : ReactiveObject
     {
-        public ObservableCollection<DocumentControlViewModel> Documents { get; set; } = new ObservableCollection<DocumentControlViewModel>();
+        [Reactive]
+        public ObservableCollectionExtended<DocumentControlViewModel> Documents { get; set; } = new ObservableCollectionExtended<DocumentControlViewModel>();
     }
 }

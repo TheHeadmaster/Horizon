@@ -3,31 +3,13 @@
                     xmlns:controls="clr-namespace:Horizon.Controls"
                     xmlns:fa="http://schemas.fontawesome.io/icons/"
                     xmlns:local="clr-namespace:Horizon.Windows">
-    <Style x:Key="ScrollBarLineButton"
-       TargetType="{x:Type RepeatButton}">
-        <Setter Property="SnapsToDevicePixels"
-          Value="True" />
-        <Setter Property="OverridesDefaultStyle"
-          Value="true" />
-        <Setter Property="Focusable"
-          Value="false" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
-                    <Border x:Name="Border"
-                Margin="1"
-                CornerRadius="2"
-                BorderThickness="1">
-                        <Path x:Name="Arrow"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Data="{Binding Content,
-            RelativeSource={RelativeSource TemplatedParent}}" Fill="{StaticResource ScrollBarGlyphColor}" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ControlDefinitions/LayoutAnchorableControlDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/ScrollBarLineButtonDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/PropertyGridDefinition.xaml" />
+        <!-- <ResourceDictionary Source="ControlDefinitions/DockingManagerDefinition.xaml" />-->
+        <!-- <ResourceDictionary Source="ControlDefinitions/LayoutDocumentPaneControlDefinition.xaml" /> -->
+    </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ScrollBarPageButton"
        TargetType="{x:Type RepeatButton}">

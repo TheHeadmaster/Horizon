@@ -1449,10 +1449,12 @@
         "dependencies": {
           "Microsoft.WindowsAPICodePack.Shell": "1.1.3.3",
           "Xceed.Wpf.Toolkit": "3.7.0.0",
+          "ReactiveUI.WPF": "11.1.0.0",
           "FluentValidation": "8.0.0.0",
           "ICSharpCode.AvalonEdit": "6.0.1.278",
           "Xceed.Wpf.AvalonDock": "3.7.0.0",
-          "Microsoft.WindowsAPICodePack": "1.1.3.3"
+          "Microsoft.WindowsAPICodePack": "1.1.3.3",
+          "Splat.Drawing": "9.3.0.0"
         },
         "runtime": {
           "Horizon.exe": {}
@@ -1471,6 +1473,14 @@
           "Xceed.Wpf.Toolkit.dll": {
             "assemblyVersion": "3.7.0.0",
             "fileVersion": "3.7.0.0"
+          }
+        }
+      },
+      "ReactiveUI.WPF.Reference/11.1.0.0": {
+        "runtime": {
+          "ReactiveUI.WPF.dll": {
+            "assemblyVersion": "11.1.0.0",
+            "fileVersion": "11.1.6.2831"
           }
         }
       },
@@ -1535,6 +1545,14 @@
           "Microsoft.WindowsAPICodePack.dll": {
             "assemblyVersion": "1.1.3.3",
             "fileVersion": "1.1.3.3"
+          }
+        }
+      },
+      "Splat.Drawing.Reference/9.3.0.0": {
+        "runtime": {
+          "Splat.Drawing.dll": {
+            "assemblyVersion": "9.3.0.0",
+            "fileVersion": "9.3.4.33243"
           }
         }
       }
@@ -2296,6 +2314,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "ReactiveUI.WPF.Reference/11.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
     "FluentValidation.Reference/8.0.0.0": {
       "type": "reference",
       "serviceable": false,
@@ -2312,6 +2335,11 @@
       "sha512": ""
     },
     "Microsoft.WindowsAPICodePack.Reference/1.1.3.3": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Splat.Drawing.Reference/9.3.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

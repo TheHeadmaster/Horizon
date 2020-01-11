@@ -1,4 +1,5 @@
-﻿using Horizon.ViewModels;
+﻿using Horizon.Controls;
+using Horizon.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,18 +17,17 @@ using System.Windows.Shapes;
 namespace Horizon.Windows
 {
     /// <summary>
-    /// Interaction logic for PreferencesWindow.xaml
+    /// Allows the user to change personal settings to customize user experience.
     /// </summary>
-    public partial class PreferencesWindow : Window
+    public partial class PreferencesWindow : BorderlessReactiveWindow<PreferencesViewModel>
     {
         private List<DockPanel> panels = new List<DockPanel>();
-
-        public PreferencesViewModel ViewModel { get; set; } = new PreferencesViewModel();
 
         public PreferencesWindow()
         {
             this.InitializeComponent();
-            this.DataContext = this.ViewModel;
+
+            this.ViewModel = new PreferencesViewModel();
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs args) => this.Close();

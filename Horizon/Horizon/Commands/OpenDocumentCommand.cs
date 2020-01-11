@@ -39,7 +39,8 @@ namespace Horizon.Commands
                 return;
             }
             DocumentControlViewModel newViewModel = document.CreateViewModel();
-            Workspace.Instance.ViewModel.Documents.Add(newViewModel);
+
+            //Workspace.Instance.ViewModel.Documents.Add(newViewModel);
 
             //MainWindow.FocusDocument(newViewModel.GetModel());
         }
