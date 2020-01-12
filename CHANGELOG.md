@@ -31,6 +31,8 @@ Added a desktop shortcut and uninstaller shortcut to Installer.
 
 Added an output window that collects log data from a Starbound instance.
 
+Added a magnetic scroll viewer. If the user scrolls to the bottom, it will "magnetize" to the bottom so that the user can watch new lines as they appear. If the user scrolls anywhere else, the scroll viewer will keep that position even if new lines are added to the bottom, allowing the user to read without being interrupted.
+
 ### 0.3.2-alpha (25261)
 
 Modified Workspace to be reactive.
@@ -56,8 +58,6 @@ Changed the icon to a custom icon.
 Added Check for Updates functionality.
 
 Dependency Updates.
-
-Added a magnetic scroll viewer. If the user scrolls to the bottom, it will "magnetize" to the bottom so that the user can watch new lines as they appear. If the user scrolls anywhere else, the scroll viewer will keep that position even if new lines are added to the bottom, allowing the user to read without being interrupted.
 
 ## 0.2-alpha
 Unlocked IDE Window. Bug fixes.
