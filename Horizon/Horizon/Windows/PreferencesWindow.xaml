@@ -37,8 +37,8 @@
                                 <RowDefinition Height="48" />
                             </Grid.RowDefinitions>
                             <StackPanel Margin="12" Orientation="Horizontal">
-                                <TextBlock Margin="0,0,12,0" VerticalAlignment="Center" FontSize="14" Foreground="{StaticResource BaseFontColor}">Open last project on startup</TextBlock>
-                                <CheckBox x:Name="OpenLastProject" VerticalAlignment="Bottom" IsChecked="{Binding OpenLastProjectOnStartup}" />
+                                <CheckBox x:Name="OpenLastProject" VerticalAlignment="Center" Margin="0,0,8,0" />
+                                <TextBlock VerticalAlignment="Center" FontSize="14" Foreground="{StaticResource BaseFontColor}">Open last project on startup</TextBlock>
                             </StackPanel>
                         </Grid>
                     </DockPanel>

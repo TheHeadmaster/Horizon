@@ -1,4 +1,6 @@
 ﻿using Horizon.Json;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace Horizon.ViewModels
 {
-    public class PreferencesViewModel
+    public class PreferencesViewModel : ReactiveObject
     {
+        [Reactive]
         public bool OpenLastProjectOnStartup { get; set; }
 
         public PreferencesViewModel()
@@ -16,7 +19,7 @@ namespace Horizon.ViewModels
             this.OpenLastProjectOnStartup = App.Metadata.OpenLastProjectOnStartup;
         }
 
-        internal void CommitPreferences()
+        public void CommitPreferences()
         {
             App.Metadata.OpenLastProjectOnStartup = this.OpenLastProjectOnStartup;
             UserMetaFile metadataFile = new UserMetaFile();

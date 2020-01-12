@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Horizon.Controls.MainToolbar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Horizon.Controls"
+             xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:svg="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:commands="clr-namespace:Horizon.Commands"
+             mc:Ignorable="d" d:DesignWidth="800">
+    <ToolBarTray Background="{StaticResource BaseBackgroundColor}">
+        <ToolBar Background="{StaticResource BaseBackgroundColor}" FontFamily="/Horizon;component/Resources/#icomoon">
+            <Button Command="commands:NewProjectCommand.Instance" ToolTip="New Project (Ctrl+Shift+N)" Style="{StaticResource BaseButtonStyle}" Content="&#xe903;" />
+            <Button Command="commands:OpenProjectCommand.Instance" ToolTip="Open Project (Ctrl+Shift+O)" Style="{StaticResource BaseButtonStyle}" Content="&#xe902;" />
+            <Button Command="commands:SaveCommand.Instance" ToolTip="Save (Ctrl+S)" Style="{StaticResource BaseButtonStyle}" FontFamily="/Horizon;component/Resources/#icomoon" Content="&#xe900;" FontSize="12" />
+            <Button Command="commands:SaveAllCommand.Instance" ToolTip="Save All (Ctrl+Shift+S)" Style="{StaticResource BaseButtonStyle}" FontFamily="/Horizon;component/Resources/#icomoon" Content="&#xe901;" />
+            <Separator Background="{StaticResource ScrollBarGlyphColor}" />
+            <Button />
+            <Button />
+            <Separator Background="{StaticResource ScrollBarGlyphColor}" />
+            <Button />
+            <Separator Background="{StaticResource ScrollBarGlyphColor}" />
+            <Button />
+        </ToolBar>
+    </ToolBarTray>
+</UserControl>

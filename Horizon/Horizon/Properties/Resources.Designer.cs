@@ -63,6 +63,16 @@ namespace Horizon.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] glyphs {
+            get {
+                object obj = ResourceManager.GetObject("glyphs", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Lua {
             get {
                 object obj = ResourceManager.GetObject("Lua", resourceCulture);
@@ -144,6 +154,16 @@ namespace Horizon.Properties {
             get {
                 object obj = ResourceManager.GetObject("Render", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Save {
+            get {
+                object obj = ResourceManager.GetObject("Save", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

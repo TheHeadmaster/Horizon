@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Horizon.Controls"
              xmlns:commands="clr-namespace:Horizon.Commands"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d"
-             d:DesignWidth="800">
+             d:DesignWidth="1200">
     <Menu Height="30" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="1" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}" FontSize="16">
         <MenuItem Header="File" IsEnabled="{Binding IsFileButtonEnabled, UpdateSourceTrigger=PropertyChanged}">
             <MenuItem Header="New">
@@ -42,10 +43,32 @@
         <MenuItem Header="Edit">
             <MenuItem Header="Preferences..." Command="commands:OpenPreferencesCommand.Instance" InputGestureText="Alt+P" />
         </MenuItem>
+        <MenuItem Header="View" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Project" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Build" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Debug" IsEnabled="False">
+        </MenuItem>
         <MenuItem Header="Test" IsEnabled="{Binding IsTestButtonEnabled, UpdateSourceTrigger=PropertyChanged}">
 
             <MenuItem Header="Play..." Command="commands:PlayCommand.Instance" InputGestureText="F5" />
             <MenuItem Header="Stop..." Command="commands:StopCommand.Instance" InputGestureText="Shift+F5" />
         </MenuItem>
+        <MenuItem Header="Analyze" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Tools" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Window" IsEnabled="False">
+        </MenuItem>
+        <MenuItem Header="Help">
+            <MenuItem Header="View Help" InputGestureText="Ctrl+F1" Click="MenuItem_Click" />
+            <MenuItem Header="Send Feedback">
+                <MenuItem Header="Report a Bug..." Click="MenuItem_Click_1" />
+                <MenuItem Header="Suggest a Feature..." Click="MenuItem_Click_2" />
+            </MenuItem>
+        </MenuItem>
+        <xctk:WatermarkTextBox Width="200" Background="{StaticResource BaseHighlightColor}" Watermark="Search horizon (Ctrl+Q)" FontSize="14" Padding="3,0,0,0" BorderBrush="{StaticResource BaseBorderColor}" />
     </Menu>
 </UserControl>
