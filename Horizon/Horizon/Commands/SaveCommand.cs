@@ -17,7 +17,11 @@ namespace Horizon.Commands
     {
         public static ICommand Instance { get; } = new SaveCommand();
 
-        public override bool CanExecute(object parameter) => !(IDEWindow.Instance.ViewModel.CurrentProject is null) && !Status.Instance.ViewModel.IsRunningStarbound;
+        public override bool CanExecute(object parameter)
+        {
+            if (IDEWindow.Instance is null || Status.Instance is null) { return false; }
+            return !(IDEWindow.Instance.ViewModel.CurrentProject is null) && !Status.Instance.ViewModel.IsRunningStarbound;
+        }
 
         [Log("Saving document...", ExitMessage = "Document saved.")]
         public override void Execute(object parameter)

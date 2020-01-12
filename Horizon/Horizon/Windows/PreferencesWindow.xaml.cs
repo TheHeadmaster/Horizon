@@ -1,8 +1,10 @@
 ﻿using Horizon.Controls;
 using Horizon.ViewModels;
+using ReactiveUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Disposables;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +30,14 @@ namespace Horizon.Windows
             this.InitializeComponent();
 
             this.ViewModel = new PreferencesViewModel();
+
+            this.WhenActivated(dispose =>
+            {
+                this.Bind(this.ViewModel,
+                    vm => vm.OpenLastProjectOnStartup,
+                    v => v.OpenLastProject.IsChecked)
+                .DisposeWith(dispose);
+            });
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs args) => this.Close();

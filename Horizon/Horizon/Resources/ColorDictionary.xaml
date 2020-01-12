@@ -4,6 +4,7 @@
     <Color x:Key="Black">#000000</Color>
     <Color x:Key="White">#FFFFFF</Color>
     <Color x:Key="Bright Red">#AA0000</Color>
+    <Color x:Key="Malibu">#7AC1FF</Color>
     <Color x:Key="Abbey">#4A4A4D</Color>
     <Color x:Key="Burnt Orange">#C95100</Color>
     <SolidColorBrush x:Key="BaseBackgroundColor" Color="{StaticResource Shark}" />
@@ -11,6 +12,7 @@
     <SolidColorBrush x:Key="BaseBorderColor" Color="{StaticResource Black}" />
     <SolidColorBrush x:Key="BaseHighlightColor" Color="{StaticResource Abbey}" />
     <SolidColorBrush x:Key="BaseFontColor" Color="{StaticResource White}" />
+    <SolidColorBrush x:Key="AccentIconColor" Color="{StaticResource Malibu}" />
     <SolidColorBrush x:Key="ScrollBarGlyphColor" Color="{StaticResource Bright Red}" />
     <SolidColorBrush x:Key="StatusBarActiveColor" Color="{StaticResource Burnt Orange}" />
 </ResourceDictionary>

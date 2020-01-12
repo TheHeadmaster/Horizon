@@ -1,6 +1,7 @@
 ﻿using Horizon.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,5 +34,11 @@ namespace Horizon.Controls
             this.ViewModel = new MainMenuViewModel();
             this.DataContext = this.ViewModel;
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs args) => Process.Start(@"https://github.com/TheHeadmaster/Horizon/wiki");
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs args) => Process.Start(@"https://github.com/TheHeadmaster/Horizon/issues/new?assignees=&labels=bug&template=bug_report.md&title=");
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs args) => Process.Start(@"https://github.com/TheHeadmaster/Horizon/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=");
     }
 }
