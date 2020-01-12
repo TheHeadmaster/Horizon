@@ -68,6 +68,10 @@
                 <MenuItem Header="Report a Bug..." Click="MenuItem_Click_1" />
                 <MenuItem Header="Suggest a Feature..." Click="MenuItem_Click_2" />
             </MenuItem>
+            <Separator />
+            <MenuItem Header="Check for Updates" Click="MenuItem_Click_4" />
+            <Separator />
+            <MenuItem Header="About Horizon IDE" Click="MenuItem_Click_3" />
         </MenuItem>
         <xctk:WatermarkTextBox Width="200" Background="{StaticResource BaseHighlightColor}" Watermark="Search horizon (Ctrl+Q)" FontSize="14" Padding="3,0,0,0" BorderBrush="{StaticResource BaseBorderColor}" />
     </Menu>

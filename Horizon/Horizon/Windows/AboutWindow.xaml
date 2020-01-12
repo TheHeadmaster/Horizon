@@ -1,0 +1,32 @@
+﻿<controls:BorderlessReactiveWindow x:Class="Horizon.Windows.AboutWindow"
+        x:TypeArguments="vm:AboutWindowViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Horizon.Windows"
+        xmlns:vm="clr-namespace:Horizon.ViewModels"
+        xmlns:rui="http://reactiveui.net"
+        xmlns:controls="clr-namespace:Horizon.Controls"
+        mc:Ignorable="d"
+        Title="About Horizon IDE" Height="450" Width="800" Icon="/Horizon;component/Resources/Horizon.ico" Style="{StaticResource PopupWindowStyle}" Background="{StaticResource BaseBackgroundColor}" Foreground="{StaticResource BaseFontColor}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="4" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="8" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Horizon Integrated Development Environment" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="Version 0.3.2-alpha" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="Copyright © The Parable Group 2019" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="Released under the MIT license." VerticalAlignment="Center" />
+    </Grid>
+</controls:BorderlessReactiveWindow>
