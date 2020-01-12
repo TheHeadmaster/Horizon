@@ -24,3 +24,7 @@ Horizon or Horizon IDE is a feature-rich modding tool for Starbound. It is geare
 + Automatic Packing and unpacking of assets for faster load times
 
 More features are upcoming as the project progresses.
+
+# Patrons
+
+[Sylvana](https://www.patreon.com/user/creators?u=28402172 "Sylvana")
