@@ -78,8 +78,8 @@
   </Product>
 
   <Fragment>
-    <Icon Id="Penguin.ico" SourceFile="Penguin.ico" />
-    <Property Id="ARPPRODUCTICON" Value="Penguin.ico" />
+    <Icon Id="Horizon.ico" SourceFile="Horizon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="Horizon.ico" />
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
 
       <Component Id="HorizonExeConfig">
@@ -111,6 +111,18 @@
       </Component>
       <Component Id="FontAwesomeXml">
         <File Id="FontAwesomeXmlFile" Name="FontAwesome.WPF.xml" Source="Source\FontAwesome.WPF.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesome5Dll">
+        <File Id="FontAwesome5DllFile" Name="FontAwesome5.dll" Source="Source\FontAwesome5.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesome5Xml">
+        <File Id="FontAwesome5XmlFile" Name="FontAwesome5.xml" Source="Source\FontAwesome5.xml" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesome5Net40Dll">
+        <File Id="FontAwesome5Net40DllFile" Name="FontAwesome5.Net40.dll" Source="Source\FontAwesome5.Net40.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="FontAwesome5Net40Xml">
+        <File Id="FontAwesome5Net40XmlFile" Name="FontAwesome5.Net40.xml" Source="Source\FontAwesome5.Net40.xml" KeyPath="yes" />
       </Component>
       <Component Id="AvalonEditDll">
         <File Id="AvalonEditDllFile" Name="ICSharpCode.AvalonEdit.dll" Source="Source\ICSharpCode.AvalonEdit.dll" KeyPath="yes" />

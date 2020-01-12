@@ -8,7 +8,7 @@
         xmlns:rui="clr-namespace:Horizon.Controls"
         xmlns:vm="clr-namespace:Horizon.ViewModels"
         mc:Ignorable="d"
-        Title="Preferences" Height="450" Width="800" Loaded="Window_Loaded" Background="{StaticResource BaseBackgroundColor}" WindowStartupLocation="CenterScreen" Style="{StaticResource PopupWindowStyle}">
+        Title="Preferences" Height="450" Width="800" Loaded="Window_Loaded" Background="{StaticResource BaseBackgroundColor}" WindowStartupLocation="CenterScreen" Style="{StaticResource PopupWindowStyle}" Icon="/Horizon;component/Resources/Horizon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Horizon.Windows"
         xmlns:controls="clr-namespace:Horizon.Controls"
         mc:Ignorable="d"
-        Title="Horizon - Launcher" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent" ResizeMode="NoResize" Icon="/Horizon;component/Resources/Penguin.ico" AllowsTransparency="True" WindowStyle="None">
+        Title="Horizon - Launcher" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="Transparent" ResizeMode="NoResize" Icon="/Horizon;component/Resources/Horizon.ico" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

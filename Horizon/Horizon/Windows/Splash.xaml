@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Horizon.Windows"
         mc:Ignorable="d"
-        Title="Horizon" Height="450" Width="800" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" Loaded="SplashLoaded">
+        Title="Horizon" Height="450" Width="800" WindowStartupLocation="CenterScreen" Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize" WindowStyle="None" Loaded="SplashLoaded" Icon="/Horizon;component/Resources/Horizon.ico">
     <Window.Background>
         <ImageBrush ImageSource="/Horizon;component/Resources/Splash.png" />
     </Window.Background>

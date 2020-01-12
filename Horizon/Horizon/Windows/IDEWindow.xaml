@@ -8,7 +8,7 @@
         xmlns:commands="clr-namespace:Horizon.Commands"
         xmlns:vm="clr-namespace:Horizon.ViewModels"
         xmlns:controls="clr-namespace:Horizon.Controls"
-        mc:Ignorable="d" Height="768" Width="1366" Icon="/Horizon;component/Resources/Penguin.ico" Style="{StaticResource IDEWindowStyle}" WindowStartupLocation="CenterScreen" Background="{StaticResource BaseBackgroundColor}">
+        mc:Ignorable="d" Height="768" Width="1366" Icon="/Horizon;component/Resources/Horizon.ico" Style="{StaticResource IDEWindowStyle}" WindowStartupLocation="CenterScreen" Background="{StaticResource BaseBackgroundColor}">
     <Window.InputBindings>
         <KeyBinding Key="F4" Modifiers="Alt" Command="commands:CloseCommand.Instance" />
         <KeyBinding Key="N" Modifiers="Ctrl+Shift" Command="commands:NewProjectCommand.Instance" />

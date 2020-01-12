@@ -737,7 +737,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="Penguin.ico" Grid.Column="0" />
+                                <TextBlock Grid.Column="0" FontFamily="/Horizon;component/Resources/#icomoon" Text="&#xe902;" FontSize="30" Foreground="{StaticResource BaseFontColor}" />
 
                                 <controls:MainMenu Grid.Column="1" Margin="12,0,0,0" HorizontalAlignment="Left" />
 
@@ -834,7 +834,7 @@
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <Image Source="{TemplateBinding Icon}" Grid.Column="0" />
+                                <TextBlock Grid.Column="0" FontFamily="/Horizon;component/Resources/#icomoon" Text="&#xe902;" FontSize="30" Foreground="{StaticResource BaseFontColor}" />
 
                                 <Border Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{StaticResource BaseBackgroundColor}" Panel.ZIndex="0">
 

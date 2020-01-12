@@ -9,7 +9,7 @@
         xmlns:controls="clr-namespace:Horizon.Controls"
         xmlns:vm="clr-namespace:Horizon.ViewModels"
         mc:Ignorable="d"
-        Title="Horizon" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" BorderThickness="3" WindowStartupLocation="CenterScreen" Icon="/Horizon;component/Resources/Penguin.ico">
+        Title="Horizon" Height="450" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize" BorderThickness="3" WindowStartupLocation="CenterScreen" Icon="/Horizon;component/Resources/Horizon.ico">
     <controls:SlantedBorder BorderThickness="2" TopLeftCorner="Slanted" TopRightCorner="Square" BottomLeftCorner="Square" BottomRightCorner="Slanted" BorderBrush="{StaticResource BaseBorderColor}" Background="{StaticResource AccentBackgroundColor}">
         <Grid>
             <Grid.ColumnDefinitions>

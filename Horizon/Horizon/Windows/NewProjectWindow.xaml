@@ -7,7 +7,7 @@
         xmlns:controls="clr-namespace:Horizon.Controls"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="New Project..." Style="{StaticResource PopupWindowStyle}" Height="450" Width="800" Background="{StaticResource BaseBackgroundColor}" WindowStartupLocation="CenterScreen">
+        Title="New Project..." Style="{StaticResource PopupWindowStyle}" Height="450" Width="800" Background="{StaticResource BaseBackgroundColor}" WindowStartupLocation="CenterScreen" Icon="/Horizon;component/Resources/Horizon.ico">
     <Border x:Name="WindowBorder" Background="{StaticResource AccentBackgroundColor}" BorderBrush="{StaticResource BaseBorderColor}" BorderThickness="2">
         <Grid>
             <Grid.RowDefinitions>
