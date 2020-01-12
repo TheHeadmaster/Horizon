@@ -5,6 +5,9 @@
 [changelog]: https://github.com/TheHeadmaster/Horizon/blob/master/CHANGELOG.md
 
 
+
+
+![Horizon](Horizon.png)
 # Horizon IDE
 
 Horizon or Horizon IDE is a feature-rich modding tool for Starbound. It is geared towards productivity and ease of use for the modder.
