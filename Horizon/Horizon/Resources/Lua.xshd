@@ -1,9 +1,0 @@
-﻿<?xml version="1.0"?>
-<SyntaxDefinition name="Lua" extensions=".lua" xmlns="http://icsharpcode.net/sharpdevelop/syntaxdefinition/2008">
-  <Color name="Visibility" fontWeight="bold" foreground="#AA0000" exampleText="local function check()" />
-  <RuleSet ignoreCase="false">
-    <Keywords color="Visibility">
-      <Word>local</Word>
-    </Keywords>
-  </RuleSet>
-</SyntaxDefinition>
