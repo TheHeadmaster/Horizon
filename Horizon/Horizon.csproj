@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <None Remove="Horizon.ico" />
+    <None Remove="Resources\Images\Splash.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -67,7 +68,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <Resource Include="Resources\Images\Splash.png" />
   </ItemGroup>
 
 </Project>

@@ -16,6 +16,9 @@ public partial class LoadingSplash
 
         this.WhenActivated(dispose =>
         {
+            // Compensate for alpha section of splash
+            this.Top -= 100;
+
             this.OneWayBind(this.ViewModel,
                 vm => vm.Status,
                 view => view.Status.Text)
