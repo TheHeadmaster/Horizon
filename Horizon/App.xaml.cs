@@ -5,20 +5,28 @@ using Splat;
 using System.IO;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace Horizon;
 
 /// <summary>
-/// Interaction logic for App.xaml
+/// Handles application startup and metadata.
 /// </summary>
 public partial class App : Application
 {
+    /// <summary>
+    /// Gets whether this application is running in debug mode or not.
+    /// </summary>
     public static bool IsDebug { get; private set; }
 
+    /// <summary>
+    /// Gets the version of the application as a string.
+    /// </summary>
     public static string Version { get; private set; } = Assembly.GetExecutingAssembly()
         ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
         ?.InformationalVersion ?? "unknown-alpha";
 
+    /// <inheritdoc />
     protected override async void OnStartup(StartupEventArgs args)
     {
         this.SetDebugFlag();
@@ -28,10 +36,16 @@ public partial class App : Application
         Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
     }
 
+    /// <summary>
+    /// Initializes the application in the background.
+    /// </summary>
     private void InitializeApplication()
     {
     }
 
+    /// <summary>
+    /// Initializes logging and emits welcome messages.
+    /// </summary>
     private void InitializeLogging()
     {
         LoggerConfiguration config = new();
@@ -64,12 +78,46 @@ public partial class App : Application
         {
             Log.Warning("This assembly is running in DEBUG mode.");
         }
+
+        AppDomain.CurrentDomain.UnhandledException += this.OnUnhandledException;
+        this.DispatcherUnhandledException += this.OnUnhandledException;
     }
 
+    /// <summary>
+    /// Fires when the <see cref="AppDomain" /> throws an exception that wasn't handled.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="args">The event arguments.</param>
+    private void OnUnhandledException(object sender, UnhandledExceptionEventArgs args)
+    {
+        Log.Fatal((Exception)args.ExceptionObject, "Horizon encountered a critical error!");
+    }
+
+    /// <summary>
+    /// Fires when the WPF <see cref="Dispatcher" /> throws an exception that wasn't handled.
+    /// </summary>
+    /// <param name="sender">The sender.</param>
+    /// <param name="args">The event arguments.</param>
+    private void OnUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs args)
+    {
+        Log.Fatal(args.Exception, "Horizon encountered a critical error!");
+    }
+
+    /// <summary>
+    /// Sets the debug flag.
+    /// </summary>
     private void SetDebugFlag()
     {
 #if DEBUG
         IsDebug = true;
 #endif
+    }
+
+    /// <inheritdoc />
+    protected override void OnExit(ExitEventArgs args)
+    {
+        base.OnExit(args);
+
+        Log.CloseAndFlush();
     }
 }
