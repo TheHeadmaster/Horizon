@@ -155,6 +155,8 @@ public partial class App : Application
     /// <inheritdoc />
     protected override void OnExit(ExitEventArgs args)
     {
+        Log.Information("Closing...");
+
         base.OnExit(args);
 
         Log.CloseAndFlush();
