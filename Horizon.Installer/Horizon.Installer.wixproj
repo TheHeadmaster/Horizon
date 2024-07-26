@@ -1,0 +1,12 @@
+﻿<Project Sdk="WixToolset.Sdk/5.0.1">
+  <ItemGroup>
+    <None Include="license.rtf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="WixToolset.UI.wixext" Version="5.0.1" />
+    <PackageReference Include="WixToolset.Util.wixext" Version="5.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Horizon\Horizon.csproj" />
+  </ItemGroup>
+</Project>
