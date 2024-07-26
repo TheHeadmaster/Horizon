@@ -71,6 +71,8 @@ public partial class App : Application
 
         splash.Close();
 
+        Log.Information("Initialization complete.");
+
         workspace!.Show();
     }
 
@@ -104,10 +106,10 @@ public partial class App : Application
         }
 
         DateTime now = DateTime.UtcNow;
-        string fileName = $"Session @ {now.Month}-{now.Day}-{now.Year} {now.Hour}-{now.Minute}-{now.Second}";
+        string fileName = $"Session @ UTC {now.Year}-{now.Month:D2}-{now.Day:D2} {now.Hour:D2}-{now.Minute:D2}-{now.Second:D2}";
 
         config.WriteTo.Debug(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {Message:lj}{NewLine}{Exception}")
-            .WriteTo.File(new CompactJsonFormatter(), $"Logs/{fileName}.json");
+            .WriteTo.File(new CompactJsonFormatter(), $"Logs/{fileName}.log");
 
         Log.Logger = config.CreateLogger();
 
