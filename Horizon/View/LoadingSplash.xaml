@@ -1,0 +1,14 @@
+﻿<rui:ReactiveWindow x:Class="Horizon.View.LoadingSplash" x:TypeArguments="vm:LoadingSplashViewModel"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:rui="http://reactiveui.net"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:vm="clr-namespace:Horizon.ViewModel"
+                    mc:Ignorable="d"
+        Title="LoadingSplash" Height="450" Width="800">
+    <Grid>
+        <TextBlock x:Name="Status" Foreground="White" Margin="8,0,0,0" VerticalAlignment="Center" FontSize="20" />
+        <ProgressBar x:Name="Progress" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" SmallChange="0.01" Maximum="1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFCD73D6" />
+    </Grid>
+</rui:ReactiveWindow>

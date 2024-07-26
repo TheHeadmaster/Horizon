@@ -1,4 +1,5 @@
-﻿using ReactiveUI;
+﻿using Horizon.View;
+using ReactiveUI;
 using Serilog;
 using Serilog.Formatting.Compact;
 using Splat;
@@ -26,6 +27,30 @@ public partial class App : Application
         ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
         ?.InformationalVersion ?? "unknown-alpha";
 
+    /// <summary>
+    /// The workspace.
+    /// </summary>
+    private static Workspace? workspace;
+
+    /// <summary>
+    /// Gets all the startup tasks that run while the splash screen is displayed.
+    /// </summary>
+    /// <returns></returns>
+    private Queue<(string label, Action action)> GetStartupTasks()
+    {
+        Queue<(string label, Action action)> tasks = new();
+
+        tasks.Enqueue(("Initializing...", this.InitializeApplication));
+
+        tasks.Enqueue(("Opening...", () => Current.Dispatcher.Invoke(() =>
+        {
+            workspace = new();
+            Current.MainWindow = workspace;
+        })));
+
+        return tasks;
+    }
+
     /// <inheritdoc />
     protected override async void OnStartup(StartupEventArgs args)
     {
@@ -34,6 +59,19 @@ public partial class App : Application
         base.OnStartup(args);
 
         Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
+
+        LoadingSplash splash = new();
+
+        splash.Show();
+
+        if (splash.ViewModel is not null)
+        {
+            await splash.ViewModel.StartRunningInBackground(this.GetStartupTasks());
+        }
+
+        splash.Close();
+
+        workspace!.Show();
     }
 
     /// <summary>
@@ -41,6 +79,7 @@ public partial class App : Application
     /// </summary>
     private void InitializeApplication()
     {
+        // TODO: Place any other startup tasks here, such as loading the most recent project, checking for updates, etc.
     }
 
     /// <summary>
