@@ -22,4 +22,9 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
+  </ItemGroup>
+
 </Project>

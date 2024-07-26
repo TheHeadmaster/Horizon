@@ -1,5 +1,6 @@
-﻿using System.Configuration;
-using System.Data;
+﻿using ReactiveUI;
+using Splat;
+using System.Reflection;
 using System.Windows;
 
 namespace Horizon;
@@ -9,4 +10,8 @@ namespace Horizon;
 /// </summary>
 public partial class App : Application
 {
+    protected override void OnStartup(StartupEventArgs args)
+    {
+        Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
+    }
 }
