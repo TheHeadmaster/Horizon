@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon", "Horizon\Horizon.csproj", "{83A33026-94B7-4C90-A7D5-C42A25E7D105}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Testing", "Horizon.Testing\Horizon.Testing.csproj", "{23F3058E-5053-4EBC-B701-35B0A444CDE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{83A33026-94B7-4C90-A7D5-C42A25E7D105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A33026-94B7-4C90-A7D5-C42A25E7D105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83A33026-94B7-4C90-A7D5-C42A25E7D105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F3058E-5053-4EBC-B701-35B0A444CDE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F3058E-5053-4EBC-B701-35B0A444CDE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F3058E-5053-4EBC-B701-35B0A444CDE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F3058E-5053-4EBC-B701-35B0A444CDE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
