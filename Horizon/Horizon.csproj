@@ -24,6 +24,11 @@
 
   <ItemGroup>
     <None Remove="Horizon.ico" />
+    <None Remove="Resources\Images\Horizon.png" />
+    <None Remove="Resources\Images\Key Medium.png" />
+    <None Remove="Resources\Images\Key Space.png" />
+    <None Remove="Resources\Images\Key Windows.png" />
+    <None Remove="Resources\Images\Key.png" />
     <None Remove="Resources\Images\Splash.png" />
   </ItemGroup>
 
@@ -69,6 +74,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Images\Horizon.png" />
+    <Resource Include="Resources\Images\Key Medium.png" />
+    <Resource Include="Resources\Images\Key Space.png" />
+    <Resource Include="Resources\Images\Key Windows.png" />
+    <Resource Include="Resources\Images\Key.png" />
     <Resource Include="Resources\Images\Splash.png" />
   </ItemGroup>
 

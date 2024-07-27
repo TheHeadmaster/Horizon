@@ -40,7 +40,7 @@
                                 <Border Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{DynamicResource BaseBackgroundColor}" Panel.ZIndex="0">
                                     <Border  Margin="12,0,0,0" VerticalAlignment="Center" Background="{DynamicResource AccentBackgroundColor}" BorderBrush="{DynamicResource BaseBorderColor}" BorderThickness="1" HorizontalAlignment="Left" Height="32" Padding="8,0,12,0">
                                         <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Deus;component/Resources/Images/Deus.png" Margin="0,0,8,0" />
+                                            <Image Source="/Horizon;component/Resources/Images/Horizon.png" Margin="0,0,8,0" />
                                             <TextBlock Text="{TemplateBinding Title}"
                                                        TextTrimming="CharacterEllipsis"
                                                        FontSize="14"
