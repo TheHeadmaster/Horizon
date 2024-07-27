@@ -5,6 +5,8 @@
         <ResourceDictionary Source="ControlDefinitions/DialogDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowButtonDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowDefinition.xaml" />
+        <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkTheme.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/AvalonDockDefinition.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="xctk:PropertyGrid">

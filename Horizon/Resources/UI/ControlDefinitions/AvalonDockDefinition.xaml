@@ -1,0 +1,128 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:theme="clr-namespace:AvalonDock.Themes.VS2013.Themes;assembly=AvalonDock.Themes.VS2013">
+    <!--AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.AutoHideTabHoveredText}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.AutoHideTabHoveredBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Document Well : Overflow Button -->
+    <!--AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellOverflowButtonHoveredGlyph}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!--AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellOverflowButtonPressedBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Document Well : Tab -->
+    <!-- Selected Document Highlight Header Top color (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabSelectedActiveBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!--AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabUnselectedHoveredBackground}"
+                     Color="{DynamicResource Crimson}"
+                     Opacity="0.5"
+                     options:Freeze="true" />
+
+    <!-- Document Well : Tab : Button -->
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonSelectedActiveHoveredBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonSelectedActiveHoveredBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonSelectedActivePressedBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonSelectedActivePressedBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Tool Window : Caption -->
+    <!-- Background of selected toolwindow (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionActiveBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonUnselectedTabHoveredButtonHoveredBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonUnselectedTabHoveredButtonHoveredBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonUnselectedTabHoveredButtonPressedBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DocumentWellTabButtonUnselectedTabHoveredButtonPressedBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionButtonActiveHoveredBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- AccentColor -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionButtonActiveHoveredBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionButtonActivePressedBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <!-- (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionButtonActivePressedBorder}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowCaptionButtonInactiveHoveredBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Background of selected text in Navigator Window (AccentColor) -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.NavigatorWindowSelectedBackground}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Tool Window : Tab -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowTabSelectedActiveText}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowTabSelectedInactiveText}"
+                     Color="{DynamicResource Crimson}"
+                     Opacity=".75"
+                     options:Freeze="true" />
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.ToolWindowTabUnselectedHoveredText}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- DockingBrushKeys -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.DockingButtonForegroundBrushKey}"
+                     Color="{DynamicResource Crimson}"
+                     options:Freeze="true" />
+
+    <!-- Preview Box is the highlighted rectangle that shows when a drop area in a window is indicated -->
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.PreviewBoxBorderBrushKey}"
+                     Color="{DynamicResource Light Crimson}" options:Freeze="true" />
+    <SolidColorBrush x:Key="{x:Static theme:ResourceKeys.PreviewBoxBackgroundBrushKey}"
+                     Color="{DynamicResource Crimson}"
+                     Opacity="0.5"
+                     options:Freeze="true" />
+</ResourceDictionary>
