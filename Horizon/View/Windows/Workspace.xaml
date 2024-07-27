@@ -1,18 +1,18 @@
-﻿<rui:ReactiveWindow x:Class="Horizon.View.Windows.Workspace" x:TypeArguments="vm:WorkspaceViewModel"
-                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:rui="http://reactiveui.net"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:vm="clr-namespace:Horizon.ViewModel"
-                    xmlns:controls="clr-namespace:Horizon.View.Controls"
-                    mc:Ignorable="d"
-        Width="1366" Height="768" WindowStartupLocation="CenterScreen" Background="SlateGray" FontFamily="Cascadia Mono">
+﻿<windows:BorderlessReactiveWindow x:Class="Horizon.View.Windows.Workspace" x:TypeArguments="vm:WorkspaceViewModel"
+                                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                  xmlns:controls="clr-namespace:Horizon.View.Controls"
+                                  xmlns:windows="clr-namespace:Horizon.View.Windows"
+                                  xmlns:vm="clr-namespace:Horizon.ViewModel"
+                                  d:DataContext="{d:DesignInstance Type=vm:WorkspaceViewModel}"
+                                  mc:Ignorable="d"
+        Width="1366" Height="768" WindowStartupLocation="CenterScreen" Background="SlateGray" FontFamily="Cascadia Mono" Style="{StaticResource BorderlessWindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <controls:MainMenu />
     </Grid>
-</rui:ReactiveWindow>
+</windows:BorderlessReactiveWindow>
