@@ -1,4 +1,4 @@
-﻿using Horizon.View;
+﻿using Horizon.View.Windows;
 using ReactiveUI;
 using Serilog;
 using Serilog.Formatting.Compact;
@@ -54,7 +54,7 @@ public partial class App : Application
     /// <inheritdoc />
     protected override async void OnStartup(StartupEventArgs args)
     {
-        this.SetDebugFlag();
+        SetDebugFlag();
         this.InitializeLogging();
         base.OnStartup(args);
 
@@ -147,7 +147,7 @@ public partial class App : Application
     /// <summary>
     /// Sets the debug flag.
     /// </summary>
-    private void SetDebugFlag()
+    private static void SetDebugFlag()
     {
 #if DEBUG
         IsDebug = true;

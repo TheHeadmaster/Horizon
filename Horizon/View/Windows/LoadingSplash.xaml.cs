@@ -1,7 +1,7 @@
 ﻿using ReactiveUI;
 using System.Reactive.Disposables;
 
-namespace Horizon.View;
+namespace Horizon.View.Windows;
 
 /// <summary>
 /// Interaction logic for LoadingSplash.xaml

@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace Horizon;
+﻿namespace Horizon.View.Windows;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class Workspace : Window
+public partial class Workspace
 {
     public Workspace()
     {
