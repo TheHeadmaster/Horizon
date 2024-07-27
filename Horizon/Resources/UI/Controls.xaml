@@ -3,10 +3,18 @@
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ControlDefinitions/DialogDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/MenuDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/MenuItemDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/MenuItemSeparatorStyleKeyDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/MenuScrollViewerDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/SubmenuHeaderTemplateKeyDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/SubmenuItemTemplateKeyDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/TopLevelHeaderTemplateKeyDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/TopLevelItemTemplateKeyDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/ScrollViewerDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowButtonDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/ToolbarDefinition.xaml" />
         <ResourceDictionary Source="/AvalonDock.Themes.VS2013;component/DarkTheme.xaml" />
         <ResourceDictionary Source="ControlDefinitions/AvalonDockDefinition.xaml" />
     </ResourceDictionary.MergedDictionaries>
