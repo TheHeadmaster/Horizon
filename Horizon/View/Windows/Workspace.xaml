@@ -7,7 +7,7 @@
                                   xmlns:vm="clr-namespace:Horizon.ViewModel"
                                   d:DataContext="{d:DesignInstance Type=vm:WorkspaceViewModel}"
                                   mc:Ignorable="d"
-        Width="1366" Height="768" WindowStartupLocation="CenterScreen" Background="{StaticResource BaseBackgroundColor}" FontFamily="Cascadia Mono" Style="{StaticResource BorderlessWindowStyle}">
+        Width="1366" Height="768" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="{StaticResource BaseBackgroundColor}" FontFamily="Cascadia Mono" Style="{StaticResource BorderlessWindowStyle}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="24" />
