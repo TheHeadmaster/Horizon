@@ -1,7 +1,9 @@
 ﻿using Horizon.Utilities;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using System.ComponentModel;
 using System.Reactive.Linq;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -37,7 +39,7 @@ public sealed class KeyBindingGlyphViewModel : ReactiveObject
                            : this.KeyGlyph)
             .Subscribe(x => this.GlyphImage = x);
 
-        string path = "pack://application:,,,/Resources/Images/Key.png";
+        string path = DesignerProperties.GetIsInDesignMode(new DependencyObject()) ? "/Resources/Images/Key.png" : "pack://application:,,,/Resources/Images/Key.png";
 
         BitmapImage src = new();
 
@@ -54,7 +56,7 @@ public sealed class KeyBindingGlyphViewModel : ReactiveObject
         this.KeyGlyph = src;
 
         src = new();
-        path = "pack://application:,,,/Resources/Images/Key Medium.png";
+        path = DesignerProperties.GetIsInDesignMode(new DependencyObject()) ? "/Resources/Images/Key Medium.png" : "pack://application:,,,/Resources/Images/Key Medium.png";
         try
         {
             src.BeginInit();
@@ -68,7 +70,7 @@ public sealed class KeyBindingGlyphViewModel : ReactiveObject
         this.KeyGlyphMedium = src;
 
         src = new();
-        path = "pack://application:,,,/Resources/Images/Key Space.png";
+        path = DesignerProperties.GetIsInDesignMode(new DependencyObject()) ? "/Resources/Images/Key Space.png" : "pack://application:,,,/Resources/Images/Key Space.png";
         try
         {
             src.BeginInit();
@@ -82,7 +84,7 @@ public sealed class KeyBindingGlyphViewModel : ReactiveObject
         this.KeyGlyphSpace = src;
 
         src = new();
-        path = "pack://application:,,,/Resources/Images/Key Windows.png";
+        path = DesignerProperties.GetIsInDesignMode(new DependencyObject()) ? "/Resources/Images/Key Windows.png" : "pack://application:,,,/Resources/Images/Key Windows.png";
         try
         {
             src.BeginInit();

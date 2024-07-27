@@ -42,11 +42,11 @@
                                 </Grid.RowDefinitions>
                                 <Image Source="/Horizon;component/Resources/Images/Horizon.png" Margin="4" Width="24" Height="24" />
                                 <controls:MainMenu x:Name="WindowMainMenu" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" />
-                                <Border Width="1" Grid.Column="2" Margin="8,4,8,4" BorderBrush="{StaticResource BaseHighlightColor}" BorderThickness="1" HorizontalAlignment="Center"  />
+                                <Border Width="1" Grid.Column="2" Margin="8,4,8,4" BorderBrush="{StaticResource BaseHighlightColor}" BorderThickness="1" HorizontalAlignment="Center" />
                                 <Border Grid.Column="3" Margin="12,0,0,0" Background="{StaticResource BaseHighlightColor}" Height="24">
-                                    <TextBlock Margin="4,0,4,0" Text="Horizon" TextTrimming="CharacterEllipsis" FontSize="14" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="{StaticResource BaseFontColor}" IsEnabled="{TemplateBinding IsActive}" />
+                                    <TextBlock Margin="4,0,4,0" Text="{TemplateBinding Title}" TextTrimming="CharacterEllipsis" FontSize="14" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="{StaticResource BaseFontColor}" IsEnabled="{TemplateBinding IsActive}" />
                                 </Border>
-                                 <Grid x:Name="WindowControlsGrid" Grid.Column="5" Background="{TemplateBinding Background}">
+                                <Grid x:Name="WindowControlsGrid" Grid.Column="5" Background="{TemplateBinding Background}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="36" />
                                         <ColumnDefinition Width="36" />
@@ -80,7 +80,7 @@
                                             Margin="0,4,0,0"
                                             VerticalAlignment="Top"
                                             Grid.Column="2" />
-                                 </Grid>
+                                </Grid>
                             </Grid>
                             <Grid x:Name="PART_MainContentGrid"
                                   Grid.Row="1"

@@ -3,7 +3,6 @@
                                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                                  xmlns:controls="clr-namespace:Horizon.View.Controls"
                                   xmlns:windows="clr-namespace:Horizon.View.Windows"
                                   xmlns:vm="clr-namespace:Horizon.ViewModel"
                                   d:DataContext="{d:DesignInstance Type=vm:WorkspaceViewModel}"

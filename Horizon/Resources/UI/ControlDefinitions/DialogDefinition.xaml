@@ -18,45 +18,30 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type windows:BorderlessWindow}">
-
                     <Grid Background="Transparent" x:Name="WindowRoot">
-
-                        <Grid x:Name="LayoutRoot"
-                              Background="{TemplateBinding Background}">
+                        <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="36" />
+                                <RowDefinition Height="Auto" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
 
-                            <!--TitleBar-->
-                            <Grid x:Name="PART_HeaderBar">
+                            <!-- Title Bar -->
+                            <Grid x:Name="PART_HeaderBar" Background="{DynamicResource BaseBackgroundColor}">
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-
-                                <Border Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{DynamicResource BaseBackgroundColor}" Panel.ZIndex="0">
-                                    <Border  Margin="12,0,0,0" VerticalAlignment="Center" Background="{DynamicResource AccentBackgroundColor}" BorderBrush="{DynamicResource BaseBorderColor}" BorderThickness="1" HorizontalAlignment="Left" Height="32" Padding="8,0,12,0">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Image Source="/Horizon;component/Resources/Images/Horizon.png" Margin="0,0,8,0" />
-                                            <TextBlock Text="{TemplateBinding Title}"
-                                                       TextTrimming="CharacterEllipsis"
-                                                       FontSize="14"
-                                                       TextAlignment="Center"
-                                                       HorizontalAlignment="Stretch"
-                                                       VerticalAlignment="Center"
-                                                       Foreground="{DynamicResource BaseFontColor}"
-                                                       IsEnabled="{TemplateBinding IsActive}" />
-                                        </StackPanel>
-                                    </Border>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Border Grid.Column="2" Margin="12,4,0,0" Background="{StaticResource BaseHighlightColor}" Height="24">
+                                    <TextBlock Margin="4,0,4,0" Text="{TemplateBinding Title}" TextTrimming="CharacterEllipsis" FontSize="14" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Center" Foreground="{StaticResource BaseFontColor}" IsEnabled="{TemplateBinding IsActive}" />
                                 </Border>
-
-                                <Grid x:Name="WindowControlsGrid" Grid.Column="3" Background="{TemplateBinding Background}">
+                                <Grid x:Name="WindowControlsGrid" Grid.Column="4" Background="{TemplateBinding Background}">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="36" />
-                                        <ColumnDefinition Width="36" />
                                         <ColumnDefinition Width="36" />
                                     </Grid.ColumnDefinitions>
 
@@ -64,10 +49,9 @@
                                             Content="r"
                                             TextElement.FontSize="18"
                                             Margin="0,4,0,0"
-                                            Grid.Column="2" />
+                                            Grid.Column="0" />
                                 </Grid>
                             </Grid>
-
                             <Grid x:Name="PART_MainContentGrid"
                                   Grid.Row="1"
                                   Panel.ZIndex="10">
