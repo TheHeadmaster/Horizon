@@ -3,6 +3,7 @@
                     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ControlDefinitions/DialogDefinition.xaml" />
+        <ResourceDictionary Source="ControlDefinitions/MenuScrollViewerDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/ScrollViewerDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowDefinition.xaml" />
         <ResourceDictionary Source="ControlDefinitions/WindowButtonDefinition.xaml" />
