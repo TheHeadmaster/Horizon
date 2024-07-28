@@ -1,0 +1,13 @@
+﻿<windows:BorderlessReactiveWindow x:Class="Horizon.View.Windows.NewProjectWindow" x:TypeArguments="vm:NewProjectWindowViewModel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:windows="clr-namespace:Horizon.View.Windows"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:vm="clr-namespace:Horizon.ViewModel"
+        mc:Ignorable="d"
+        Title="New Project" Width="590" Height="320" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="{StaticResource BaseBackgroundColor}" Style="{DynamicResource DialogStyle}">
+    <Grid>
+    </Grid>
+</windows:BorderlessReactiveWindow>
