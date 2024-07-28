@@ -20,6 +20,29 @@ public partial class App : Application
     /// </summary>
     public static bool IsDebug { get; private set; }
 
+    private static string? userDirectory;
+
+    /// <summary>
+    /// Gets the User directory for this application.
+    /// </summary>
+    public static string UserDirectory
+    {
+        get
+        {
+            if (userDirectory is null)
+            {
+                userDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Horizon");
+
+                if (!Directory.Exists(userDirectory))
+                {
+                    Directory.CreateDirectory(userDirectory);
+                }
+            }
+
+            return userDirectory;
+        }
+    }
+
     /// <summary>
     /// Gets the version of the application as a string.
     /// </summary>
