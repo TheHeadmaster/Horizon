@@ -42,6 +42,12 @@ public sealed class CommandsViewModel : ReactiveObject
         }
     }
 
+    /// <summary>
+    /// Creates a new <see cref="ProjectFile" /> on disk and opens it.
+    /// </summary>
+    /// <param name="project">
+    /// A <see cref="ProjectFile" /> object with initial data such as save path, used as a seed for the new project.
+    /// </param>
     private async Task CreateNewProject(ProjectFile project)
     {
         if (!Directory.Exists(project.FilePath))
