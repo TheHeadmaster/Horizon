@@ -1,5 +1,7 @@
 ﻿using Horizon.View.Windows;
+using Horizon.ViewModel;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using Serilog;
 using Serilog.Formatting.Compact;
 using Splat;
@@ -49,6 +51,10 @@ public partial class App : Application
     public static string Version { get; private set; } = Assembly.GetExecutingAssembly()
         ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
         ?.InformationalVersion ?? "unknown-alpha";
+
+    /// <inheritdoc cref="CommandsViewModel" />
+    [Reactive]
+    public static CommandsViewModel ViewModel { get; } = new CommandsViewModel();
 
     /// <summary>
     /// The workspace.
