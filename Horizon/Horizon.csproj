@@ -7,19 +7,80 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
-    <VersionPrefix>0.4.1</VersionPrefix>
+    <VersionPrefix>0.4.2</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <ApplicationIcon>Horizon.ico</ApplicationIcon>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>0436;1701;1702;NU1701</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>0436;1701;1702;NU1701</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Horizon.ico" />
+    <None Remove="Resources\Images\Horizon.png" />
+    <None Remove="Resources\Images\Key Medium.png" />
+    <None Remove="Resources\Images\Key Space.png" />
+    <None Remove="Resources\Images\Key Windows.png" />
+    <None Remove="Resources\Images\Key.png" />
+    <None Remove="Resources\Images\Splash.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Horizon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dirkster.AvalonDock" Version="4.72.1" />
+    <PackageReference Include="Dirkster.AvalonDock.Themes.VS2013" Version="4.72.1" />
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
+    <PackageReference Include="Fody" Version="6.8.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="FodyHelpers" Version="6.8.1" />
+    <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
+    <PackageReference Include="JetBrains.ExternalAnnotations" Version="10.2.151" />
+    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.149" />
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+    <PackageReference Include="Nito.AsyncEx.Tasks" Version="5.1.2" />
+    <PackageReference Include="ReactiveMarbles.ObservableEvents.SourceGenerator" Version="1.3.1" />
+    <PackageReference Include="ReactiveUI" Version="20.1.1" />
+    <PackageReference Include="ReactiveUI.Events.WPF" Version="15.1.1" />
+    <PackageReference Include="ReactiveUI.Fody" Version="19.5.41" />
+    <PackageReference Include="ReactiveUI.Testing" Version="20.1.1" />
+    <PackageReference Include="ReactiveUI.Validation" Version="4.0.9" />
+    <PackageReference Include="ReactiveUI.WPF" Version="20.1.1" />
+    <PackageReference Include="Serilog" Version="4.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
+    <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.Debug" Version="3.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.PeriodicBatching" Version="5.0.0" />
+    <PackageReference Include="StringMath" Version="4.1.2" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Horizon.png" />
+    <Resource Include="Resources\Images\Key Medium.png" />
+    <Resource Include="Resources\Images\Key Space.png" />
+    <Resource Include="Resources\Images\Key Windows.png" />
+    <Resource Include="Resources\Images\Key.png" />
+    <Resource Include="Resources\Images\Splash.png" />
   </ItemGroup>
 
 </Project>

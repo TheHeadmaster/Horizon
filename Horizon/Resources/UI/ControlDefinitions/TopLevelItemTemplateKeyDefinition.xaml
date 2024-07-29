@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTemplate x:Key="{x:Static MenuItem.TopLevelItemTemplateKey}" TargetType="{x:Type MenuItem}">
+        <Border x:Name="Border">
+            <Grid>
+                <ContentPresenter Margin="6,3,6,3" ContentSource="Header" RecognizesAccessKey="True" />
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsHighlighted" Value="true">
+                <Setter Property="Background" TargetName="Border" Value="{DynamicResource BaseHighlightColor}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="{DynamicResource BaseHighlightColor}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>
