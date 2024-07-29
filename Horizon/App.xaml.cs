@@ -1,4 +1,5 @@
-﻿using Horizon.View.Windows;
+﻿using Horizon.ObjectModel;
+using Horizon.View.Windows;
 using Horizon.ViewModel;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -55,6 +56,8 @@ public partial class App : Application
     /// <inheritdoc cref="CommandsViewModel" />
     [Reactive]
     public static CommandsViewModel ViewModel { get; } = new CommandsViewModel();
+
+    public static List<ProjectTemplate> AvailableTemplates { get; set; } = [new() { Name = "Starbound Mod Project", Description = "A mod project for the game Starbound", Tags = ["Starbound", "Mod"] }];
 
     /// <summary>
     /// The workspace.

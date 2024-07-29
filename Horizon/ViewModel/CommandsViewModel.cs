@@ -50,9 +50,9 @@ public sealed class CommandsViewModel : ReactiveObject
     /// </param>
     private async Task CreateNewProject(ProjectFile project)
     {
-        if (!Directory.Exists(project.FilePath))
+        if (!Directory.Exists(project.FileDirectory))
         {
-            Directory.CreateDirectory(project.FilePath);
+            Directory.CreateDirectory(project.FileDirectory);
         }
 
         await project.Save();
