@@ -24,7 +24,7 @@ public partial class MainMenu
             this.NewProjectMenuItem.Events()
                 .Click
                 .Select(x => new Unit())
-                .InvokeCommand(App.ViewModel, x => x.NewProjectDialog)
+                .InvokeCommand(App.CommandsViewModel, x => x.NewProjectDialog)
                 .DisposeWith(dispose);
         });
     }

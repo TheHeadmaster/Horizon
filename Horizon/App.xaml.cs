@@ -1,5 +1,4 @@
-﻿using Horizon.ObjectModel;
-using Horizon.View.Windows;
+﻿using Horizon.View.Windows;
 using Horizon.ViewModel;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -53,16 +52,36 @@ public partial class App : Application
         ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
         ?.InformationalVersion ?? "unknown-alpha";
 
-    /// <inheritdoc cref="CommandsViewModel" />
+    /// <inheritdoc cref="ViewModel.CommandsViewModel" />
     [Reactive]
-    public static CommandsViewModel ViewModel { get; } = new CommandsViewModel();
+    public static CommandsViewModel CommandsViewModel { get; } = new();
 
-    public static List<ProjectTemplate> AvailableTemplates { get; set; } = [new() { Name = "Starbound Mod Project", Description = "A mod project for the game Starbound", Tags = ["Starbound", "Mod"] }];
+    [Reactive]
+    public static AppViewModel ViewModel { get; } = new();
+
+    public static string AppDataDirectory
+    {
+        get
+        {
+            if (appDataDirectory is null)
+            {
+                appDataDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Horizon");
+                if (!Directory.Exists(appDataDirectory))
+                {
+                    Directory.CreateDirectory(appDataDirectory);
+                }
+            }
+
+            return appDataDirectory;
+        }
+    }
 
     /// <summary>
     /// The workspace.
     /// </summary>
     private static Workspace? workspace;
+
+    private static string? appDataDirectory;
 
     /// <summary>
     /// Gets all the startup tasks that run while the splash screen is displayed.

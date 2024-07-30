@@ -3,15 +3,92 @@
                                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                                  xmlns:panes="clr-namespace:Horizon.View.Panes"
                                   xmlns:windows="clr-namespace:Horizon.View.Windows"
                                   xmlns:vm="clr-namespace:Horizon.ViewModel"
+                                  xmlns:xcad="https://github.com/Dirkster99/AvalonDock"
                                   d:DataContext="{d:DesignInstance Type=vm:WorkspaceViewModel}"
                                   mc:Ignorable="d"
         Width="1366" Height="768" WindowStartupLocation="CenterScreen" WindowState="Maximized" Background="{StaticResource BaseBackgroundColor}" FontFamily="Cascadia Mono" Style="{StaticResource BorderlessWindowStyle}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="24" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-    </Grid>
+    <xcad:DockingManager x:Name="Dock" BorderBrush="{DynamicResource BaseHighlightColor}" BorderThickness="1" AllowMixedOrientation="True">
+        <xcad:DockingManager.DocumentHeaderTemplate>
+            <DataTemplate DataType="vm:PageViewModel">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="{Binding Title}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center" />
+                    <TextBlock Text="*" VerticalAlignment="Center">
+                        <TextBlock.Visibility>
+                            <PriorityBinding FallbackValue="Collapsed">
+                                <Binding Path="IsDirty" Mode="OneWay" Converter="{StaticResource DefaultBoolToVisibilityConverter}" />
+                            </PriorityBinding>
+                        </TextBlock.Visibility>
+                    </TextBlock>
+                    <Image Source="/Resources/Images/Read Only.png"
+                           Margin="3,0,0,0"
+                           VerticalAlignment="Center">
+                        <Image.Visibility>
+                            <PriorityBinding FallbackValue="Collapsed">
+                                <Binding Path="IsReadOnly" Mode="OneWay" Converter="{StaticResource DefaultBoolToVisibilityConverter}" />
+                            </PriorityBinding>
+                        </Image.Visibility>
+                        <Image.ToolTip>
+                            <PriorityBinding FallbackValue="">
+                                <Binding Path="ReadOnlyReason" Mode="OneWay" />
+                            </PriorityBinding>
+                        </Image.ToolTip>
+                    </Image>
+                </StackPanel>
+            </DataTemplate>
+        </xcad:DockingManager.DocumentHeaderTemplate>
+        <xcad:DockingManager.AnchorableTitleTemplate>
+            <DataTemplate DataType="vm:ToolViewModel">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="-4,0,0,0" Source="{Binding IconSource}" Width="20" Height="20" />
+                    <TextBlock Margin="4,0,0,0" Text="{Binding Title}" VerticalAlignment="Center" />
+                </StackPanel>
+            </DataTemplate>
+        </xcad:DockingManager.AnchorableTitleTemplate>
+        <xcad:DockingManager.AnchorableHeaderTemplate>
+            <DataTemplate DataType="vm:ToolViewModel">
+                <StackPanel Orientation="Horizontal">
+                    <Image Margin="-4,0,0,0" Source="{Binding IconSource}" Width="20" Height="20" />
+                    <TextBlock Margin="4,0,0,0" Text="{Binding Title}" VerticalAlignment="Center" />
+                </StackPanel>
+            </DataTemplate>
+        </xcad:DockingManager.AnchorableHeaderTemplate>
+        <xcad:DockingManager.LayoutItemTemplateSelector>
+            <panes:PanesTemplateSelector>
+                <panes:PanesTemplateSelector.ProjectExplorerViewTemplate>
+                    <DataTemplate>
+                        <panes:ProjectExplorerPane />
+                    </DataTemplate>
+                </panes:PanesTemplateSelector.ProjectExplorerViewTemplate>
+            </panes:PanesTemplateSelector>
+        </xcad:DockingManager.LayoutItemTemplateSelector>
+        <xcad:DockingManager.LayoutItemContainerStyleSelector>
+            <panes:PanesStyleSelector>
+                <panes:PanesStyleSelector.ToolStyle>
+                    <Style TargetType="{x:Type LayoutAnchorableItem}">
+                        <Setter Property="Title" Value="{Binding Model.Title}" />
+                        <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
+                        <Setter Property="Visibility" Value="{Binding Model.IsVisible, Mode=TwoWay, Converter={StaticResource DefaultBoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}" />
+                        <Setter Property="ContentId" Value="{Binding Model.ContentID}" />
+                        <Setter Property="IsSelected" Value="{Binding Model.IsSelected, Mode=TwoWay}" />
+                        <Setter Property="IsActive" Value="{Binding Model.IsActive, Mode=TwoWay}" />
+                    </Style>
+                </panes:PanesStyleSelector.ToolStyle>
+                <panes:PanesStyleSelector.PageStyle>
+                    <Style TargetType="{x:Type LayoutItem}">
+                        <Setter Property="Title" Value="{Binding Model.Title}" />
+                        <Setter Property="ToolTip" Value="{Binding Model.Title}" />
+                        <Setter Property="IconSource" Value="{Binding Model.IconSource}" />
+                        <Setter Property="ContentId" Value="{Binding Model.ContentID}" />
+                    </Style>
+                </panes:PanesStyleSelector.PageStyle>
+            </panes:PanesStyleSelector>
+        </xcad:DockingManager.LayoutItemContainerStyleSelector>
+        <xcad:DockingManager.LayoutUpdateStrategy>
+            <vm:LayoutInitializer />
+        </xcad:DockingManager.LayoutUpdateStrategy>
+        <xcad:LayoutRoot x:Name="_layoutRoot" />
+    </xcad:DockingManager>
 </windows:BorderlessReactiveWindow>
