@@ -1,10 +1,16 @@
-﻿namespace Horizon.ObjectModel;
+﻿using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
-public class ProjectTemplate
+namespace Horizon.ObjectModel;
+
+public class ProjectTemplate : ReactiveObject
 {
-    public string Name { get; set; }
+    [Reactive]
+    public string Name { get; set; } = string.Empty;
 
-    public string Description { get; set; }
+    [Reactive]
+    public string Description { get; set; } = string.Empty;
 
+    [Reactive]
     public List<string> Tags { get; set; } = [];
 }
