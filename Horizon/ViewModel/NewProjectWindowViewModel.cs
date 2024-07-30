@@ -4,6 +4,7 @@ using Horizon.ViewModel.Validators;
 using Nito.Disposables.Internals;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Reactive.Linq;
 
@@ -68,5 +69,6 @@ public sealed class NewProjectWindowViewModel : ReactiveObject
     [Reactive]
     public ProjectFile Project { get; set; } = new() { Name = "Project Name", FilePath = Path.Combine(App.UserDirectory, "Project.horizon") };
 
-    public List<ProjectTemplate> AvailableTemplates { get; init; } = [];
+    [Reactive]
+    public ObservableCollection<ProjectTemplate> AvailableTemplates { get; init; } = [];
 }

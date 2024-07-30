@@ -28,7 +28,7 @@ public partial class Workspace
     /// <param name="dispose">The disposable.</param>
     private void Interactions(CompositeDisposable dispose)
     {
-        App.ViewModel
+        App.CommandsViewModel
             .NewProjectDialogInteraction
             .RegisterHandler(interaction =>
             {
