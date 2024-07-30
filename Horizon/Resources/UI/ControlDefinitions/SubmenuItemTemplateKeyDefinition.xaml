@@ -27,7 +27,7 @@
                     </Path>
                 </Border>
                 <ContentPresenter x:Name="HeaderHost" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center" />
-                <controls:KeyBindingVisuals x:Name="InputGestureText" Grid.Column="2" Margin="96,4,0,2" Height="24" DockPanel.Dock="Right" VerticalAlignment="Center" KeyBindingText="{TemplateBinding InputGestureText}" />
+                <controls:KeyBindingVisuals x:Name="InputGestureText" Grid.Column="2" Margin="96,2,0,2" Height="18" DockPanel.Dock="Right" VerticalAlignment="Center" KeyBindingText="{TemplateBinding InputGestureText}" />
             </Grid>
         </Border>
         <ControlTemplate.Triggers>
