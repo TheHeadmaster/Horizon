@@ -18,7 +18,7 @@ public partial class NewProjectWindow
 
         this.ViewModel = new()
         {
-            AvailableTemplates = App.AvailableTemplates
+            AvailableTemplates = App.ViewModel.AvailableTemplates
         };
 
         this.WhenActivated(dispose =>
