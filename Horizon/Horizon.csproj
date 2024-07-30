@@ -31,6 +31,10 @@
     <None Remove="Resources\Images\Key Space.png" />
     <None Remove="Resources\Images\Key Windows.png" />
     <None Remove="Resources\Images\Key.png" />
+    <None Remove="Resources\Images\New.png" />
+    <None Remove="Resources\Images\Open Small.png" />
+    <None Remove="Resources\Images\Open.png" />
+    <None Remove="Resources\Images\Read Only.png" />
     <None Remove="Resources\Images\Splash.png" />
   </ItemGroup>
 
@@ -82,6 +86,10 @@
     <Resource Include="Resources\Images\Key Space.png" />
     <Resource Include="Resources\Images\Key Windows.png" />
     <Resource Include="Resources\Images\Key.png" />
+    <Resource Include="Resources\Images\New.png" />
+    <Resource Include="Resources\Images\Open Small.png" />
+    <Resource Include="Resources\Images\Open.png" />
+    <Resource Include="Resources\Images\Read Only.png" />
     <Resource Include="Resources\Images\Splash.png" />
   </ItemGroup>
 
