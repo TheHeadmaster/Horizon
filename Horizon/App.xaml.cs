@@ -1,5 +1,5 @@
 ﻿using Horizon.API;
-using Horizon.ObjectModel;
+using Horizon.Resolvers;
 using Horizon.View.Windows;
 using Horizon.ViewModel;
 using ReactiveUI;
@@ -152,6 +152,7 @@ public partial class App : Application
         this.InitializeLogging();
         base.OnStartup(args);
 
+        Locator.CurrentMutable.Register(() => new CustomPropertyResolver(), typeof(ICreatesObservableForProperty));
         Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
 
         LoadingSplash splash = new();
