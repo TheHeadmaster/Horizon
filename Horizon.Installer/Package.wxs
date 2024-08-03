@@ -1,5 +1,5 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-  <Package Name="Horizon" Compressed="yes" Scope="perMachine" Manufacturer="The Headmaster" Version="0.4.4" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
+  <Package Name="Horizon" Compressed="yes" Scope="perMachine" Manufacturer="The Headmaster" Version="0.4.5" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
     <?define Horizon_TargetDir=$(var.Horizon.TargetDir)?>
     <MediaTemplate EmbedCab="yes" />
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />

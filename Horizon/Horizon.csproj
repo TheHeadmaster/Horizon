@@ -8,7 +8,7 @@
     <LangVersion>latest</LangVersion>
     <UseWPF>true</UseWPF>
     
-    <VersionPrefix>0.4.4</VersionPrefix>
+    <VersionPrefix>0.4.5</VersionPrefix>
     <VersionSuffix>alpha</VersionSuffix>
     <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>  
