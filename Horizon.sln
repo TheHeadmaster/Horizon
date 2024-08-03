@@ -31,6 +31,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ISSUE_TEMPLATE", "ISSUE_TEM
 EndProject
 Project("{B7DD6F7E-DEF8-4E67-B5B7-07EF123DB6F0}") = "Horizon.Installer", "Horizon.Installer\Horizon.Installer.wixproj", "{C7407183-3A01-46FC-AC57-1FAEF9318BDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Horizon.Starbound", "Horizon.Starbound\Horizon.Starbound.csproj", "{234B5F50-6F04-471D-AF3D-5A620B56A260}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,22 @@ Global
 		{C7407183-3A01-46FC-AC57-1FAEF9318BDC}.Release|x64.Build.0 = Release|x64
 		{C7407183-3A01-46FC-AC57-1FAEF9318BDC}.Release|x86.ActiveCfg = Release|x86
 		{C7407183-3A01-46FC-AC57-1FAEF9318BDC}.Release|x86.Build.0 = Release|x86
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|x64.Build.0 = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Debug|x86.Build.0 = Debug|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|Any CPU.Build.0 = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|ARM64.Build.0 = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|x64.ActiveCfg = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|x64.Build.0 = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|x86.ActiveCfg = Release|Any CPU
+		{234B5F50-6F04-471D-AF3D-5A620B56A260}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

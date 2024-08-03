@@ -18,13 +18,13 @@
             </Grid.RowDefinitions>
             <ListBox x:Name="ProjectTemplatesList" Grid.Row="0" Margin="4" d:ItemsSource="{d:SampleData ItemCount=3}" HorizontalContentAlignment="Stretch" Background="Red">
                 <ListBox.ItemTemplate>
-                    <DataTemplate d:DataType="obj:ProjectTemplate">
+                    <DataTemplate d:DataType="obj:ProjectFile">
                         <StackPanel Margin="0" Height="60" Orientation="Horizontal">
                             <Image Source="/Resources/Images/Horizon.png" Width="32" Height="32" VerticalAlignment="Top" Margin="0,4,0,0" />
 
                             <StackPanel Orientation="Vertical" Margin="8,4,0,0">
-                                <TextBlock Text="{Binding Name}" Margin="0,0,0,4" />
-                                <TextBlock Text="{Binding Description}" Margin="0,0,0,4" />
+                                <TextBlock Text="{Binding TemplateName}" Margin="0,0,0,4" />
+                                <TextBlock Text="{Binding TemplateDescription}" Margin="0,0,0,4" />
                                 <ItemsControl ItemsSource="{Binding Tags}">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>

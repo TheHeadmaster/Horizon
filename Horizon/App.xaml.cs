@@ -78,7 +78,6 @@ public partial class App : Application
         }
     }
 
-    public static List<ProjectTemplate> AvailableTemplates { get; set; } = [new() { Name = "Starbound Mod Project", Description = "A mod project for the game Starbound", Tags = ["Starbound", "Mod"] }];
     private static string? assemblyDirectory;
 
     public static string AssemblyDirectory
@@ -87,7 +86,7 @@ public partial class App : Application
         {
             if (assemblyDirectory is null)
             {
-                assemblyDirectory = Assembly.GetExecutingAssembly().Location;
+                assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
 
                 if (!Directory.Exists(assemblyDirectory))
                 {

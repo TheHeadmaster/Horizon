@@ -17,8 +17,8 @@ public sealed class NewProjectWindowViewModel : ReactiveObject
     public NewProjectWindowViewModel()
     {
         this.WhenAnyValue(
-            vm => vm.Project.Name,
-            vm => vm.Project.FileDirectory)
+            vm => vm.Project!.Name,
+            vm => vm.Project!.FilePath)
             .Select(_ => this.validator.Validate(this))
             .ToPropertyEx(this, vm => vm.ValidationResult);
 
@@ -46,6 +46,29 @@ public sealed class NewProjectWindowViewModel : ReactiveObject
             vm => vm.SelectedTemplate)
             .Select(x => x is not null)
             .ToPropertyEx(this, vm => vm.CanPressProjectTemplateNext);
+
+        this.WhenAnyValue(
+            vm => vm.SelectedTemplate)
+            .Select(x =>
+            {
+                if (x is not null)
+                {
+                    var instance = (ProjectFile?)Activator.CreateInstance(x.GetType());
+                    if (instance is not null)
+                    {
+                        instance.Name = "New Project";
+                        instance.FilePath = Path.Combine(App.UserDirectory, "Project.horizon");
+                    }
+
+                    return instance;
+                }
+
+                return null;
+            })
+            .Subscribe(x =>
+            {
+                this.Project = x;
+            });
     }
 
     [ObservableAsProperty]
@@ -64,11 +87,17 @@ public sealed class NewProjectWindowViewModel : ReactiveObject
     public bool CanPressProjectTemplateNext { get; }
 
     [Reactive]
-    public ProjectTemplate? SelectedTemplate { get; set; }
+    public ProjectFile? SelectedTemplate { get; set; }
 
     [Reactive]
-    public ProjectFile Project { get; set; } = new() { Name = "Project Name", FilePath = Path.Combine(App.UserDirectory, "Project.horizon") };
+    public ProjectFile? Project { get; set; }
 
     [Reactive]
-    public ObservableCollection<ProjectTemplate> AvailableTemplates { get; init; } = [];
+    public string ProjectName { get; set; } = "New Project";
+
+    [Reactive]
+    public string ProjectPath { get; set; } = Path.Combine(App.UserDirectory, "Project.horizon");
+
+    [Reactive]
+    public ObservableCollection<ProjectFile> AvailableTemplates { get; set; }
 }

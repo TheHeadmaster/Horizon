@@ -29,6 +29,52 @@ public sealed class CommandsViewModel : ReactiveObject
     public Interaction<Unit, ProjectFile?> NewProjectDialogInteraction { get; } = new();
 
     /// <summary>
+    /// Closes the current <see cref="ProjectFile" />.
+    /// </summary>
+    public static void CloseCurrentProject()
+    {
+        App.ViewModel.CurrentProject = null;
+    }
+
+    /// <summary>
+    /// Loads the specified <see cref="ProjectFile" /> and sets it as the current project.
+    /// </summary>
+    /// <param name="project">The <see cref="ProjectFile" /> to load.</param>
+    public static async Task LoadProject(ProjectFile project)
+    {
+        App.ViewModel.CurrentProject = project;
+        await App.ViewModel.CurrentProject.Load();
+    }
+
+    /// <summary>
+    /// Creates a new <see cref="ProjectFile" /> on disk and opens it.
+    /// </summary>
+    /// <param name="project">
+    /// A <see cref="ProjectFile" /> object with initial data such as save path, used as a seed for the new project.
+    /// </param>
+    private static async Task CreateNewProject(ProjectFile project)
+    {
+        if (!Directory.Exists(project.FileDirectory))
+        {
+            Directory.CreateDirectory(project.FileDirectory);
+        }
+
+        await project.Save();
+
+        await OpenProject(project);
+    }
+
+    /// <summary>
+    /// Opens an existing <see cref="ProjectFile" /> on disk.
+    /// </summary>
+    /// <param name="project">A <see cref="ProjectFile" /> object loaded from disk.</param>
+    private static async Task OpenProject(ProjectFile project)
+    {
+        CloseCurrentProject();
+        await LoadProject(project);
+    }
+
+    /// <summary>
     /// handles the "New Project" dialog and creates a new project if the input is accepted.
     /// </summary>
     /// <returns>An awaitable <see cref="Task" />.</returns>
@@ -38,25 +84,7 @@ public sealed class CommandsViewModel : ReactiveObject
 
         if (project is not null)
         {
-            await this.CreateNewProject(project);
+            await CreateNewProject(project);
         }
-    }
-
-    /// <summary>
-    /// Creates a new <see cref="ProjectFile" /> on disk and opens it.
-    /// </summary>
-    /// <param name="project">
-    /// A <see cref="ProjectFile" /> object with initial data such as save path, used as a seed for the new project.
-    /// </param>
-    private async Task CreateNewProject(ProjectFile project)
-    {
-        if (!Directory.Exists(project.FileDirectory))
-        {
-            Directory.CreateDirectory(project.FileDirectory);
-        }
-
-        await project.Save();
-
-        // await this.OpenProject(project);
     }
 }
