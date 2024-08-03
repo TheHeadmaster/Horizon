@@ -16,12 +16,23 @@ public sealed class CommandsViewModel : ReactiveObject
     public CommandsViewModel()
     {
         this.NewProjectDialog = ReactiveCommand.CreateFromTask(this.HandleNewProjectDialog);
+        this.OpenProjectDialog = ReactiveCommand.CreateFromTask(this.HandleOpenProjectDialog);
     }
 
     /// <summary>
     /// Command that opens a "new Project" dialog and waits for the interaction to complete.
     /// </summary>
     public ReactiveCommand<Unit, Unit> NewProjectDialog { get; set; }
+
+    /// <summary>
+    /// Command that opens an "Open Project" file picker and waits for the interaction to complete.
+    /// </summary>
+    public ReactiveCommand<Unit, Unit> OpenProjectDialog { get; set; }
+
+    /// <summary>
+    /// Interaction that handles the "Open Project" dialog without blocking the UI.
+    /// </summary>
+    public Interaction<Unit, ProjectFile?> OpenProjectDialogInteraction { get; } = new();
 
     /// <summary>
     /// Interaction that handles the "New Project" dialog without blocking the UI.
@@ -72,6 +83,20 @@ public sealed class CommandsViewModel : ReactiveObject
     {
         CloseCurrentProject();
         await LoadProject(project);
+    }
+
+    /// <summary>
+    /// Handles the "Open Project" dialog and opens the selected project if the input is accepted.
+    /// </summary>
+    /// <returns>An awaitable <see cref="Task" />.</returns>
+    private async Task HandleOpenProjectDialog()
+    {
+        ProjectFile? project = await this.OpenProjectDialogInteraction.Handle(Unit.Default);
+
+        if (project is not null)
+        {
+            await OpenProject(project);
+        }
     }
 
     /// <summary>

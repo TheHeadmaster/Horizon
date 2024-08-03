@@ -26,6 +26,12 @@ public partial class MainMenu
                 .Select(x => new Unit())
                 .InvokeCommand(App.CommandsViewModel, x => x.NewProjectDialog)
                 .DisposeWith(dispose);
+
+            this.OpenProjectMenuItem.Events()
+                .Click
+                .Select(x => new Unit())
+                .InvokeCommand(App.CommandsViewModel, x => x.OpenProjectDialog)
+                .DisposeWith(dispose);
         });
     }
 }

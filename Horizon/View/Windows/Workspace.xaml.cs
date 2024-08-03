@@ -1,5 +1,7 @@
 ﻿using AvalonDock;
 using Horizon.Converters;
+using Horizon.ObjectModel;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using ReactiveMarbles.ObservableEvents;
 using ReactiveUI;
 using System.Reactive;
@@ -124,5 +126,35 @@ public partial class Workspace
                 }, RxApp.MainThreadScheduler);
             })
         .DisposeWith(dispose);
+
+        App.CommandsViewModel
+            .OpenProjectDialogInteraction
+            .RegisterHandler(interaction =>
+            {
+                CommonOpenFileDialog fileDialog = new() { EnsureFileExists = true, Title = "Select a project file...", Multiselect = false };
+                fileDialog.Filters.Add(new CommonFileDialogFilter("Project Files", "Project.horizon"));
+
+                return Observable.StartAsync(async () =>
+                {
+                    if (fileDialog.ShowDialog() == CommonFileDialogResult.Ok)
+                    {
+                        ProjectFile? project = await JsonFile.FromAbstractFile<ProjectFile>(fileDialog.FileName);
+
+                        if (project is not null)
+                        {
+                            interaction.SetOutput(project);
+                        }
+                        else
+                        {
+                            interaction.SetOutput(null);
+                        }
+                    }
+                    else
+                    {
+                        interaction.SetOutput(null);
+                    }
+                }, RxApp.MainThreadScheduler);
+            })
+            .DisposeWith(dispose);
     }
 }
