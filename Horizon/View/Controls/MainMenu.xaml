@@ -17,6 +17,16 @@
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
+                <MenuItem Header="Open" InputGestureText="Ctrl+Shift+O">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Images/Open Small.png" Width="18" Height="18" />
+                    </MenuItem.Icon>
+                    <MenuItem x:Name="OpenProjectMenuItem" Header="Project...">
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/Images/Open Small.png" Width="18" Height="18" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </StackPanel>

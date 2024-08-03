@@ -24,12 +24,12 @@ public partial class NewProjectWindow
         this.WhenActivated(dispose =>
         {
             this.Bind(this.ViewModel,
-                vm => vm.Project.Name,
+                vm => vm.Project!.Name,
                 view => view.ProjectName.Text)
             .DisposeWith(dispose);
 
             this.Bind(this.ViewModel,
-                vm => vm.Project.FilePath,
+                vm => vm.Project!.FilePath,
                 view => view.FilePath.Text)
             .DisposeWith(dispose);
 
@@ -62,6 +62,11 @@ public partial class NewProjectWindow
                 })
             .DisposeWith(dispose);
 
+            this.Bind(this.ViewModel,
+                vm => vm.SelectedTemplate,
+                view => view.ProjectTemplatesList.SelectedItem)
+            .DisposeWith(dispose);
+
             this.CloseButton.Events()
                 .Click
                 .Subscribe(x =>
@@ -85,7 +90,7 @@ public partial class NewProjectWindow
 
                     if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                     {
-                        this.ViewModel.Project.FilePath = Path.Combine(dialog.FileName, "Project.horizon");
+                        this.ViewModel.Project!.FilePath = Path.Combine(dialog.FileName, "Project.horizon");
                     }
 
                     this.Activate();

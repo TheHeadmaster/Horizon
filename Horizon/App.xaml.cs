@@ -1,4 +1,6 @@
-﻿using Horizon.View.Windows;
+﻿using Horizon.API;
+using Horizon.Resolvers;
+using Horizon.View.Windows;
 using Horizon.ViewModel;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -52,7 +54,7 @@ public partial class App : Application
         ?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()
         ?.InformationalVersion ?? "unknown-alpha";
 
-    /// <inheritdoc cref="ViewModel.CommandsViewModel" />
+    /// <inheritdoc cref="CommandsViewModel" />
     [Reactive]
     public static CommandsViewModel CommandsViewModel { get; } = new();
 
@@ -76,6 +78,46 @@ public partial class App : Application
         }
     }
 
+    private static string? assemblyDirectory;
+
+    public static string AssemblyDirectory
+    {
+        get
+        {
+            if (assemblyDirectory is null)
+            {
+                assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+
+                if (!Directory.Exists(assemblyDirectory))
+                {
+                    Directory.CreateDirectory(assemblyDirectory);
+                }
+            }
+
+            return assemblyDirectory;
+        }
+    }
+
+    private static string? pluginDirectory;
+
+    public static string PluginDirectory
+    {
+        get
+        {
+            if (pluginDirectory is null)
+            {
+                pluginDirectory = Path.Combine(AssemblyDirectory, "Plugins");
+
+                if (!Directory.Exists(pluginDirectory))
+                {
+                    Directory.CreateDirectory(pluginDirectory);
+                }
+            }
+
+            return pluginDirectory;
+        }
+    }
+
     /// <summary>
     /// The workspace.
     /// </summary>
@@ -87,11 +129,11 @@ public partial class App : Application
     /// Gets all the startup tasks that run while the splash screen is displayed.
     /// </summary>
     /// <returns></returns>
-    private Queue<(string label, Action action)> GetStartupTasks()
+    private static Queue<(string label, Action action)> GetStartupTasks()
     {
         Queue<(string label, Action action)> tasks = new();
 
-        tasks.Enqueue(("Initializing...", this.InitializeApplication));
+        tasks.Enqueue(("Initializing...", async () => await Current.Dispatcher.InvokeAsync(async () => await InitializeApplication())));
 
         tasks.Enqueue(("Opening...", () => Current.Dispatcher.Invoke(() =>
         {
@@ -109,6 +151,7 @@ public partial class App : Application
         this.InitializeLogging();
         base.OnStartup(args);
 
+        Locator.CurrentMutable.Register(() => new CustomPropertyResolver(), typeof(ICreatesObservableForProperty));
         Locator.CurrentMutable.RegisterViewsForViewModels(Assembly.GetCallingAssembly());
 
         LoadingSplash splash = new();
@@ -117,7 +160,7 @@ public partial class App : Application
 
         if (splash.ViewModel is not null)
         {
-            await splash.ViewModel.StartRunningInBackground(this.GetStartupTasks());
+            await splash.ViewModel.StartRunningInBackground(GetStartupTasks());
         }
 
         splash.Close();
@@ -130,9 +173,9 @@ public partial class App : Application
     /// <summary>
     /// Initializes the application in the background.
     /// </summary>
-    private void InitializeApplication()
+    private static async Task InitializeApplication()
     {
-        // TODO: Place any other startup tasks here, such as loading the most recent project, checking for updates, etc.
+        await PluginLoader.InitializePlugins();
     }
 
     /// <summary>
