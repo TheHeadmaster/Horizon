@@ -1,10 +1,10 @@
 ﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs" xmlns:ui="http://wixtoolset.org/schemas/v4/wxs/ui">
-  <Package Name="Horizon" Compressed="yes" Scope="perMachine" Manufacturer="The Headmaster" Version="0.4.2" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
+  <Package Name="Horizon" Compressed="yes" Scope="perMachine" Manufacturer="The Headmaster" Version="0.4.4" UpgradeCode="f629909a-bc3c-4e54-a352-c3fcd75c44f6">
     <?define Horizon_TargetDir=$(var.Horizon.TargetDir)?>
     <MediaTemplate EmbedCab="yes" />
     <MajorUpgrade DowngradeErrorMessage="!(loc.DowngradeError)" />
 
-    <ui:WixUI Id="WixUI_InstallDir" InstallDirectory="INSTALLFOLDER" />
+    <ui:WixUI Id="WixUI_FeatureTree" InstallDirectory="INSTALLFOLDER" />
     <WixVariable Id="WixUILicenseRtf" Value="license.rtf" />
     <Icon Id="Horizon.ico" SourceFile="$(var.Horizon_TargetDir)Horizon.ico" />
     <Property Id="ARPPRODUCTICON" Value="Horizon.ico" />
@@ -19,8 +19,22 @@
       <Directory Id="ApplicationProgramsFolder" Name="Horizon" />
     </StandardDirectory>
     <StandardDirectory Id="ProgramFiles6432Folder">
-      <Directory Id="INSTALLFOLDER" Name="!(bind.Property.ProductName)" />
+      <Directory Id="INSTALLFOLDER" Name="!(bind.Property.ProductName)">
+        <Directory Id="Plugins" Name="Plugins">
+          <Directory Id="StarboundPluginFolder" Name="Horizon.Starbound" />
+        </Directory>
+        <Directory Id="LogsFolder" Name="Logs">
+        </Directory>
+      </Directory>
     </StandardDirectory>
+
+    <DirectoryRef Id="LogsFolder">
+      <Component Id="LogsCleanup" Guid="9bd5259c-7d66-42a3-b395-6f4fa0c7772a">
+        <RemoveFile Id="PurgeLogsFolder" Directory="LogsFolder" Name="*.*" On="uninstall" />
+        <RemoveFolder Id="CleanupLogs" Directory="LogsFolder" On="uninstall" />
+      </Component>
+    </DirectoryRef>
+
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut">
         <Shortcut Id="ApplicationStartMenuShortcut" Icon="Horizon.ico" Name="Horizon" Description="Horizon IDE" Target="[INSTALLFOLDER]Horizon.exe" WorkingDirectory="INSTALLFOLDER" />
@@ -30,14 +44,23 @@
       </Component>
     </DirectoryRef>
 
-    <Feature Id="Complete" Title="Horizon" Display="expand" Level="1" ConfigurableDirectory="INSTALLFOLDER">
-      <Feature Id="ProductFeature" Title="Horizon" Level="1">
+    <Feature Id="Complete" Title="Horizon" Display="expand" Description="Installs everything in Horizon." AllowAbsent="false" Level="1" ConfigurableDirectory="INSTALLFOLDER">
+      <Feature Id="ProductFeature" Title="Core Executable" Description="Installs the Horizon executable and all of its dependencies." Display="expand" AllowAbsent="false" Level="1">
         <ComponentRef Id="ApplicationShortcut" />
         <ComponentRef Id="ApplicationShortcutDesktop" />
+        <ComponentRef Id="LogsCleanup" />
         <Files Include="$(var.Horizon_TargetDir)**" Directory="INSTALLFOLDER">
           <!-- Don't harvest PDB files because we don't want to ship them. -->
           <Exclude Files="$(var.Horizon_TargetDir)**\*.pdb" />
+          <!-- Don't harvest Log files because we don't want to ship them. -->
+          <Exclude Files="$(var.Horizon_TargetDir)Logs\**\*.log" />
+          <!-- Don't harvest plugin files because we are installing them in separate features. -->
+          <Exclude Files="$(var.Horizon_TargetDir)Plugins\**\*.*" />
         </Files>
+      </Feature>
+
+      <Feature Id="PluginStarbound" Title="Starbound Plugin" Description="This plugin adds support for Starbound mod projects to Horizon." Level="2" AllowAbsent="true">
+        <Files Include="$(var.Horizon_TargetDir)Plugins\Horizon.Starbound\**\*.*" Directory="StarboundPluginFolder" />
       </Feature>
     </Feature>
   </Package>
