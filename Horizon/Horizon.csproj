@@ -55,7 +55,7 @@
     </PackageReference>
     <PackageReference Include="FodyHelpers" Version="6.8.1" />
     <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
-    <PackageReference Include="JetBrains.ExternalAnnotations" Version="10.2.151" />
+    <PackageReference Include="JetBrains.ExternalAnnotations" Version="10.2.153" />
     <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.149" />
     <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.122" />
